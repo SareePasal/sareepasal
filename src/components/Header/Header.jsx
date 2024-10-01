@@ -26,7 +26,7 @@ const Header = () => {
                 alt="Saree Pasal logo"
                 />
                 <span class="self-center text-xs  font-bold whitespace-nowrap dark:text-white text-blue-900">
-                    Saree PasalSaree Pasal
+                    Saree Pasal
                 </span>
             </div>
         </div>
