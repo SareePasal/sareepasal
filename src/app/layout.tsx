@@ -5,8 +5,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Long Island Nepalese Society, New York",
-  description: "For Long Island Nepalese Society, New York",
+  title: "Saree Pasal",
+  description: "Saree Pasal",
 };
 
 export default function RootLayout({
