@@ -11,6 +11,7 @@ const Saree = () => {
                     <div class="flex flex-col text-center mx-5 justify-center item-center">
                         {/* Row = 1 Col =  1 */}
                         <div>
+                            <Link href = "/BanarasiSarees">
                             <section class="sm:hidden relative container rounded-xl mx-auto  my-5  w-5/6  h-50 shadow-sm">
                                 <Image
                                     src="/Banarasi Saree.png"
@@ -25,15 +26,9 @@ const Saree = () => {
                                         text-blue-900 xl:text-2xl dark:text-white">
                                         Banarasi Saree
                                     </h1>
-                                    Item# 123 <br />
-                                    Price: $100.00 <br /><br />
-                                    <button class="bg-blue-500 hover:bg-blue-700 
-                            text-white font-bold py-1 px-2">
-                                        Add To Cart
-                                    </button>
                                 </div>
-
                             </div>
+                            </Link>
                         </div>
                         {/* Row = 1 Col = 2 */}
                         <div>
@@ -96,6 +91,7 @@ const Saree = () => {
             <div class="grid grid-cols-4 gap-4 relative flex justify-between m-2 sm:w-5/6 h-full mx-auto">
                 {/* Row = 1 Col =  */}
                 <div>
+                <Link href = "/BanarasiSarees">
                     <section class="hidden sm:flex relative container sm:h-80 rounded-xl mx-auto  
                             my-5 sm:my-10  w-5/6 h-96 shadow-sm dark:bg-gray-900 ">
                         <Image
@@ -113,16 +109,11 @@ const Saree = () => {
                                         text-blue-900 xl:text-2xl dark:text-white">
                                     Banarasi Saree
                                 </h1>
-                                Item# 123 <br />
-                                Price: $100.00 <br /><br />
-                                <button class="bg-blue-500 hover:bg-blue-700 
-                            text-white font-bold py-1 px-2">
-                                    Add To Cart
-                                </button>
                             </div>
-
+                            
                         </div>
                     </section>
+                    </Link>
                 </div>
                 {/* Row = 1 Col = 2 */}
                 <div>
