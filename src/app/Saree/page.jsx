@@ -7,7 +7,7 @@ export default function Ab() {
     <main class="flex flex-col h-dvh ">
       <Header/>
       <Saree/>
-      {/* <Footer/> */}
+      <Footer/>
     </main>
   );
 }

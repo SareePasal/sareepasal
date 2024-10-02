@@ -7,7 +7,7 @@ export default function Home() {
     <main class="flex flex-col h-dvh ">
       <Header/>
       <Body/>
-      {/* <Footer/> */}
+      <Footer/>
     </main>
   );
 }
