@@ -17,12 +17,42 @@ const BanarasiSarees = () => {
             {/* Banarasi Saree Item-123 Wine Zariwork Banarasi Silk Saree */}
             <div className="felx felx-row mx-auto p-4 article border shadow-2xl shadow-gray-900/90">
                 <div class="flex justify-center">
-                    <Image
-                        src="/Saree/Banarasi/Item-123/Banarasi Saree Item-123 Wine Zariwork Banarasi Silk Saree Image 1.png"
-                        width={300}
-                        height={300}
-                        alt="Banarasi Saree Item-123 Wine Zariwork Banarasi Silk Saree Image 1"
-                    />
+                        <div className="h-full h-48 overflow-auto touch-pan-right"> 
+                            <img src="/Saree/Banarasi/Item-123/Banarasi Saree Item-123 Wine Zariwork Banarasi Silk Saree Image 1.png" alt="1" width={300} height={300}/> 
+                            <img src="/Saree/Banarasi/Item-123/Banarasi Saree Item-123 Wine Zariwork Banarasi Silk Saree Image 2.png" alt="2" width={300} height={300}/> 
+                            <img src="/Saree/Banarasi/Item-123/Banarasi Saree Item-123 Wine Zariwork Banarasi Silk Saree Image 3.png" alt="3" width={300} height={300}/> 
+                            <img src="/Saree/Banarasi/Item-123/Banarasi Saree Item-123 Wine Zariwork Banarasi Silk Saree Image 4.png" alt="4" width={300} height={300}/> 
+                        </div> 
+                        </div>
+
+                {/* Available Colors */}
+                <div>
+                    <ul class="flex flex-row justify-center items-center">
+                        <li class="mr-4 last:mr-0">
+                            <span
+                                class="block p-1 border-2 border-gray-500 rounded-full transition ease-in duration-300">
+                                <a href="#blue" class="block w-6 h-6 bg-blue-900 rounded-full"></a>
+                            </span>
+                        </li>
+                        <li class="mr-4 last:mr-0">
+                            <span
+                                class="block p-1 border-2 border-white hover:border-gray-500 rounded-full transition ease-in duration-300">
+                                <a href="#yellow" class="block w-6 h-6 bg-yellow-500 rounded-full"></a>
+                            </span>
+                        </li>
+                        <li class="mr-4 last:mr-0">
+                            <span
+                                class="block p-1 border-2 border-white hover:border-gray-500 rounded-full transition ease-in duration-300">
+                                <a href="#red" class="block w-6 h-6 bg-red-500 rounded-full"></a>
+                            </span>
+                        </li>
+                        <li class="mr-4 last:mr-0">
+                            <span
+                                class="block p-1 border-2 border-white hover:border-gray-500 rounded-full transition ease-in duration-300">
+                                <a href="#green" class="block w-6 h-6 bg-pink-500 rounded-full"></a>
+                            </span>
+                        </li>
+                    </ul>
                 </div>
                 <div class="grid grid-cols-1 gap-4 relative flex justify-between  sm:w-5/6 h-full mx-auto ">
                     <div>
@@ -87,6 +117,35 @@ const BanarasiSarees = () => {
                         alt="Banarasi Saree Item-123 Wine Zariwork Banarasi Silk Saree Image 2"
                     />
                 </div>
+                {/* Available Colors */}
+                <div>
+                    <ul class="flex flex-row justify-center items-center">
+                        <li class="mr-4 last:mr-0">
+                            <span
+                                class="block p-1 border-2 border-gray-500 rounded-full transition ease-in duration-300">
+                                <a href="#blue" class="block w-6 h-6 bg-blue-900 rounded-full"></a>
+                            </span>
+                        </li>
+                        <li class="mr-4 last:mr-0">
+                            <span
+                                class="block p-1 border-2 border-white hover:border-gray-500 rounded-full transition ease-in duration-300">
+                                <a href="#yellow" class="block w-6 h-6 bg-yellow-500 rounded-full"></a>
+                            </span>
+                        </li>
+                        <li class="mr-4 last:mr-0">
+                            <span
+                                class="block p-1 border-2 border-white hover:border-gray-500 rounded-full transition ease-in duration-300">
+                                <a href="#red" class="block w-6 h-6 bg-red-500 rounded-full"></a>
+                            </span>
+                        </li>
+                        <li class="mr-4 last:mr-0">
+                            <span
+                                class="block p-1 border-2 border-white hover:border-gray-500 rounded-full transition ease-in duration-300">
+                                <a href="#green" class="block w-6 h-6 bg-pink-500 rounded-full"></a>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
                 <div class="grid grid-cols-1 gap-4 relative flex justify-between  sm:w-5/6 h-full mx-auto">
                     <div>
                         <h1 class=" mb-2 text-2xl md:text-2xl sm:font-extrabold tracking-tight leading-none 
@@ -149,6 +208,35 @@ const BanarasiSarees = () => {
                         height={300}
                         alt="Banarasi Saree Item-123 Wine Zariwork Banarasi Silk Saree Image 3"
                     />
+                </div>
+                {/* Available Colors */}
+                <div>
+                    <ul class="flex flex-row justify-center items-center">
+                        <li class="mr-4 last:mr-0">
+                            <span
+                                class="block p-1 border-2 border-gray-500 rounded-full transition ease-in duration-300">
+                                <a href="#blue" class="block w-6 h-6 bg-blue-900 rounded-full"></a>
+                            </span>
+                        </li>
+                        <li class="mr-4 last:mr-0">
+                            <span
+                                class="block p-1 border-2 border-white hover:border-gray-500 rounded-full transition ease-in duration-300">
+                                <a href="#yellow" class="block w-6 h-6 bg-yellow-500 rounded-full"></a>
+                            </span>
+                        </li>
+                        <li class="mr-4 last:mr-0">
+                            <span
+                                class="block p-1 border-2 border-white hover:border-gray-500 rounded-full transition ease-in duration-300">
+                                <a href="#red" class="block w-6 h-6 bg-red-500 rounded-full"></a>
+                            </span>
+                        </li>
+                        <li class="mr-4 last:mr-0">
+                            <span
+                                class="block p-1 border-2 border-white hover:border-gray-500 rounded-full transition ease-in duration-300">
+                                <a href="#green" class="block w-6 h-6 bg-pink-500 rounded-full"></a>
+                            </span>
+                        </li>
+                    </ul>
                 </div>
                 <div class="grid grid-cols-1 gap-4 relative flex justify-between  sm:w-5/6 h-full mx-auto">
                     <div>
@@ -213,6 +301,36 @@ const BanarasiSarees = () => {
                         alt="Banarasi Saree Item-123 Wine Zariwork Banarasi Silk Saree Image 4"
                     />
                 </div>
+                {/* Available Colors */}
+                <div>
+                    <ul class="flex flex-row justify-center items-center">
+                        <li class="mr-4 last:mr-0">
+                            <span
+                                class="block p-1 border-2 border-gray-500 rounded-full transition ease-in duration-300">
+                                <a href="#blue" class="block w-6 h-6 bg-blue-900 rounded-full"></a>
+                            </span>
+                        </li>
+                        <li class="mr-4 last:mr-0">
+                            <span
+                                class="block p-1 border-2 border-white hover:border-gray-500 rounded-full transition ease-in duration-300">
+                                <a href="#yellow" class="block w-6 h-6 bg-yellow-500 rounded-full"></a>
+                            </span>
+                        </li>
+                        <li class="mr-4 last:mr-0">
+                            <span
+                                class="block p-1 border-2 border-white hover:border-gray-500 rounded-full transition ease-in duration-300">
+                                <a href="#red" class="block w-6 h-6 bg-red-500 rounded-full"></a>
+                            </span>
+                        </li>
+                        <li class="mr-4 last:mr-0">
+                            <span
+                                class="block p-1 border-2 border-white hover:border-gray-500 rounded-full transition ease-in duration-300">
+                                <a href="#green" class="block w-6 h-6 bg-pink-500 rounded-full"></a>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+
                 <div class="grid grid-cols-1 gap-4 relative flex justify-between  sm:w-5/6 h-full mx-auto">
                     <div>
                         <h1 class=" mb-2 text-2xl md:text-2xl sm:font-extrabold tracking-tight leading-none 
@@ -276,6 +394,36 @@ const BanarasiSarees = () => {
                         alt="Banarasi Saree Item-123 Wine Zariwork Banarasi Silk Saree Image 5"
                     />
                 </div>
+                {/* Available Colors */}
+                <div>
+                    <ul class="flex flex-row justify-center items-center">
+                        <li class="mr-4 last:mr-0">
+                            <span
+                                class="block p-1 border-2 border-gray-500 rounded-full transition ease-in duration-300">
+                                <a href="#blue" class="block w-6 h-6 bg-blue-900 rounded-full"></a>
+                            </span>
+                        </li>
+                        <li class="mr-4 last:mr-0">
+                            <span
+                                class="block p-1 border-2 border-white hover:border-gray-500 rounded-full transition ease-in duration-300">
+                                <a href="#yellow" class="block w-6 h-6 bg-yellow-500 rounded-full"></a>
+                            </span>
+                        </li>
+                        <li class="mr-4 last:mr-0">
+                            <span
+                                class="block p-1 border-2 border-white hover:border-gray-500 rounded-full transition ease-in duration-300">
+                                <a href="#red" class="block w-6 h-6 bg-red-500 rounded-full"></a>
+                            </span>
+                        </li>
+                        <li class="mr-4 last:mr-0">
+                            <span
+                                class="block p-1 border-2 border-white hover:border-gray-500 rounded-full transition ease-in duration-300">
+                                <a href="#green" class="block w-6 h-6 bg-pink-500 rounded-full"></a>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+
                 <div class="grid grid-cols-1 gap-4 relative flex justify-between  sm:w-5/6 h-full mx-auto">
                     <div>
                         <h1 class=" mb-2 text-2xl md:text-2xl sm:font-extrabold tracking-tight leading-none 
@@ -339,6 +487,36 @@ const BanarasiSarees = () => {
                         alt="Banarasi Saree Item-123 Wine Zariwork Banarasi Silk Saree Image 6"
                     />
                 </div>
+                {/* Available Colors */}
+                <div>
+                    <ul class="flex flex-row justify-center items-center">
+                        <li class="mr-4 last:mr-0">
+                            <span
+                                class="block p-1 border-2 border-gray-500 rounded-full transition ease-in duration-300">
+                                <a href="#blue" class="block w-6 h-6 bg-blue-900 rounded-full"></a>
+                            </span>
+                        </li>
+                        <li class="mr-4 last:mr-0">
+                            <span
+                                class="block p-1 border-2 border-white hover:border-gray-500 rounded-full transition ease-in duration-300">
+                                <a href="#yellow" class="block w-6 h-6 bg-yellow-500 rounded-full"></a>
+                            </span>
+                        </li>
+                        <li class="mr-4 last:mr-0">
+                            <span
+                                class="block p-1 border-2 border-white hover:border-gray-500 rounded-full transition ease-in duration-300">
+                                <a href="#red" class="block w-6 h-6 bg-red-500 rounded-full"></a>
+                            </span>
+                        </li>
+                        <li class="mr-4 last:mr-0">
+                            <span
+                                class="block p-1 border-2 border-white hover:border-gray-500 rounded-full transition ease-in duration-300">
+                                <a href="#green" class="block w-6 h-6 bg-pink-500 rounded-full"></a>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+
                 <div class="grid grid-cols-1 gap-4 relative flex justify-between  sm:w-5/6 h-full mx-auto">
                     <div>
                         <h1 class=" mb-2 text-2xl md:text-2xl sm:font-extrabold tracking-tight leading-none 
