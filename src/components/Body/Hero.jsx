@@ -14,7 +14,7 @@ const Hero = () => {
 
 const HomePage = () => {
     return (
-            <React.Fragment>
+        <React.Fragment>
             <div className="article container rounded-lg  w-56 border shadow-2xl shadow-gray-900/90">
                 <Link href="/Saree">
                     <section class="relative container rounded-xl mx-auto  my-5  w-5/6  h-50 shadow-sm">
@@ -24,15 +24,16 @@ const HomePage = () => {
                             height={300}
                             alt="Saree"
                         />
-                    </section>
-                    <div class="grid grid-cols-1 gap-4 relative flex justify-between  sm:w-5/6 h-full mx-auto">
-                        <div>
-                            <h1 class=" mb-2 text-md md:text-2xl sm:font-extrabold tracking-tight leading-none 
+                        <div class="flex text-xl font-bold justify-center">
+                            <div>
+                                <h1 class=" mb-2 text-md md:text-2xl justify-center sm:font-extrabold tracking-tight leading-none 
                                         text-blue-900 xl:text-2xl dark:text-white">
-                                Saree
-                            </h1>
+                                    Saree
+                                </h1>
+                            </div>
                         </div>
-                    </div>
+                    </section>
+
                 </Link>
             </div>
             <div className="article container rounded-lg  w-56 border shadow-2xl shadow-gray-900/90">
@@ -44,15 +45,15 @@ const HomePage = () => {
                             height={300}
                             alt="Blouse"
                         />
-                    </section>
-                    <div class="grid grid-cols-1 gap-4 relative flex justify-between  sm:w-5/6 h-full mx-auto">
-                        <div>
-                            <h1 class=" mb-2 text-md md:text-2xl sm:font-extrabold tracking-tight leading-none 
+                        <div class="flex text-xl font-bold justify-center">
+                            <div>
+                                <h1 class=" mb-2 text-md md:text-2xl sm:font-extrabold tracking-tight leading-none 
                                         text-blue-900 xl:text-2xl dark:text-white">
-                                Blouse
-                            </h1>
+                                    Blouse
+                                </h1>
+                            </div>
                         </div>
-                    </div>
+                    </section>
                 </Link>
             </div>
             <div className="article container rounded-lg  w-56 border shadow-2xl shadow-gray-900/90">
@@ -64,15 +65,15 @@ const HomePage = () => {
                             height={300}
                             alt="Petticoat"
                         />
-                    </section>
-                    <div class="grid grid-cols-1 gap-4 relative flex justify-between  sm:w-5/6 h-full mx-auto">
-                        <div>
-                            <h1 class=" mb-2 text-md md:text-2xl sm:font-extrabold tracking-tight leading-none 
+                        <div class="flex text-xl font-bold justify-center">
+                            <div>
+                                <h1 class=" mb-2 text-md md:text-2xl sm:font-extrabold tracking-tight leading-none 
                                         text-blue-900 xl:text-2xl dark:text-white">
-                                Petticoat
-                            </h1>
+                                    Petticoat
+                                </h1>
+                            </div>
                         </div>
-                    </div>
+                    </section>
                 </Link>
             </div>
             <div className="article container rounded-lg  w-56 border shadow-2xl shadow-gray-900/90">
@@ -84,18 +85,58 @@ const HomePage = () => {
                             height={300}
                             alt="Accessories"
                         />
-                    </section>
-                    <div class="grid grid-cols-1 gap-4 relative flex justify-between  sm:w-5/6 h-full mx-auto">
-                        <div>
-                            <h1 class=" mb-2 text-md md:text-2xl sm:font-extrabold tracking-tight leading-none 
+                        <div class="flex text-xl font-bold justify-center">
+                            <div>
+                                <h1 class=" mb-2 text-md md:text-2xl sm:font-extrabold tracking-tight leading-none 
                                         text-blue-900 xl:text-2xl dark:text-white">
-                                Accessories
-                            </h1>
+                                    Accessories
+                                </h1>
+                            </div>
                         </div>
-                    </div>
+                    </section>
                 </Link>
             </div>
-            </React.Fragment>
+            <div className="article container rounded-lg  w-56 border shadow-2xl shadow-gray-900/90">
+                <Link href="/Menswear">
+                    <section class="relative container rounded-xl mx-auto  my-5  w-5/6  h-50 shadow-sm">
+                        <Image
+                            src="/Menswear.png"
+                            width={300}
+                            height={300}
+                            alt="Menswear"
+                        />
+                        <div class="flex text-xl font-bold justify-center">
+                            <div>
+                                <h1 class=" mb-2 text-md md:text-2xl sm:font-extrabold tracking-tight leading-none 
+                                        text-blue-900 xl:text-2xl dark:text-white">
+                                    Men's Wear
+                                </h1>
+                            </div>
+                        </div>
+                    </section>
+                </Link>
+            </div>
+            <div className="article container rounded-lg  w-56 border shadow-2xl shadow-gray-900/90">
+                <Link href="/Sale">
+                    <section class="relative container rounded-xl mx-auto  my-5  w-5/6  h-50 shadow-sm">
+                        <Image
+                            src="/Sale.png"
+                            width={300}
+                            height={300}
+                            alt="Sale"
+                        />
+                        <div class="flex text-xl font-bold justify-center">
+                            <div>
+                                <h1 class=" mb-2 text-md md:text-2xl sm:font-extrabold tracking-tight leading-none 
+                                                text-blue-900 xl:text-2xl dark:text-white">
+                                    Sale
+                                </h1>
+                            </div>
+                        </div>
+                    </section>
+                </Link>
+            </div>
+        </React.Fragment>
     )
 }
 
