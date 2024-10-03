@@ -24,15 +24,15 @@ const BanarasiSarees = () => {
                         alt="Banarasi Saree Item-123 Wine Zariwork Banarasi Silk Saree Image 1"
                     />
                 </div>
-                <div class="grid grid-cols-1 gap-4 relative flex justify-between  sm:w-5/6 h-full mx-auto">
+                <div class="grid grid-cols-1 gap-4 relative flex justify-between  sm:w-5/6 h-full mx-auto ">
                     <div>
                         <h1 class=" mb-2 text-2xl md:text-2xl sm:font-extrabold tracking-tight leading-none 
-                                        text-blue-900 xl:text-2xl dark:text-white">
+                                        text-blue-900 xl:text-2xldark:text-blue-950">
                             Wine Zariwork Banarasi Silk Saree Item 1
                         </h1>
-                        <p class="text-black text-sm dark:text-white text-left">
+                        <p class="text-black text-smdark:text-blue-950 text-left">
                             Product Details:
-                            <p class="text-black text-sm dark:text-white text-left font-light">
+                            <p class="text-black text-smdark:text-blue-950 text-left font-light">
                                 - Wine Saree in Banarasi Silk fabric
                                 <br />- The Saree is elevated with Zariwork embroidery
                                 <br />- It comes with an Unstitched blouse
@@ -40,29 +40,29 @@ const BanarasiSarees = () => {
                             </p>
 
                             <br />Size & Fit:
-                            <p class="text-black text-sm dark:text-white text-left font-light">
+                            <p class="text-black text-smdark:text-blue-950 text-left font-light">
                                 Saree: 5.5 Mtrs
                                 <br />Blouse: 0.80 Mtrs
                             </p>
 
                             <br />Material & Care:
-                            <p class="text-black text-sm dark:text-white text-left font-light">
+                            <p class="text-black text-smdark:text-blue-950 text-left font-light">
                                 Banarasi Silk
                                 <br />Dry Wash Only
                             </p>
 
                             <br />Product Code:
-                            <p class="text-black text-sm dark:text-white text-left font-light">
+                            <p class="text-black text-smdark:text-blue-950 text-left font-light">
                                 SAREEBAN123_WINE
                             </p>
 
                             <br />Note:
-                            <p class="text-black text-sm dark:text-white text-left font-light">
+                            <p class="text-black text-smdark:text-blue-950 text-left font-light">
                                 Product color may slightly vary due to photographic lighting sources or your monitor settings.
                             </p>
 
                             <br />Item#
-                            <p class="text-black text-sm dark:text-white text-left font-light">
+                            <p class="text-black text-smdark:text-blue-950 text-left font-light">
                                 123
                             </p>
 
@@ -90,12 +90,12 @@ const BanarasiSarees = () => {
                 <div class="grid grid-cols-1 gap-4 relative flex justify-between  sm:w-5/6 h-full mx-auto">
                     <div>
                         <h1 class=" mb-2 text-2xl md:text-2xl sm:font-extrabold tracking-tight leading-none 
-                                        text-blue-900 xl:text-2xl dark:text-white">
+                                        text-blue-900 xl:text-2xldark:text-blue-950">
                             Wine Zariwork Banarasi Silk Saree Item 2
                         </h1>
-                        <p class="text-black text-sm dark:text-white text-left">
+                        <p class="text-black text-smdark:text-blue-950 text-left">
                             Product Details:
-                            <p class="text-black text-sm dark:text-white text-left font-light">
+                            <p class="text-black text-smdark:text-blue-950 text-left font-light">
                                 - Wine Saree in Banarasi Silk fabric
                                 <br />- The Saree is elevated with Zariwork embroidery
                                 <br />- It comes with an Unstitched blouse
@@ -103,29 +103,29 @@ const BanarasiSarees = () => {
                             </p>
 
                             <br />Size & Fit:
-                            <p class="text-black text-sm dark:text-white text-left font-light">
+                            <p class="text-black text-smdark:text-blue-950 text-left font-light">
                                 Saree: 5.5 Mtrs
                                 <br />Blouse: 0.80 Mtrs
                             </p>
 
                             <br />Material & Care:
-                            <p class="text-black text-sm dark:text-white text-left font-light">
+                            <p class="text-black text-smdark:text-blue-950 text-left font-light">
                                 Banarasi Silk
                                 <br />Dry Wash Only
                             </p>
 
                             <br />Product Code:
-                            <p class="text-black text-sm dark:text-white text-left font-light">
+                            <p class="text-black text-smdark:text-blue-950 text-left font-light">
                                 SAREEBAN124_WINE
                             </p>
 
                             <br />Note:
-                            <p class="text-black text-sm dark:text-white text-left font-light">
+                            <p class="text-black text-smdark:text-blue-950 text-left font-light">
                                 Product color may slightly vary due to photographic lighting sources or your monitor settings.
                             </p>
 
                             <br />Item#
-                            <p class="text-black text-sm dark:text-white text-left font-light">
+                            <p class="text-black text-smdark:text-blue-950 text-left font-light">
                                 124
                             </p>
 
@@ -153,12 +153,12 @@ const BanarasiSarees = () => {
                 <div class="grid grid-cols-1 gap-4 relative flex justify-between  sm:w-5/6 h-full mx-auto">
                     <div>
                         <h1 class=" mb-2 text-2xl md:text-2xl sm:font-extrabold tracking-tight leading-none 
-                                        text-blue-900 xl:text-2xl dark:text-white">
+                                        text-blue-900 xl:text-2xldark:text-blue-950">
                             Wine Zariwork Banarasi Silk Saree Item 3
                         </h1>
-                        <p class="text-black text-sm dark:text-white text-left">
+                        <p class="text-black text-smdark:text-blue-950 text-left">
                             Product Details:
-                            <p class="text-black text-sm dark:text-white text-left font-light">
+                            <p class="text-black text-smdark:text-blue-950 text-left font-light">
                                 - Wine Saree in Banarasi Silk fabric
                                 <br />- The Saree is elevated with Zariwork embroidery
                                 <br />- It comes with an Unstitched blouse
@@ -166,29 +166,29 @@ const BanarasiSarees = () => {
                             </p>
 
                             <br />Size & Fit:
-                            <p class="text-black text-sm dark:text-white text-left font-light">
+                            <p class="text-black text-smdark:text-blue-950 text-left font-light">
                                 Saree: 5.5 Mtrs
                                 <br />Blouse: 0.80 Mtrs
                             </p>
 
                             <br />Material & Care:
-                            <p class="text-black text-sm dark:text-white text-left font-light">
+                            <p class="text-black text-smdark:text-blue-950 text-left font-light">
                                 Banarasi Silk
                                 <br />Dry Wash Only
                             </p>
 
                             <br />Product Code:
-                            <p class="text-black text-sm dark:text-white text-left font-light">
+                            <p class="text-black text-smdark:text-blue-950 text-left font-light">
                                 SAREEBAN125_WINE
                             </p>
 
                             <br />Note:
-                            <p class="text-black text-sm dark:text-white text-left font-light">
+                            <p class="text-black text-smdark:text-blue-950 text-left font-light">
                                 Product color may slightly vary due to photographic lighting sources or your monitor settings.
                             </p>
 
                             <br />Item#
-                            <p class="text-black text-sm dark:text-white text-left font-light">
+                            <p class="text-black text-smdark:text-blue-950 text-left font-light">
                                 125
                             </p>
 
@@ -216,12 +216,12 @@ const BanarasiSarees = () => {
                 <div class="grid grid-cols-1 gap-4 relative flex justify-between  sm:w-5/6 h-full mx-auto">
                     <div>
                         <h1 class=" mb-2 text-2xl md:text-2xl sm:font-extrabold tracking-tight leading-none 
-                                        text-blue-900 xl:text-2xl dark:text-white">
+                                        text-blue-900 xl:text-2xldark:text-blue-950">
                             Wine Zariwork Banarasi Silk Saree Item 4
                         </h1>
-                        <p class="text-black text-sm dark:text-white text-left">
+                        <p class="text-black text-smdark:text-blue-950 text-left">
                             Product Details:
-                            <p class="text-black text-sm dark:text-white text-left font-light">
+                            <p class="text-black text-smdark:text-blue-950 text-left font-light">
                                 - Wine Saree in Banarasi Silk fabric
                                 <br />- The Saree is elevated with Zariwork embroidery
                                 <br />- It comes with an Unstitched blouse
@@ -229,29 +229,29 @@ const BanarasiSarees = () => {
                             </p>
 
                             <br />Size & Fit:
-                            <p class="text-black text-sm dark:text-white text-left font-light">
+                            <p class="text-black text-smdark:text-blue-950 text-left font-light">
                                 Saree: 5.5 Mtrs
                                 <br />Blouse: 0.80 Mtrs
                             </p>
 
                             <br />Material & Care:
-                            <p class="text-black text-sm dark:text-white text-left font-light">
+                            <p class="text-black text-smdark:text-blue-950 text-left font-light">
                                 Banarasi Silk
                                 <br />Dry Wash Only
                             </p>
 
                             <br />Product Code:
-                            <p class="text-black text-sm dark:text-white text-left font-light">
+                            <p class="text-black text-smdark:text-blue-950 text-left font-light">
                                 SAREEBAN126_WINE
                             </p>
 
                             <br />Note:
-                            <p class="text-black text-sm dark:text-white text-left font-light">
+                            <p class="text-black text-smdark:text-blue-950 text-left font-light">
                                 Product color may slightly vary due to photographic lighting sources or your monitor settings.
                             </p>
 
                             <br />Item#
-                            <p class="text-black text-sm dark:text-white text-left font-light">
+                            <p class="text-black text-smdark:text-blue-950 text-left font-light">
                                 126
                             </p>
 
@@ -279,12 +279,12 @@ const BanarasiSarees = () => {
                 <div class="grid grid-cols-1 gap-4 relative flex justify-between  sm:w-5/6 h-full mx-auto">
                     <div>
                         <h1 class=" mb-2 text-2xl md:text-2xl sm:font-extrabold tracking-tight leading-none 
-                                        text-blue-900 xl:text-2xl dark:text-white">
+                                        text-blue-900 xl:text-2xldark:text-blue-950">
                             Wine Zariwork Banarasi Silk Saree Item 5
                         </h1>
-                        <p class="text-black text-sm dark:text-white text-left">
+                        <p class="text-black text-smdark:text-blue-950 text-left">
                             Product Details:
-                            <p class="text-black text-sm dark:text-white text-left font-light">
+                            <p class="text-black text-smdark:text-blue-950 text-left font-light">
                                 - Wine Saree in Banarasi Silk fabric
                                 <br />- The Saree is elevated with Zariwork embroidery
                                 <br />- It comes with an Unstitched blouse
@@ -292,29 +292,29 @@ const BanarasiSarees = () => {
                             </p>
 
                             <br />Size & Fit:
-                            <p class="text-black text-sm dark:text-white text-left font-light">
+                            <p class="text-black text-smdark:text-blue-950 text-left font-light">
                                 Saree: 5.5 Mtrs
                                 <br />Blouse: 0.80 Mtrs
                             </p>
 
                             <br />Material & Care:
-                            <p class="text-black text-sm dark:text-white text-left font-light">
+                            <p class="text-black text-smdark:text-blue-950 text-left font-light">
                                 Banarasi Silk
                                 <br />Dry Wash Only
                             </p>
 
                             <br />Product Code:
-                            <p class="text-black text-sm dark:text-white text-left font-light">
+                            <p class="text-black text-smdark:text-blue-950 text-left font-light">
                                 SAREEBAN125_WINE
                             </p>
 
                             <br />Note:
-                            <p class="text-black text-sm dark:text-white text-left font-light">
+                            <p class="text-black text-smdark:text-blue-950 text-left font-light">
                                 Product color may slightly vary due to photographic lighting sources or your monitor settings.
                             </p>
 
                             <br />Item#
-                            <p class="text-black text-sm dark:text-white text-left font-light">
+                            <p class="text-black text-smdark:text-blue-950 text-left font-light">
                                 127
                             </p>
 
@@ -342,12 +342,12 @@ const BanarasiSarees = () => {
                 <div class="grid grid-cols-1 gap-4 relative flex justify-between  sm:w-5/6 h-full mx-auto">
                     <div>
                         <h1 class=" mb-2 text-2xl md:text-2xl sm:font-extrabold tracking-tight leading-none 
-                                        text-blue-900 xl:text-2xl dark:text-white">
+                                        text-blue-900 xl:text-2xldark:text-blue-950">
                             Wine Zariwork Banarasi Silk Saree Item 6
                         </h1>
-                        <p class="text-black text-sm dark:text-white text-left">
+                        <p class="text-black text-smdark:text-blue-950 text-left">
                             Product Details:
-                            <p class="text-black text-sm dark:text-white text-left font-light">
+                            <p class="text-black text-smdark:text-blue-950 text-left font-light">
                                 - Wine Saree in Banarasi Silk fabric
                                 <br />- The Saree is elevated with Zariwork embroidery
                                 <br />- It comes with an Unstitched blouse
@@ -355,29 +355,29 @@ const BanarasiSarees = () => {
                             </p>
 
                             <br />Size & Fit:
-                            <p class="text-black text-sm dark:text-white text-left font-light">
+                            <p class="text-black text-smdark:text-blue-950 text-left font-light">
                                 Saree: 5.5 Mtrs
                                 <br />Blouse: 0.80 Mtrs
                             </p>
 
                             <br />Material & Care:
-                            <p class="text-black text-sm dark:text-white text-left font-light">
+                            <p class="text-black text-smdark:text-blue-950 text-left font-light">
                                 Banarasi Silk
                                 <br />Dry Wash Only
                             </p>
 
                             <br />Product Code:
-                            <p class="text-black text-sm dark:text-white text-left font-light">
+                            <p class="text-black text-smdark:text-blue-950 text-left font-light">
                                 SAREEBAN125_WINE
                             </p>
 
                             <br />Note:
-                            <p class="text-black text-sm dark:text-white text-left font-light">
+                            <p class="text-black text-smdark:text-blue-950 text-left font-light">
                                 Product color may slightly vary due to photographic lighting sources or your monitor settings.
                             </p>
 
                             <br />Item#
-                            <p class="text-black text-sm dark:text-white text-left font-light">
+                            <p class="text-black text-smdark:text-blue-950 text-left font-light">
                                 126
                             </p>
 

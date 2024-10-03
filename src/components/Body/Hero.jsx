@@ -27,7 +27,7 @@ const HomePage = () => {
                         <div class="flex text-xl font-bold justify-center">
                             <div>
                                 <h1 class=" mb-2 text-md md:text-2xl justify-center sm:font-extrabold tracking-tight leading-none 
-                                        text-blue-900 xl:text-2xl dark:text-white">
+                                        text-blue-900 xl:text-2xl dark:text-blue-900">
                                     Saree
                                 </h1>
                             </div>
@@ -48,7 +48,7 @@ const HomePage = () => {
                         <div class="flex text-xl font-bold justify-center">
                             <div>
                                 <h1 class=" mb-2 text-md md:text-2xl sm:font-extrabold tracking-tight leading-none 
-                                        text-blue-900 xl:text-2xl dark:text-white">
+                                        text-blue-900 xl:text-2xl dark:text-blue-900">
                                     Blouse
                                 </h1>
                             </div>
@@ -68,7 +68,7 @@ const HomePage = () => {
                         <div class="flex text-xl font-bold justify-center">
                             <div>
                                 <h1 class=" mb-2 text-md md:text-2xl sm:font-extrabold tracking-tight leading-none 
-                                        text-blue-900 xl:text-2xl dark:text-white">
+                                        text-blue-900 xl:text-2xl dark:text-blue-900">
                                     Petticoat
                                 </h1>
                             </div>
@@ -88,7 +88,7 @@ const HomePage = () => {
                         <div class="flex text-xl font-bold justify-center">
                             <div>
                                 <h1 class=" mb-2 text-md md:text-2xl sm:font-extrabold tracking-tight leading-none 
-                                        text-blue-900 xl:text-2xl dark:text-white">
+                                        text-blue-900 xl:text-2xl dark:text-blue-900">
                                     Accessories
                                 </h1>
                             </div>
@@ -108,7 +108,7 @@ const HomePage = () => {
                         <div class="flex text-xl font-bold justify-center">
                             <div>
                                 <h1 class=" mb-2 text-md md:text-2xl sm:font-extrabold tracking-tight leading-none 
-                                        text-blue-900 xl:text-2xl dark:text-white">
+                                        text-blue-900 xl:text-2xl dark:text-blue-900">
                                     Men's Wear
                                 </h1>
                             </div>
@@ -128,7 +128,7 @@ const HomePage = () => {
                         <div class="flex text-xl font-bold justify-center">
                             <div>
                                 <h1 class=" mb-2 text-md md:text-2xl sm:font-extrabold tracking-tight leading-none 
-                                                text-blue-900 xl:text-2xl dark:text-white">
+                                                text-blue-900 xl:text-2xl dark:text-blue-900">
                                     Sale
                                 </h1>
                             </div>

@@ -29,7 +29,7 @@ const Sarees = () => {
                         <div class="flex text-xl font-bold justify-center">
                             <div>
                                 <h1 class=" mb-2 text-md md:text-2xl sm:font-extrabold tracking-tight leading-none 
-                                        text-blue-900 xl:text-2xl dark:text-white">
+                                        text-blue-900 xl:text-2xl dark:text-blue-900">
                                     Banarasi Saree
                                 </h1>
                             </div>
@@ -50,7 +50,7 @@ const Sarees = () => {
                         <div class="flex text-xl font-bold justify-center">
                             <div>
                                 <h1 class=" mb-2 text-md md:text-2xl sm:font-extrabold tracking-tight leading-none 
-                                     text-blue-900 xl:text-2xl dark:text-white">
+                                     text-blue-900 xl:text-2xl dark:text-blue-900">
                                     Patola Saree
                                 </h1>
                             </div>
@@ -71,7 +71,7 @@ const Sarees = () => {
                         <div class="flex text-xl font-bold justify-center">
                             <div>
                                 <h1 class=" mb-2 text-md md:text-2xl sm:font-extrabold tracking-tight leading-none 
-                                     text-blue-900 xl:text-2xl dark:text-white">
+                                     text-blue-900 xl:text-2xl dark:text-blue-900">
                                     Chiffon Saree
                                 </h1>
                             </div>
