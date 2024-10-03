@@ -14,16 +14,15 @@ const Header = () => {
                             height={200}
                             alt="Saree Pasal logo"
                         />
-                        <span class="self-center text-5xl font-extrabold text-7xl text-blue-900">
+                        <span class="self-center text-4xl font-extrabold text-7xl text-blue-900">
                             Saree Pasal
-                            <span class="self-center text-xl font-extrabold text-7xl text-red-600">
+                            <p class="self-center text-xl font-extrabold text-7xl text-red-600">
                                 <br />All Sales Are Final !!!
                                 <br />No Return !!!    No Exchange !!!
-                                <span class="self-center text-sm text-green-600">
-                                <br />For Shipping Cost Please Contact Us !!!
-                            </span>   
-
-                            </span>
+                                <p class="self-center text-sm text-green-600">
+                                    Contact Us For Shipping Cost !!!
+                                </p>
+                            </p>
                         </span>
                     </div>
                     <div class="sm:hidden flex p-1">
@@ -35,14 +34,14 @@ const Header = () => {
                         />
                         <span class="self-center text-3xl font-extrabold text-blue-900  dark:text-white">
                             Saree Pasal
-                            <span class="self-center text-sm text-red-600 whitespace-pre align-text-center  dark:text-white">
+                            <p class="self-center text-sm text-red-600 whitespace-pre align-text-center  dark:text-white">
                                 <br />All Sales Are Final
                                 <br />No Return !!!    No Exchange !!!
-                            </span>
-                            <span class="self-center text-sm text-green-600 whitespace-pre align-text-center  dark:text-white">
-                                <br />For Shipping Cost Please Contact Us !!!
-                            </span>   
-   
+                            </p>
+                            <p class="self-center text-xs text-green-600 whitespace-pre dark:text-white">
+                                Contact Us For Shipping Cost !!!
+                            </p>
+
                         </span>
                     </div>
                     {/* Navigation Items */}
