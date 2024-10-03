@@ -16,15 +16,16 @@ const BanarasiSarees = () => {
         <React.Fragment>
             {/* Banarasi Saree Item-123 Wine Zariwork Banarasi Silk Saree */}
             <div className="felx felx-row mx-auto p-4 article border shadow-2xl shadow-gray-900/90">
-                <div class="flex justify-center">
-                        <div className="h-full h-48 overflow-auto touch-pan-right"> 
+            <div class = "flex justify-center items-center">
+                <div className="felx felx-row mx-auto p-4 article border shadow-2xl shadow-gray-900/90"> 
+                        <div className="full h-48 overflow-auto touch-pan-y"> 
                             <img src="/Saree/Banarasi/Item-123/Banarasi Saree Item-123 Wine Zariwork Banarasi Silk Saree Image 1.png" alt="1" width={300} height={300}/> 
                             <img src="/Saree/Banarasi/Item-123/Banarasi Saree Item-123 Wine Zariwork Banarasi Silk Saree Image 2.png" alt="2" width={300} height={300}/> 
                             <img src="/Saree/Banarasi/Item-123/Banarasi Saree Item-123 Wine Zariwork Banarasi Silk Saree Image 3.png" alt="3" width={300} height={300}/> 
                             <img src="/Saree/Banarasi/Item-123/Banarasi Saree Item-123 Wine Zariwork Banarasi Silk Saree Image 4.png" alt="4" width={300} height={300}/> 
                         </div> 
                         </div>
-
+                        </div>
                 {/* Available Colors */}
                 <div>
                     <ul class="flex flex-row justify-center items-center">
