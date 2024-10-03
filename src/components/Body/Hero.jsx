@@ -120,7 +120,7 @@ const HomePage = () => {
                 <Link href="/Sale">
                     <section class="relative container rounded-xl mx-auto  my-5  w-5/6  h-50 shadow-sm">
                         <Image
-                            src="/Sale.png"
+                            src="/sale.png"
                             width={300}
                             height={300}
                             alt="Sale"
