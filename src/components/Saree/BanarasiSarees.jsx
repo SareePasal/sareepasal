@@ -15,9 +15,9 @@ const BanarasiSarees = () => {
     return (
         <React.Fragment>
             {/* Banarasi Saree Item-123 Wine Zariwork Banarasi Silk Saree */}
-            <div className="felx felx-row mx-auto p-4 article border shadow-2xl shadow-gray-900/90">
+            <div className="flex-row mx-auto p-4 article border shadow-2xl shadow-gray-900/90">
             <div class = "flex justify-center items-center">
-                <div className="felx felx-row mx-auto p-4 article border shadow-2xl shadow-gray-900/90"> 
+                <div className="flex flex-row mx-auto p-4 article border shadow-2xl shadow-gray-900/90"> 
                         <div className="full h-48 overflow-auto touch-pan-y"> 
                             <img src="/Saree/Banarasi/Item-123/Banarasi Saree Item-123 Wine Zariwork Banarasi Silk Saree Image 1.png" alt="1" width={300} height={300}/> 
                             <img src="/Saree/Banarasi/Item-123/Banarasi Saree Item-123 Wine Zariwork Banarasi Silk Saree Image 2.png" alt="2" width={300} height={300}/> 
