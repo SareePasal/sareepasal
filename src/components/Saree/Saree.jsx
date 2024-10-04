@@ -16,17 +16,18 @@ const Sarees = () => {
     return (
         <React.Fragment>
             {/* Banarasi Saree */}
-            <div className="felx felx-row mx-auto p-4 article border shadow-2xl shadow-gray-900/90">
+            <div className="felx felx-row mx-auto p-4 article rounded-lg border shadow-2xl shadow-gray-300">
                 <Link href="/BanarasiSarees">
-                    <section class="relative container rounded-xl mx-auto  my-5  w-5/6  h-50 shadow-sm">
+                    <section class="relative container rounded-xl mx-auto  my-5  w-5/6  h-50 ">
                         <Image
                             src="/Banarasi Saree.png"
                             width={300}
                             height={300}
                             alt="Banarasi Saree"
+                            class="rounded-lg"
                         />
 
-                        <div class="flex text-xl font-bold justify-center">
+                        <div class="flex text-xl font-bold justify-center relative top-4">
                             <div>
                                 <h1 class=" mb-2 text-md md:text-2xl sm:font-extrabold tracking-tight leading-none 
                                         text-blue-900 xl:text-2xl dark:text-blue-900">
