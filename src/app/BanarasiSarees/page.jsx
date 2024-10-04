@@ -4,7 +4,7 @@ import Footer from "../../components/Footer/Footer"
 
 export default function Ab() {
   return (
-    <main class="flex flex-col h-dvh ">
+    <main class="flex flex-col">
       <Header/>
       <BanarasiSarees/>
       <Footer/>
