@@ -15,16 +15,42 @@ const BanarasiSarees = () => {
     return (
         <React.Fragment>
             {/* Banarasi Saree Item-123 Wine Zariwork Banarasi Silk Saree */}
-            <div class="aspect-w-16 aspect-h-16 flex-row mx-auto p-4 border shadow-2xl shadow-gray-900/90">
-                    <div class="flex justify-center h-120 ">
-                    <div className="flex flex-row mx-auto p-4 article border shadow-2xl shadow-gray-900/90">
-                        <div className="full h-96 overflow-auto touch-pan-y">
-                            <img src="/Saree/Banarasi/Item-123/Banarasi Saree Item-123 Wine Zariwork Banarasi Silk Saree Image 1.png" alt="1" width={300} height={300} />
-                            <img src="/Saree/Banarasi/Item-123/Banarasi Saree Item-123 Wine Zariwork Banarasi Silk Saree Image 2.png" alt="2" width={300} height={300} />
-                            <img src="/Saree/Banarasi/Item-123/Banarasi Saree Item-123 Wine Zariwork Banarasi Silk Saree Image 3.png" alt="3" width={300} height={300} />
-                            <img src="/Saree/Banarasi/Item-123/Banarasi Saree Item-123 Wine Zariwork Banarasi Silk Saree Image 4.png" alt="4" width={300} height={300} />
-                        </div>
-                    </div>
+            <div class="aspect-w-16 aspect-h-16 flex-row border shadow-2xl shadow-gray-900/90">
+            <div className="flex item-center justify-center w-11/12">
+                        <div class="relative rounded-xl overflow-auto w-11/12">
+                            <div class="relative w-full flex gap-6 snap-x overflow-x-auto pb-14">
+                            <div class=" snap-center shrink-0 mx-7">
+                                   <div class="shrink-0 w-96"></div>
+                                </div>
+                                <div class="z-10 snap-normal snap-center shrink-0 first:pl-8 last:pr-8 shadow-2xl rounded-2xl mx-7 bg-white">
+                                    <Image  class="rounded-2xl" src="/Saree/Banarasi/Item-123/Banarasi Saree Item-123 Wine Zariwork Banarasi Silk Saree Image 1.png" alt="1" width={300} height={300} />
+                                </div>
+                                <div class="snap-center snap-always shrink-0 mx-7  scroll-ms-6 shadow-xl rounded-2xl">
+                                    <Image class="rounded-2xl" src="/Saree/Banarasi/Item-123/Banarasi Saree Item-123 Wine Zariwork Banarasi Silk Saree Image 2.png" alt="2" width={300} height={300} />
+                                </div>
+                                <div class="snap-center snap-always shrink-0 mx-7 scroll-ms-6 shadow-lg rounded-2xl">
+                                    <Image class="rounded-2xl" src="/Saree/Banarasi/Item-123/Banarasi Saree Item-123 Wine Zariwork Banarasi Silk Saree Image 3.png" alt="3" width={300} height={300} />
+                                </div>
+                                <div class="snap-center snap-always shrink-0 mx-7 scroll-ms-6 shadow-lg rounded-2xl">
+                                <Image class="rounded-2xl" src="/Saree/Banarasi/Item-123/Banarasi Saree Item-123 Wine Zariwork Banarasi Silk Saree Image 4.png" alt="4" width={300} height={300} />
+                                </div>
+                                <div class="snap-center snap-always shrink-0 mx-7 scroll-ms-6 shadow-lg rounded-2xl">
+                                <Image  class="rounded-2xl" src="/Saree/Banarasi/Item-123/Banarasi Saree Item-123 Wine Zariwork Banarasi Silk Saree Image 1.png" alt="1" width={300} height={300} />
+                                </div>
+                                <div class="snap-center snap-always shrink-0 mx-7  scroll-ms-6 shadow-lg rounded-2xl ">
+                                <Image class="rounded-2xl" src="/Saree/Banarasi/Item-123/Banarasi Saree Item-123 Wine Zariwork Banarasi Silk Saree Image 2.png" alt="2" width={300} height={300} />
+                                </div>
+                                <div class="snap-center snap-always shrink-0 mx-7 scroll-ms-6 shadow-lg rounded-2xl">
+                                <Image class="rounded-2xl" src="/Saree/Banarasi/Item-123/Banarasi Saree Item-123 Wine Zariwork Banarasi Silk Saree Image 3.png" alt="3" width={300} height={300} />
+                                </div>
+                                <div class="snap-center snap-always shrink-0 mx-7 scroll-ms-6 shadow-lg rounded-2xl">
+                                <Image class="rounded-2xl" src="/Saree/Banarasi/Item-123/Banarasi Saree Item-123 Wine Zariwork Banarasi Silk Saree Image 4.png" alt="4" width={300} height={300} />
+                                </div>
+                                <div class=" snap-center shrink-0 mx-7">
+                                   <div class="shrink-0 w-96"></div>
+                                </div>
+                            </div>
+                            </div>
                 </div>
                 {/* Available Colors */}
                 <div>
