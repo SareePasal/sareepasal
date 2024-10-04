@@ -15,17 +15,17 @@ const BanarasiSarees = () => {
     return (
         <React.Fragment>
             {/* Banarasi Saree Item-123 Wine Zariwork Banarasi Silk Saree */}
-            <div className="flex-row mx-auto p-4 article border shadow-2xl shadow-gray-900/90">
-            <div class = "flex justify-center items-center">
-                <div className="flex flex-row mx-auto p-4 article border shadow-2xl shadow-gray-900/90"> 
-                        <div className="full h-48 overflow-auto touch-pan-y"> 
-                            <img src="/Saree/Banarasi/Item-123/Banarasi Saree Item-123 Wine Zariwork Banarasi Silk Saree Image 1.png" alt="1" width={300} height={300}/> 
-                            <img src="/Saree/Banarasi/Item-123/Banarasi Saree Item-123 Wine Zariwork Banarasi Silk Saree Image 2.png" alt="2" width={300} height={300}/> 
-                            <img src="/Saree/Banarasi/Item-123/Banarasi Saree Item-123 Wine Zariwork Banarasi Silk Saree Image 3.png" alt="3" width={300} height={300}/> 
-                            <img src="/Saree/Banarasi/Item-123/Banarasi Saree Item-123 Wine Zariwork Banarasi Silk Saree Image 4.png" alt="4" width={300} height={300}/> 
-                        </div> 
+            <div class="aspect-w-16 aspect-h-16 flex-row mx-auto p-4 border shadow-2xl shadow-gray-900/90">
+                    <div class="flex justify-center h-120 ">
+                    <div className="flex flex-row mx-auto p-4 article border shadow-2xl shadow-gray-900/90">
+                        <div className="full h-96 overflow-auto touch-pan-y">
+                            <img src="/Saree/Banarasi/Item-123/Banarasi Saree Item-123 Wine Zariwork Banarasi Silk Saree Image 1.png" alt="1" width={300} height={300} />
+                            <img src="/Saree/Banarasi/Item-123/Banarasi Saree Item-123 Wine Zariwork Banarasi Silk Saree Image 2.png" alt="2" width={300} height={300} />
+                            <img src="/Saree/Banarasi/Item-123/Banarasi Saree Item-123 Wine Zariwork Banarasi Silk Saree Image 3.png" alt="3" width={300} height={300} />
+                            <img src="/Saree/Banarasi/Item-123/Banarasi Saree Item-123 Wine Zariwork Banarasi Silk Saree Image 4.png" alt="4" width={300} height={300} />
                         </div>
-                        </div>
+                    </div>
+                </div>
                 {/* Available Colors */}
                 <div>
                     <ul class="flex flex-row justify-center items-center">
@@ -109,7 +109,7 @@ const BanarasiSarees = () => {
                 </div>
             </div>
             {/* Banarasi Saree Item-124 Wine Zariwork Banarasi Silk Saree */}
-            <div className="felx felx-row mx-auto p-4 article border shadow-2xl shadow-gray-900/90">
+            <div className="flex-row mx-auto p-4 article border shadow-2xl shadow-gray-900/90">
                 <div class="flex justify-center">
                     <Image
                         src="/Saree/Banarasi/Item-123/Banarasi Saree Item-123 Wine Zariwork Banarasi Silk Saree Image 2.png"
@@ -118,6 +118,12 @@ const BanarasiSarees = () => {
                         alt="Banarasi Saree Item-123 Wine Zariwork Banarasi Silk Saree Image 2"
                     />
                 </div>
+                <div class="aspect-w-16 aspect-h-16 h-120 flex-row mx-auto p-4 border shadow-2xl shadow-gray-900/90">
+                    <div class="flex justify-center h-96 ">
+
+                        <iframe src="https://youtube.com/shorts/a0YY0gkIJrY?si=S1HmFbl7ysPBasGx" 
+                            frameborder="0" allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div></div>
                 {/* Available Colors */}
                 <div>
                     <ul class="flex flex-row justify-center items-center">
