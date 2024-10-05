@@ -4,7 +4,7 @@ import Image from 'next/image'
 const Saree = () => {
     return (
         <div class="grid lg:grid-cols-3 lg:gap-36 sm:grid-cols-2 gap-20 ">
-            < Saree key="1" />
+            < Sarees key="1" />
         </div>
 
     )
