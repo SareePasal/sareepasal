@@ -5,7 +5,7 @@ import Link from 'next/link'
 const SareeType = () => {
     return (
         <div class="grid lg:grid-cols-3 lg:gap-36 sm:grid-cols-2 gap-20">
-            < Sarees key="1" />
+            < SareeTypes key="1" />
         </div>
 
     )
