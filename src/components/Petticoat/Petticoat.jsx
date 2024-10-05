@@ -31,7 +31,7 @@ const Petticoats = () => {
                                 <Image class="rounded-2xl" src="/Images/Petticoat/Leranath Fashion/Petticoat3.jpg" alt="3" width={300} height={300} />
                             </div>
                             <div class="snap-center snap-always shrink-0 md:mx-7 scroll-ms-1 md:scroll-ms-6 shadow-lg rounded-2xl">
-                                <Image class="rounded-2xl" src="/Images/Petticoat/Leranath Fashion/Petticoat4" alt="4" width={300} height={300} />
+                                <Image class="rounded-2xl" src="/Images/Petticoat/Leranath Fashion/Petticoat4.jpg" alt="4" width={300} height={300} />
                             </div>
                             <div class="snap-center snap-always shrink-0 md:mx-7 scroll-ms-1 md:scroll-ms-6 shadow-lg rounded-2xl">
                                 <Image class="rounded-2xl" src="/Images/Petticoat/Leranath Fashion/Petticoat5.jpg" alt="5" width={300} height={300} />
