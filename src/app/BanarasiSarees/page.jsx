@@ -1,4 +1,4 @@
-import Header from "../../components/Header/Header";
+/* import Header from "../../components/Header/Header";
 import BanarasiSarees from "../../components/Saree/BanarasiSarees"
 import Footer from "../../components/Footer/Footer"
 
@@ -10,4 +10,4 @@ export default function Ab() {
       <Footer/>
     </main>
   );
-}
+} */

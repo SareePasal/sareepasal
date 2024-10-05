@@ -16,10 +16,10 @@ const HomePage = () => {
     return (
         <React.Fragment>
             <div className="article container rounded-lg  w-56 border shadow-lg shadow-gray-400">
-                <Link href="/Saree">
+                <Link href="/Saree_All">
                     <section class="relative container rounded-xl mx-auto  my-5  w-5/6  h-50 ">
                         <Image
-                            src="/Banarasi Saree.png"
+                            src="/Saree.png"
                             width={300}
                             height={300}
                             alt="Saree"
@@ -38,6 +38,50 @@ const HomePage = () => {
                 </Link>
             </div>
             <div className="article container rounded-lg  w-56 border shadow-lg shadow-gray-400">
+                <Link href="/Gown">
+                    <section class="relative container rounded-xl mx-auto  my-5  w-5/6  h-50 ">
+                        <Image
+                            src="/Gown.jpg"
+                            width={300}
+                            height={300}
+                            alt="Gown"
+                            class="rounded-lg"
+                        />
+                        <div class="relative flex text-xl font-bold justify-center top-3">
+                            <div>
+                                <h1 class=" mb-2 text-md md:text-2xl justify-center sm:font-extrabold tracking-tight leading-none 
+                                        text-blue-900 xl:text-2xl dark:text-blue-900">
+                                    Gown
+                                </h1>
+                            </div>
+                        </div>
+                    </section>
+
+                </Link>
+            </div>
+            <div className="article container rounded-lg  w-56 border shadow-lg shadow-gray-400">
+                <Link href="/Lehenga">
+                    <section class="relative container rounded-xl mx-auto  my-5  w-5/6  h-50 ">
+                        <Image
+                            src="/Lehenga.jpg"
+                            width={300}
+                            height={300}
+                            alt="Lehenga"
+                            class="rounded-lg"
+                        />
+                        <div class="relative flex text-xl font-bold justify-center top-3">
+                            <div>
+                                <h1 class=" mb-2 text-md md:text-2xl justify-center sm:font-extrabold tracking-tight leading-none 
+                                        text-blue-900 xl:text-2xl dark:text-blue-900">
+                                    Lehenga
+                                </h1>
+                            </div>
+                        </div>
+                    </section>
+
+                </Link>
+            </div>
+            <div className="article container rounded-lg  w-56 border shadow-lg shadow-gray-400">
                 <Link href="/Blouse">
                     <section class="relative container rounded-xl mx-auto  my-5  w-5/6  h-50 ">
                         <Image
@@ -47,7 +91,7 @@ const HomePage = () => {
                             alt="Blouse"
                             class="rounded-lg"
                         />
-                        <div class="flex text-xl font-bold justify-center">
+                        <div class="relative flex text-xl font-bold justify-center top-3">
                             <div>
                                 <h1 class=" mb-2 text-md md:text-2xl sm:font-extrabold tracking-tight leading-none 
                                         text-blue-900 xl:text-2xl dark:text-blue-900">
@@ -68,7 +112,7 @@ const HomePage = () => {
                             alt="Petticoat"
                             class="rounded-lg"
                         />
-                        <div class="flex text-xl font-bold justify-center">
+                        <div class="relative flex text-xl font-bold justify-center top-3">
                             <div>
                                 <h1 class=" mb-2 text-md md:text-2xl sm:font-extrabold tracking-tight leading-none 
                                         text-blue-900 xl:text-2xl dark:text-blue-900">
@@ -89,7 +133,7 @@ const HomePage = () => {
                             alt="Accessories"
                             class="rounded-lg"
                         />
-                        <div class="flex text-xl font-bold justify-center">
+                        <div class="relative flex text-xl font-bold justify-center top-3">
                             <div>
                                 <h1 class=" mb-2 text-md md:text-2xl sm:font-extrabold tracking-tight leading-none 
                                         text-blue-900 xl:text-2xl dark:text-blue-900">
@@ -110,7 +154,7 @@ const HomePage = () => {
                             alt="Menswear"
                             class="rounded-lg"
                         />
-                        <div class="flex text-xl font-bold justify-center">
+                        <div class="relative flex text-xl font-bold justify-center top-3">
                             <div>
                                 <h1 class=" mb-2 text-md md:text-2xl sm:font-extrabold tracking-tight leading-none 
                                         text-blue-900 xl:text-2xl dark:text-blue-900">
@@ -131,7 +175,7 @@ const HomePage = () => {
                             alt="Sale"
                             class="rounded-lg"
                         />
-                        <div class="flex text-xl font-bold justify-center">
+                        <div class="relative flex text-xl font-bold justify-center top-3">
                             <div>
                                 <h1 class=" mb-2 text-md md:text-2xl sm:font-extrabold tracking-tight leading-none 
                                                 text-blue-900 xl:text-2xl dark:text-blue-900">
