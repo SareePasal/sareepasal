@@ -90,7 +90,7 @@ const Sarees = () => {
                             <path d="M15 7a2 2 0 0 1 2 2" />
                             <path d="M15 3a6 6 0 0 1 6 6" />
                         </svg>
-                        <p>(347)771-2375</p>
+                        <p>To Make an Order Call : (347)771-2375</p>
                     </div>
                 </div>
             </div>
@@ -181,7 +181,7 @@ const Sarees = () => {
                             <path d="M15 7a2 2 0 0 1 2 2" />
                             <path d="M15 3a6 6 0 0 1 6 6" />
                         </svg>
-                        <p>(347)771-2375</p>
+                        <p>To Make an Order Call : (347)771-2375</p>
                     </div>
                 </div>
             </div>
@@ -264,7 +264,7 @@ const Sarees = () => {
                             <path d="M15 7a2 2 0 0 1 2 2" />
                             <path d="M15 3a6 6 0 0 1 6 6" />
                         </svg>
-                        <p>(347)771-2375</p>
+                        <p>To Make an Order Call : (347)771-2375</p>
                     </div>
                 </div>
             </div>
@@ -347,7 +347,7 @@ const Sarees = () => {
                             <path d="M15 7a2 2 0 0 1 2 2" />
                             <path d="M15 3a6 6 0 0 1 6 6" />
                         </svg>
-                        <p>(347)771-2375</p>
+                        <p>To Make an Order Call : (347)771-2375</p>
                     </div>
                 </div>
             </div>
