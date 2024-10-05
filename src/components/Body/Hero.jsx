@@ -106,7 +106,7 @@ const HomePage = () => {
                 <Link href="/MensWear">
                     <section class="relative container rounded-xl mx-auto  my-5  w-5/6  h-50 ">
                         <Image
-                            src="/MensWear.png"
+                            src="/Menswear.png"
                             width={300}
                             height={300}
                             alt="MensWear"
