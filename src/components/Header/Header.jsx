@@ -57,16 +57,16 @@ const Header = () => {
                                 md:hover:text-blue-700 md:p-0 dark:text-white  dark:hover:bg-gray-700 dark:hover:text-white">Saree</Link>
                             </li>
                             <li>
-                                <Link href="/Blouse" class="block p-2 sm:p-4 font-bold text-blue-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 
-                                md:hover:text-blue-700 md:p-0 dark:text-white  dark:hover:bg-gray-700 dark:hover:text-white">Blouse</Link>
+                                <Link href="/Lehenga" class="block p-2 sm:p-4 font-bold text-blue-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 
+                                md:hover:text-blue-700 md:p-0 dark:text-white  dark:hover:bg-gray-700 dark:hover:text-white">Lehenga</Link>
                             </li>
                             <li>
-                                <Link href="/Petticoat" class="block p-2 sm:p-4 font-bold text-blue-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 
-                                md:hover:text-blue-700 md:p-0 dark:text-white  dark:hover:bg-gray-700 dark:hover:text-white ">Petticoat</Link>
+                                <Link href="/Gowns" class="block p-2 sm:p-4 font-bold text-blue-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 
+                                md:hover:text-blue-700 md:p-0 dark:text-white  dark:hover:bg-gray-700 dark:hover:text-white ">Gowns</Link>
                             </li>
                             <li>
-                                <Link href="/Accessories" class="block p-2 sm:p-4 font-bold text-blue-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 
-                                md:hover:text-blue-700 md:p-0 dark:text-white  dark:hover:bg-gray-700 dark:hover:text-white ">Accessories</Link>
+                                <Link href="/MensWear" class="block p-2 sm:p-4 font-bold text-blue-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 
+                                md:hover:text-blue-700 md:p-0 dark:text-white  dark:hover:bg-gray-700 dark:hover:text-white ">Mens Wear</Link>
                             </li>
                         </ul>
                     </div>
@@ -84,20 +84,20 @@ const Header = () => {
                                 md:dark:hover:bg-transparent">Saree</Link>
                             </li>
                             <li>
-                                <Link href="/Blouse" class="block text-blue-900 text-xl font-bold rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 
+                                <Link href="/Lehenga" class="block text-blue-900 text-xl font-bold rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 
                                 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white 
-                                md:dark:hover:bg-transparent">Blouse</Link>
+                                md:dark:hover:bg-transparent">Lehenga</Link>
                             </li>
                             <li>
-                                <Link href="/Petticoat" class="block text-blue-900 text-xl font-bold rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 
+                                <Link href="/Gown" class="block text-blue-900 text-xl font-bold rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 
                                 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white 
-                                md:dark:hover:bg-transparent">Petticoat</Link>
+                                md:dark:hover:bg-transparent">Gown</Link>
                             </li>
 
                             <li>
-                                <Link href="/Accessories" class="block text-blue-900 text-xl font-bold rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0
+                                <Link href="/MensWear" class="block text-blue-900 text-xl font-bold rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0
                                  md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white 
-                                 md:dark:hover:bg-transparent">Accessories</Link>
+                                 md:dark:hover:bg-transparent">Mens Wear</Link>
                             </li>
                         </ul>
                     </div>

@@ -103,6 +103,26 @@ const HomePage = () => {
                 </Link>
             </div>
             <div className="article container rounded-lg  w-56 border shadow-lg shadow-gray-400">
+                <Link href="/MensWear">
+                    <section class="relative container rounded-xl mx-auto  my-5  w-5/6  h-50 ">
+                        <Image
+                            src="/MensWear.png"
+                            width={300}
+                            height={300}
+                            alt="MensWear"
+                            class="rounded-lg"
+                        />
+                        <div class="relative flex text-xl font-bold justify-center top-3">
+                            <div>
+                                <h1 class=" mb-2 text-md md:text-2xl sm:font-extrabold tracking-tight leading-none 
+                                        text-blue-900 xl:text-2xl dark:text-blue-900">
+                                    Men's Wear
+                                </h1>
+                            </div>
+                        </div>
+                    </section>
+                </Link>
+            </div>            <div className="article container rounded-lg  w-56 border shadow-lg shadow-gray-400">
                 <Link href="/Petticoat">
                     <section class="relative container rounded-xl mx-auto  my-5  w-5/6  h-50 ">
                         <Image
@@ -138,27 +158,6 @@ const HomePage = () => {
                                 <h1 class=" mb-2 text-md md:text-2xl sm:font-extrabold tracking-tight leading-none 
                                         text-blue-900 xl:text-2xl dark:text-blue-900">
                                     Accessories
-                                </h1>
-                            </div>
-                        </div>
-                    </section>
-                </Link>
-            </div>
-            <div className="article container rounded-lg  w-56 border shadow-lg shadow-gray-400">
-                <Link href="/Menswear">
-                    <section class="relative container rounded-xl mx-auto  my-5  w-5/6  h-50 ">
-                        <Image
-                            src="/Menswear.png"
-                            width={300}
-                            height={300}
-                            alt="Menswear"
-                            class="rounded-lg"
-                        />
-                        <div class="relative flex text-xl font-bold justify-center top-3">
-                            <div>
-                                <h1 class=" mb-2 text-md md:text-2xl sm:font-extrabold tracking-tight leading-none 
-                                        text-blue-900 xl:text-2xl dark:text-blue-900">
-                                    Men's Wear
                                 </h1>
                             </div>
                         </div>
