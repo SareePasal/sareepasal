@@ -1,20 +1,10 @@
 import * as React from 'react';
 import Image from 'next/image'
-
-const BanarasiSaree = () => {
-    return (
-        <div class="grid lg:grid-cols-3 lg:gap-36 sm:grid-cols-2 gap-20 ">
-            < BanarasiSarees key="1" />
-        </div>
-
-    )
-}
-
+import Video  from './video'
 
 const BanarasiSarees = () => {
     return (
-        <React.Fragment>
-            {/* Banarasi Saree Item-123 Wine Zariwork Banarasi Silk Saree */}
+        <div class="m-4 lg:m-36">
             <div class="aspect-w-16 aspect-h-16 flex-row">
                 <div className="flex md:item-center md:justify-center md:w-11/12 ">
                         <div class="relative rounded-xl overflow-auto w-11/12">
@@ -51,45 +41,43 @@ const BanarasiSarees = () => {
                                 </div>
                             </div>
                 </div>
-                </div>
-                {/* Available Colors */}
-                <div>
-                    <ul class="flex flex-row justify-center items-center">
+            </div>
+                <div class="md:ml-10 my-3">
+                <span class="font-bold text-md"> Available colors</span>
+                    <ul class="flex flex-row my-2 md:py-5 md:px-3 px-2">
+                        <li class="mr-4 last:mr-0">
+                            <div class="block p-1 rounded-lg transition ease-in duration-300">
+                                <a href="#blue" class="block w-8 h-8 bg-blue-900 rounded"></a>
+                            </div>
+                        </li>
                         <li class="mr-4 last:mr-0">
                             <span
-                                class="block p-1 border-2 border-gray-500 rounded-full transition ease-in duration-300">
-                                <a href="#blue" class="block w-6 h-6 bg-blue-900 rounded-full"></a>
+                                class="block p-1  hover:border-gray-500 rounded-lg transition ease-in duration-300">
+                                <a href="#yellow" class="block w-8 h-8 bg-yellow-500 rounded-lg"></a>
                             </span>
                         </li>
                         <li class="mr-4 last:mr-0">
                             <span
-                                class="block p-1 border-2 border-white hover:border-gray-500 rounded-full transition ease-in duration-300">
-                                <a href="#yellow" class="block w-6 h-6 bg-yellow-500 rounded-full"></a>
+                                class="block p-1  hover:border-gray-500 rounded-lg transition ease-in duration-300">
+                                <a href="#red" class="block w-8 h-8 bg-red-500 rounded-lg"></a>
                             </span>
                         </li>
                         <li class="mr-4 last:mr-0">
                             <span
-                                class="block p-1 border-2 border-white hover:border-gray-500 rounded-full transition ease-in duration-300">
-                                <a href="#red" class="block w-6 h-6 bg-red-500 rounded-full"></a>
-                            </span>
-                        </li>
-                        <li class="mr-4 last:mr-0">
-                            <span
-                                class="block p-1 border-2 border-white hover:border-gray-500 rounded-full transition ease-in duration-300">
-                                <a href="#green" class="block w-6 h-6 bg-pink-500 rounded-full"></a>
+                                class="block p-1  hover:border-gray-500 rounded-lg transition ease-in duration-300">
+                                <a href="#green" class="block w-8 h-8 bg-pink-500 rounded-lg"></a>
                             </span>
                         </li>
                     </ul>
                 </div>
-                <div class="grid grid-cols-1 gap-4 relative flex justify-between  sm:w-5/6 h-full mx-auto ">
+                <div class="flex justify-between md:ml-10 my-3">
                     <div>
-                        <h1 class=" mb-2 text-2xl md:text-2xl sm:font-extrabold tracking-tight leading-none 
-                                        text-blue-900 xl:text-2xldark:text-blue-950">
+                        <h1 class=" font-bold mb-2 text-2xl md:text-2xl sm:font-extrabold tracking-tight leading-none  text-blue-900 xl:text-2xl dark:text-blue-950">
                             Wine Zariwork Banarasi Silk Saree Item 1
                         </h1>
-                        <p class="text-black text-smdark:text-blue-950 text-left">
+                        <p class="text-black text-sm dark:text-blue-950 text-left font-bold">
                             Product Details:
-                            <p class="text-black text-smdark:text-blue-950 text-left font-light">
+                            <p class="text-black text-sm dark:text-blue-950 text-left font-light mx-2">
                                 - Wine Saree in Banarasi Silk fabric
                                 <br />- The Saree is elevated with Zariwork embroidery
                                 <br />- It comes with an Unstitched blouse
@@ -97,40 +85,46 @@ const BanarasiSarees = () => {
                             </p>
 
                             <br />Size & Fit:
-                            <p class="text-black text-smdark:text-blue-950 text-left font-light">
+                            <p class="text-black text-sm dark:text-blue-950 text-left font-light">
                                 Saree: 5.5 Mtrs
                                 <br />Blouse: 0.80 Mtrs
                             </p>
 
                             <br />Material & Care:
-                            <p class="text-black text-smdark:text-blue-950 text-left font-light">
+                            <p class="text-black text-sm dark:text-blue-950 text-left font-light">
                                 Banarasi Silk
                                 <br />Dry Wash Only
                             </p>
 
                             <br />Product Code:
-                            <p class="text-black text-smdark:text-blue-950 text-left font-light">
+                            <p class="text-black text-sm dark:text-blue-950 text-left font-light">
                                 SAREEBAN123_WINE
                             </p>
 
                             <br />Note:
-                            <p class="text-black text-smdark:text-blue-950 text-left font-light">
+                            <p class="text-black text-sm dark:text-blue-950 text-left font-light">
                                 Product color may slightly vary due to photographic lighting sources or your monitor settings.
                             </p>
 
                             <br />Item#
-                            <p class="text-black text-smdark:text-blue-950 text-left font-light">
+                            <p class="text-black text-sm dark:text-blue-950 text-left font-light">
                                 123
                             </p>
 
                             <br />Price:
-                            <p class="text-green-700">
+                            <p class="text-green-700 md:my-2">
                                 $100.00
                             </p>
                         </p>
-                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2">
-                            Add To Cart
+                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 my-2 px-2 rounded-lg">
+                            
+                            <a href="tel:18475555555">Add To Cart</a>
                         </button>
+                        <div class="aspect-w-16 aspect-h-16 mx-2 rounded-lg">
+                        <div class="rounded-lg">
+                            <Video src="https://www.youtube.com/embed/6Rhj4TND4F8?si=ffzjsvn6N6SXwpMj"/>
+                        </div>
+                     </div>
                     </div>
                 </div>
             </div>
@@ -147,34 +141,34 @@ const BanarasiSarees = () => {
                 <div class="aspect-w-16 aspect-h-16 h-120 flex-row mx-auto p-4 border shadow-2xl shadow-gray-900/90">
                     <div class="flex justify-center h-96 ">
 
-                        <iframe src="https://youtube.com/shorts/a0YY0gkIJrY?si=S1HmFbl7ysPBasGx" 
-                            frameborder="0" allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div></div>
+                        <Video src="https://youtube.com/shorts/a0YY0gkIJrY?si=S1HmFbl7ysPBasGx"/>
+                    </div>
+                </div>
                 {/* Available Colors */}
                 <div>
                     <ul class="flex flex-row justify-center items-center">
                         <li class="mr-4 last:mr-0">
                             <span
-                                class="block p-1 border-2 border-gray-500 rounded-full transition ease-in duration-300">
-                                <a href="#blue" class="block w-6 h-6 bg-blue-900 rounded-full"></a>
+                                class="block p-1 border-2 border-gray-500 rounded-lg transition ease-in duration-300">
+                                <a href="#blue" class="block w-8 h-8 bg-blue-900 rounded-lg"></a>
                             </span>
                         </li>
                         <li class="mr-4 last:mr-0">
                             <span
-                                class="block p-1 border-2 border-white hover:border-gray-500 rounded-full transition ease-in duration-300">
-                                <a href="#yellow" class="block w-6 h-6 bg-yellow-500 rounded-full"></a>
+                                class="block p-1  hover:border-gray-500 rounded-lg transition ease-in duration-300">
+                                <a href="#yellow" class="block w-8 h-8 bg-yellow-500 rounded-lg"></a>
                             </span>
                         </li>
                         <li class="mr-4 last:mr-0">
                             <span
-                                class="block p-1 border-2 border-white hover:border-gray-500 rounded-full transition ease-in duration-300">
-                                <a href="#red" class="block w-6 h-6 bg-red-500 rounded-full"></a>
+                                class="block p-1  hover:border-gray-500 rounded-lg transition ease-in duration-300">
+                                <a href="#red" class="block w-8 h-8 bg-red-500 rounded-lg"></a>
                             </span>
                         </li>
                         <li class="mr-4 last:mr-0">
                             <span
-                                class="block p-1 border-2 border-white hover:border-gray-500 rounded-full transition ease-in duration-300">
-                                <a href="#green" class="block w-6 h-6 bg-pink-500 rounded-full"></a>
+                                class="block p-1  hover:border-gray-500 rounded-lg transition ease-in duration-300">
+                                <a href="#green" class="block w-8 h-8 bg-pink-500 rounded-lg"></a>
                             </span>
                         </li>
                     </ul>
@@ -247,26 +241,26 @@ const BanarasiSarees = () => {
                     <ul class="flex flex-row justify-center items-center">
                         <li class="mr-4 last:mr-0">
                             <span
-                                class="block p-1 border-2 border-gray-500 rounded-full transition ease-in duration-300">
-                                <a href="#blue" class="block w-6 h-6 bg-blue-900 rounded-full"></a>
+                                class="block p-1 border-2 border-gray-500 rounded-lg transition ease-in duration-300">
+                                <a href="#blue" class="block w-8 h-8 bg-blue-900 rounded-lg"></a>
                             </span>
                         </li>
                         <li class="mr-4 last:mr-0">
                             <span
-                                class="block p-1 border-2 border-white hover:border-gray-500 rounded-full transition ease-in duration-300">
-                                <a href="#yellow" class="block w-6 h-6 bg-yellow-500 rounded-full"></a>
+                                class="block p-1 border-2 border-white hover:border-gray-500 rounded-lg transition ease-in duration-300">
+                                <a href="#yellow" class="block w-8 h-8 bg-yellow-500 rounded-lg"></a>
                             </span>
                         </li>
                         <li class="mr-4 last:mr-0">
                             <span
-                                class="block p-1 border-2 border-white hover:border-gray-500 rounded-full transition ease-in duration-300">
-                                <a href="#red" class="block w-6 h-6 bg-red-500 rounded-full"></a>
+                                class="block p-1 border-2 border-white hover:border-gray-500 rounded-lg transition ease-in duration-300">
+                                <a href="#red" class="block w-6 h-6 bg-red-500 rounded-lg"></a>
                             </span>
                         </li>
                         <li class="mr-4 last:mr-0">
                             <span
-                                class="block p-1 border-2 border-white hover:border-gray-500 rounded-full transition ease-in duration-300">
-                                <a href="#green" class="block w-6 h-6 bg-pink-500 rounded-full"></a>
+                                class="block p-1 border-2 border-white hover:border-gray-500 rounded-lg transition ease-in duration-300">
+                                <a href="#green" class="block w-6 h-6 bg-pink-500 rounded-lg"></a>
                             </span>
                         </li>
                     </ul>
@@ -339,25 +333,25 @@ const BanarasiSarees = () => {
                     <ul class="flex flex-row justify-center items-center">
                         <li class="mr-4 last:mr-0">
                             <span
-                                class="block p-1 border-2 border-gray-500 rounded-full transition ease-in duration-300">
-                                <a href="#blue" class="block w-6 h-6 bg-blue-900 rounded-full"></a>
+                                class="block p-1 border-2 border-gray-500 rounded-lg transition ease-in duration-300">
+                                <a href="#blue" class="block w-6 h-6 bg-blue-900 rounded-lg"></a>
                             </span>
                         </li>
                         <li class="mr-4 last:mr-0">
                             <span
-                                class="block p-1 border-2 border-white hover:border-gray-500 rounded-full transition ease-in duration-300">
-                                <a href="#yellow" class="block w-6 h-6 bg-yellow-500 rounded-full"></a>
+                                class="block p-1 border-2 border-white hover:border-gray-500 rounded-lg transition ease-in duration-300">
+                                <a href="#yellow" class="block w-6 h-6 bg-yellow-500 rounded-lg"></a>
                             </span>
                         </li>
                         <li class="mr-4 last:mr-0">
                             <span
-                                class="block p-1 border-2 border-white hover:border-gray-500 rounded-full transition ease-in duration-300">
-                                <a href="#red" class="block w-6 h-6 bg-red-500 rounded-full"></a>
+                                class="block p-1 border-2 border-white hover:border-gray-500 rounded-lg transition ease-in duration-300">
+                                <a href="#red" class="block w-6 h-6 bg-red-500 rounded-lg"></a>
                             </span>
                         </li>
                         <li class="mr-4 last:mr-0">
                             <span
-                                class="block p-1 border-2 border-white hover:border-gray-500 rounded-full transition ease-in duration-300">
+                                class="block p-1 border-2 border-white hover:border-gray-500 rounded-lg transition ease-in duration-300">
                                 <a href="#green" class="block w-6 h-6 bg-pink-500 rounded-full"></a>
                             </span>
                         </li>
@@ -605,7 +599,7 @@ const BanarasiSarees = () => {
             </div>
 
 
-        </React.Fragment>
+        </div>
     )
 }
 
