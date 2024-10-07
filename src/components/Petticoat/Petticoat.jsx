@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Image from 'next/image'
+import Video from '../Video/Video'
 
 const Petticoat = () => {
     return (
@@ -45,7 +46,7 @@ const Petticoats = () => {
                         </div>
                     </div>
                 </div>
-                <div class="grid grid-cols-1 gap-4 relative flex justify-between  sm:w-5/6 h-full mx-auto ">
+                <div class="flex justify-between  sm:w-5/6 h-full mx-auto ">
                     <div>
                         <h1 class=" mb-2 text-2xl md:text-2xl sm:font-extrabold tracking-tight leading-none 
                                         text-blue-900 xl:text-2xldark:text-blue-950">
@@ -96,6 +97,11 @@ const Petticoats = () => {
                         <p>To Make an Order Call : (347)771-2375</p>
                     </div>
                 </div>
+                <div class="aspect-w-16 aspect-h-16 mx-2 rounded-lg">
+                        <div class="rounded-lg">
+                            <Video src="https://www.youtube.com/embed/6Rhj4TND4F8?si=ffzjsvn6N6SXwpMj"/>
+                        </div>
+                     </div>
             </div>        
             </React.Fragment>
   )
