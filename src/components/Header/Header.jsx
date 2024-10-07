@@ -16,13 +16,13 @@ const Header = () => {
                         />
                         <span class="self-center text-4xl font-extrabold text-7xl text-blue-900">
                             Saree Pasal
-                            <p class="self-center text-xl font-extrabold text-7xl text-red-600">
+                            <div class="self-center text-xl font-extrabold text-7xl text-red-600">
                                 <br />All Sales Are Final !!!
                                 <br />No Return !!!    No Exchange !!!
                                 <p class="self-center text-sm text-green-600">
                                     Contact Us For Shipping Cost !!!
                                 </p>
-                            </p>
+                            </div>
                         </span>
                     </div>
                     <div class="sm:hidden flex p-1">
