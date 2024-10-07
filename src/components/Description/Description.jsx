@@ -50,9 +50,9 @@ const Description = ({title,detail,colors,size,code,note,price,src}) => {
                         </div>
                     </div>
                     <Phone/>
-                    <div class="rounded-lg shadow-xl">
+                    {src && <div class="rounded-lg shadow-xl">
                         <Video src={src}/>
-                    </div>
+                    </div>}
             </div>
         </div>
     </div>
