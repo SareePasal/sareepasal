@@ -12,8 +12,7 @@ const Gowns = () => {
     return (
         <div class="mx-10">
             {itemCode && itemCode.map((object, i) =>
-                <div class="flex-row">
-                    key={i}
+                <div class="flex-row" key={i}>                    
                     <Slider imageList={object.images} key={i}/>
                     <Description description ={object.description} key={i}/>
                 </div>)

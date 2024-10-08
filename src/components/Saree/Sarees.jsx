@@ -16,8 +16,7 @@ const Sarees = () => {
         <div class="mx-10">
             {/* Vendor: Leranath Fashion Item: FB-L228*/}
             {itemCode && itemCode.map((object, i) => 
-                <div class="flex-row">
-                    key={i}
+                <div class="flex-row" key={i}>                    
                     <Slider imageList={object.images} key={i}/>
                     <Description description ={object.description} key={i}/>
                 </div>)
