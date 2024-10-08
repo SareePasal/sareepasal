@@ -44,31 +44,32 @@ const Header = () => {
                             </div>
                         </span>
                     </div>
-                    {/* Navigation Items */}
+                    {/* Navigation Items -- Mobile */}
                     <div class="md:hidden">
                         <ul class="text-sm sm:font-bold sm:text-lg flex flex-row  mt-1">
                             <li>
-                                <Link href="/" class="block p-2 sm:p-4 font-bold block text-blue-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 
-                                md:hover:text-blue-700 md:p-0 dark:text-green-600" aria-current="page">Home</Link>
+                                <Link href="/" class="block p-2 sm:p-4 font-bold block text-blue-900 rounded md:hover:bg-transparent md:border-0 
+                                md:hover:text-blue-700 md:p-0 dark:text-green-600 hover:text-blue-700" aria-current="page">Home</Link>
                             </li>
                             <li>
-                                <Link href="/Saree_All" class="block p-2 sm:p-4 font-bold text-blue-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 
-                                md:hover:text-blue-700 md:p-0 dark:text-green-600  ">Saree</Link>
+                                <Link href="/Saree_All" class="block p-2 sm:p-4 font-bold text-blue-900 rounded md:hover:bg-transparent md:border-0 
+                                md:hover:text-blue-700 md:p-0 dark:text-green-600 hover:text-blue-700 ">Saree</Link>
                             </li>
                             <li>
-                                <Link href="/Lehenga" class="block p-2 sm:p-4 font-bold text-blue-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 
-                                md:hover:text-blue-700 md:p-0 dark:text-green-600">Lehenga</Link>
+                                <Link href="/Lehenga" class="block p-2 sm:p-4 font-bold text-blue-900 rounded md:hover:bg-transparent md:border-0 
+                                md:hover:text-blue-700 md:p-0 dark:text-green-600 hover:text-blue-700">Lehenga</Link>
                             </li>
                             <li>
-                                <Link href="/Gown" class="block p-2 sm:p-4 font-bold text-blue-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 
-                                md:hover:text-blue-700 md:p-0 dark:text-green-600">Gown</Link>
+                                <Link href="/Gown" class="block p-2 sm:p-4 font-bold text-blue-900 rounded md:hover:bg-transparent md:border-0 
+                                md:hover:text-blue-700 md:p-0 dark:text-green-600 hover:text-blue-700">Gown</Link>
                             </li>
                             <li>
-                                <Link href="/MensWear" class="block p-2 sm:p-4 font-bold text-blue-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 
-                                md:hover:text-blue-700 md:p-0 dark:text-green-600">Men's Wear</Link>
+                                <Link href="/MensWear" class="block p-2 sm:p-4 font-bold text-blue-900 rounded  md:hover:bg-transparent md:border-0 
+                                md:hover:text-blue-700 md:p-0 dark:text-green-600 hover:text-blue-700">Men's Wear</Link>
                             </li>
                         </ul>
                     </div>
+                    {/* Navigation Items -- Big Screen */}
                     <div class="hidden md:block" id="navbar-default">
                         <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0">
                             <li>
@@ -104,14 +105,14 @@ const Header = () => {
             </nav>
             <div class="flex h-18  items-center justify-center bg-black">
                 <span class="absolute mx-auto py-4 flex border w-fit bg-gradient-to-r 
-                            blur-xl from-blue-500 via-teal-500 to-pink-500 bg-clip-text text-3xl 
+                            blur-xl from-blue-500 via-teal-500 to-pink-500 bg-clip-text text-2xl 
                             box-content font-extrabold text-transparent text-center select-none">
                                 Happy Dashain and Diwali
                 </span>
                 <h1
                     class="relative top-0 w-fit h-auto py-4 justify-center flex 
                             bg-gradient-to-r items-center from-blue-500 via-teal-500 to-pink-500 
-                            bg-clip-text text-3xl font-extrabold text-transparent text-center select-auto">
+                            bg-clip-text text-2xl font-extrabold text-transparent text-center select-auto">
                                 Happy Dashain and Diwali
                 </h1>
             </div>
