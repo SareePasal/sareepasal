@@ -14,7 +14,7 @@ const Lehengas = () => {
         <div class="mx-10">
             {itemCode && itemCode.map((object, i) =>
                 <div class="flex-row">
-                    <li key={i}>{object}</li>
+                    key={i}
                     <Slider imageList={object.images} key={i}/>
                     <Description description ={object.description} key={i}/>
                 </div>)
