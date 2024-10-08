@@ -4,7 +4,7 @@ export default function PhoneIcon () {
   return (
     <div>
       <a class="text-black" href="tel:347-771-2375">
-      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 my-2 px-5 rounded-lg">
+      <button class="bg-blue-400 hover:bg-blue-700 text-white font-bold py-1 my-2 px-5 rounded-lg">
             <svg class="h-10 w-10 text-black" width="24" height="24" viewBox="0 0 24 24"
                 stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
                 stroke-linejoin="round">  
