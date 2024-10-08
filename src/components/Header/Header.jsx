@@ -65,7 +65,7 @@ const Header = () => {
                             </li>
                             <li>
                                 <Link href="/MensWear" class="block p-2 sm:p-4 font-bold text-blue-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 
-                                md:hover:text-blue-700 md:p-0 dark:text-green-600">Men's Wear</Link>
+                                md:hover:text-blue-700 md:p-0 dark:text-green-600">Mens Wear</Link>
                             </li>
                         </ul>
                     </div>
@@ -95,7 +95,7 @@ const Header = () => {
                             <li>
                                 <Link href="/MensWear" class="block text-blue-900 text-xl font-bold rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0
                                  md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white 
-                                 md:dark:hover:bg-transparent">Men's Wear</Link>
+                                 md:dark:hover:bg-transparent">Mens Wear</Link>
                             </li>
                         </ul>
                     </div>
