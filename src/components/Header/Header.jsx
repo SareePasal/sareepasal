@@ -67,6 +67,11 @@ const Header = () => {
                                 <Link href="/MensWear" class="block p-2 sm:p-4 font-bold text-blue-900 rounded  md:hover:bg-transparent md:border-0 
                                 md:hover:text-blue-700 md:p-0 dark:text-green-600 hover:text-blue-700">Men's Wear</Link>
                             </li>
+                            <li>
+                                <Link href="/About" class="block p-2 sm:p-4 font-bold text-blue-900 rounded  md:hover:bg-transparent md:border-0 
+                                md:hover:text-blue-700 md:p-0 dark:text-green-600 hover:text-blue-700">About</Link>
+                            </li>
+
                         </ul>
                     </div>
                     {/* Navigation Items -- Big Screen */}
@@ -98,6 +103,12 @@ const Header = () => {
                                  md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white 
                                  md:dark:hover:bg-transparent">Men's Wear</Link>
                             </li>
+                            <li>
+                                <Link href="/About" class="block text-blue-900 text-xl font-bold rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0
+                                 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white 
+                                 md:dark:hover:bg-transparent">About</Link>
+                            </li>
+
                         </ul>
                     </div>
                 </div>
