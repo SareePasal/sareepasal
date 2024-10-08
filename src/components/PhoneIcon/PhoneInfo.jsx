@@ -14,7 +14,7 @@ export default function PhoneIcon () {
                 <path d="M15 3a6 6 0 0 1 6 6" />
             </svg></button></a>
            <a class="text-black text-sm  dark:text-blue-950 font-bold" href="tel:347-771-2375">
-            <br/>To make an order Call using above button</a>
+            <br/>To make an order, Call using above button</a>
         </div>
   );
 }
