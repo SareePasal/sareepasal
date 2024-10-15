@@ -127,11 +127,11 @@ const Header = () => {
                                 Happy Dashain and Diwali
                 </h1>
             </div>
-            <div class="flex items-center justify-center text-2xl text-red font-bold italic 
+           {/*  <div class="flex items-center justify-center text-2xl text-red font-bold italic 
                             text-green-600 underline decoration-red-900 decoration-4" >
                 <br />Pre-Order Available Now !!!!
                 <br /><br />
-            </div>
+            </div> */}
         </header>
     );
 };
