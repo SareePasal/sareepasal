@@ -5,7 +5,7 @@ import Image from 'next/image'
 const About = () => {
     const item = [
         {
-            link: "/Urwashi",
+            link: "/About",
             src: "/Urwashi.jpg",
             text: "Urwashi"
         }
@@ -23,7 +23,7 @@ const About = () => {
             <div class="max-w-screen-xl flex justify-center mx-auto p-4">
                 <span class="text-sm md:text-lg font-semibold text-gray-500 dark:text-gray-400">
                     Sare Pasal is an online boutique started by a stay-at-home mom, with the encouragement and support of her husband.
-                    <br />It offers a wide range of ethnic wear, including sarees, lehengas, and suits, designed for Nepali and South Asian women.
+                    <br />It offers a wide range of ethnic wear, including sarees, lehengas, and suits, designed for Indian, Nepali and South Asian women.
                     <br />The shop also provides accessories such as necklaces, earrings, bangles, and more, ensuring women have everything they
                     <br />need for traditional events and special occasions. Sare Pasal prides itself on offering high-quality products at the most
                     <br />affordable prices compared to other competitive shops, delivering cultural richness and value right to the customer’s doorstep.
