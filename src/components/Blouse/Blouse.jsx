@@ -3,9 +3,10 @@ import Slider from '../Slider/Slider'
 import Description from "../Description/Description"
 import AR6047 from "./AR6047"
 import AR6058 from "./AR6058"
+import AR6053 from "./AR6053"
 
 //Add Items Here
-const itemCode = [AR6047,AR6058]
+const itemCode = [AR6047,AR6058,AR6053]
 
 //Do Not Touch the code below
 const Blouses = () => {
