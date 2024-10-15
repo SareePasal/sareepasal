@@ -11,7 +11,7 @@ const item = {
     description: {
         title: "Zimichoo Balloon Sleeves Blouse",
         detail: ["Heavy Pure Soft Zimichoo"],
-        colors: "Gold, Red, Green, Pink. Blue",
+        colors: "Gold, Red, Green, Pink, Blue",
         size: "Small, Medium, Large",
         code: "AR-6047",
         price: "$19.99"
