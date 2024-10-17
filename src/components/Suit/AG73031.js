@@ -1,9 +1,9 @@
 const item = {
     images: [
-        { src: '/Images/Suits/Appereal Garment/68177/68177 (4).jpeg', alt: '4', width: 320, height: 300 },
-        { src: '/Images/Suits/Appereal Garment/68177/68177 (1).jpeg', alt: '1', width: 300, height: 300 },
-        { src: '/Images/Suits/Appereal Garment/68177/68177 (2).jpeg', alt: '2', width: 300, height: 300 },
-        { src: '/Images/Suits/Appereal Garment/68177/68177 (3).jpeg', alt: '3', width: 300, height: 300 },
+        { src: '/Images/Suits/Appereal Garment/73031/73031 (4).jpeg', alt: '4', width: 320, height: 300 },
+        { src: '/Images/Suits/Appereal Garment/73031/73031 (1).jpeg', alt: '1', width: 300, height: 300 },
+        { src: '/Images/Suits/Appereal Garment/73031/73031 (2).jpeg', alt: '2', width: 300, height: 300 },
+        { src: '/Images/Suits/Appereal Garment/73031/73031 (3).jpeg', alt: '3', width: 300, height: 300 },
 
     ],
     description: {
