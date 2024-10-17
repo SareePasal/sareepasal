@@ -13,7 +13,7 @@ const item = {
         colors: "Pink, Beige, Champagne",
         size: "Free",
         code: "FB L228",
-        price: "$79.99"
+        price: "$59.99"
 
     }
 

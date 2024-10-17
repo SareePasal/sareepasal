@@ -17,7 +17,7 @@ const item = {
         colors: "Purple, Black, Teal Green, Green, Blue, Pink,Navy Blue,Pink, Yellow",
         size: "Free",
         code: "NA-4001",
-        price: "$79.99"
+        price: "$59.99"
     }
 
 }
