@@ -14,7 +14,7 @@ const item = {
         title: "Silky Zimichoo Blouse",
         detail: ["Heavy Soft Silky Zimichoo"],
         colors: "Purple, Pink, Violet, Red, Black, Green, Rani, Maroon",
-        size: "Small, Medium, Large",
+        size: "Plus Size 40” Ready ulter upto 42 Inch.",
         code: "AR-6058",
         price: "$17.99"
     }
