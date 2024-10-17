@@ -22,7 +22,7 @@ const item = {
         title: "Jari Embroidery & Sequence Blouse",
         detail: ["Heavy Jari Embroidery & Sequence Work","Fabric: Heavy Pure Vichitra Silk ."],
         colors: "Black, Purple, White, Orange, Gold, Red, Green, Pink, Blue",
-        size: "Small, Medium, Large",
+        size: "Plus Size 40” Ready ulter upto 42 Inch.",
         code: "AR-6053",
         price: "$17.99"
     }

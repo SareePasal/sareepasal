@@ -21,6 +21,10 @@ const HomePage = () => {
             link: "/Gown",
             src: "/Gown.jpg",
             text: "Gown"
+        },{
+            link: "/Suit",
+            src: "/Suit.jpg",
+            text: "Suit"
         },
         {
             link: "/Lehenga",

@@ -56,22 +56,21 @@ const Header = () => {
                                 md:hover:text-blue-700 md:p-0 dark:text-green-600 hover:text-blue-700 ">Saree</Link>
                             </li>
                             <li>
-                                <Link href="/Lehenga" class="block p-2 sm:p-4 font-bold text-blue-900 rounded md:hover:bg-transparent md:border-0 
-                                md:hover:text-blue-700 md:p-0 dark:text-green-600 hover:text-blue-700">Lehenga</Link>
-                            </li>
-                            <li>
                                 <Link href="/Gown" class="block p-2 sm:p-4 font-bold text-blue-900 rounded md:hover:bg-transparent md:border-0 
                                 md:hover:text-blue-700 md:p-0 dark:text-green-600 hover:text-blue-700">Gown</Link>
+                            </li>
+                            <li>
+                                <Link href="/Suit" class="block p-2 sm:p-4 font-bold text-blue-900 rounded md:hover:bg-transparent md:border-0 
+                                md:hover:text-blue-700 md:p-0 dark:text-green-600 hover:text-blue-700">Suit</Link>
+                            </li>
+                            <li>
+                                <Link href="/Lehenga" class="block p-2 sm:p-4 font-bold text-blue-900 rounded md:hover:bg-transparent md:border-0 
+                                md:hover:text-blue-700 md:p-0 dark:text-green-600 hover:text-blue-700">Lehenga</Link>
                             </li>
                             <li>
                                 <Link href="/MensWear" class="block p-2 sm:p-4 font-bold text-blue-900 rounded  md:hover:bg-transparent md:border-0 
                                 md:hover:text-blue-700 md:p-0 dark:text-green-600 hover:text-blue-700">Men</Link>
                             </li>
-                            <li>
-                                <Link href="/About" class="block p-2 sm:p-4 font-bold text-blue-900 rounded  md:hover:bg-transparent md:border-0 
-                                md:hover:text-blue-700 md:p-0 dark:text-green-600 hover:text-blue-700">About</Link>
-                            </li>
-
                         </ul>
                     </div>
                     {/* Navigation Items -- Big Screen */}
@@ -88,27 +87,25 @@ const Header = () => {
                                 md:dark:hover:bg-transparent">Saree</Link>
                             </li>
                             <li>
+                                <Link href="/Gown" class="block text-blue-900 text-xl font-bold rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 
+                                md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white 
+                                md:dark:hover:bg-transparent">Gown</Link>
+                            </li>
+                            <li>
+                                <Link href="/Suit" class="block text-blue-900 text-xl font-bold rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 
+                                md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white 
+                                md:dark:hover:bg-transparent">Suit</Link>
+                            </li>
+                            <li>
                                 <Link href="/Lehenga" class="block text-blue-900 text-xl font-bold rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 
                                 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white 
                                 md:dark:hover:bg-transparent">Lehenga</Link>
                             </li>
                             <li>
-                                <Link href="/Gown" class="block text-blue-900 text-xl font-bold rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 
-                                md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white 
-                                md:dark:hover:bg-transparent">Gown</Link>
-                            </li>
-
-                            <li>
                                 <Link href="/MensWear" class="block text-blue-900 text-xl font-bold rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0
                                  md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white 
                                  md:dark:hover:bg-transparent">Men</Link>
                             </li>
-                            <li>
-                                <Link href="/About" class="block text-blue-900 text-xl font-bold rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0
-                                 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white 
-                                 md:dark:hover:bg-transparent">About</Link>
-                            </li>
-
                         </ul>
                     </div>
                 </div>
