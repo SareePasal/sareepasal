@@ -4,7 +4,7 @@ const item = {
 
     ],
     description: {
-        title: "RAYON LUCKNOWI SEQUENCE WORK MEN’S KURTA WITH PAYJAMA",
+        title: "RAYON LUCKNOWI SEQUENCE WORK MEN’S KURTA WITH PAYJAMA   (Pre-Order)",
         detail: ["Traditional rayon lucknowi sequence work men’s kurta with payjama green",
             "KURTA DETAIL : HEAVY RAYON WITH LUCKNOWI WORK & SEQUENCE",
             "PAYJAMA FABRIC : COTTON",
@@ -13,7 +13,7 @@ const item = {
         colors: "Maroon",
         size: " Medium, Large",
         code: " AG69762",
-        price: "$34.99"
+        price: "$34.99   (Pre-Order)"
     }
 
 }

@@ -5,7 +5,7 @@ const item = {
 
     ],
     description: {
-        title: "BANGLORI SILK MENS KURTA PANT WITH EMBROIDERY SEQUENCE WORK KOTI",
+        title: "BANGLORI SILK MENS KURTA PANT WITH EMBROIDERY SEQUENCE WORK KOTI   (Pre-Order)",
         detail: ["Designer banglori silk mens kurta pant with embroidery sequence work koti pink",
             "MENS KURTA PANT WITH KOTI SET",
             "KURTA",
@@ -22,7 +22,7 @@ const item = {
         colors: "Pink",
         size: " Medium, Large",
         code: " AG72579",
-        price: "$49.99"
+        price: "$49.99   (Pre-Order)"
     }
 
 }
