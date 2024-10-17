@@ -13,7 +13,7 @@ const item = {
         colors: "Pink, Gren, Red, Maroon, Purple, Black",
         size: "M-38, L-40",
         code: "H-2276",
-        price: "$39.99"
+        price: "$34.99"
     }
 
 }

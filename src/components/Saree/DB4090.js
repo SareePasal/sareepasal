@@ -13,7 +13,7 @@ const item = {
         colors: "Purple, Green, Blue, Red",
         size: "Free",
         code: "DB-4090",
-        price: "$99.99"
+        price: "$69.99"
     }
 
 }

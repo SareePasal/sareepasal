@@ -25,7 +25,7 @@ const item = {
         colors: "Blue, Pink, Yellow",
         size: "S(36), M(38), L(40), XL(42)",
         code: "LR-1005",
-        price: "$79.99"
+        price: "$69.99"
     }
 
 }

@@ -15,7 +15,7 @@ const item = {
         colors: "Blue, Orange, Pink",
         size: "Free",
         code: "VC-4052",
-        price: "$79.99"
+        price: "$64.99"
     }
 
 }
