@@ -1,5 +1,5 @@
 import Phone from '../PhoneIcon/PhoneInfo'
-import Cart from '../Cart/Cart'
+import AddCart from '../AddCart/AddCart'
 import * as React from 'react';
 
 const Description = ({description}) => {
@@ -51,7 +51,7 @@ const Description = ({description}) => {
                         </div>
                     </div>
                     <Phone/>
-                    <Cart id={description.code}/>
+                    <AddCart id={description.code}/>
                     {/* {src && <div class="rounded-lg shadow-xl">
                         <Video src={src}/>
                     </div>} */}

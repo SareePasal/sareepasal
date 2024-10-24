@@ -13,6 +13,23 @@ class Store {
             color: ""
         },
         {
+            id: "AG64101",
+            name: 'COTTON SEQUENCE WORK MEN’S KURTA WITH PAYJAMA   (Pre-Order)',
+            price: 34.99,
+            images: [
+                { src: '/Images/MensWear/Appereal Garment/64101/64101-5.jpeg', alt: '2', width: 300, height: 300 },
+            ],
+            color: ""
+        },
+        {
+            id: "AG67333",
+            name: 'COTTON EMBROIDERY WORK MEN’S KURTA WITH PAYJAMA    (Pre-Order)',
+            price: 44.99,
+            images: [
+                { src: '/Images/MensWear/Appereal Garment/67333/67333-1 (1).jpg', alt: '1', width: 300, height: 300 },            ],
+            color: ""
+        },
+        {
             id: "AR-6058",
             name: 'Silky Zimichoo Blouse',
             price: 17.99,
