@@ -51,6 +51,7 @@ const Header = observer(() => {
                             </div>
                         </span>
                     </div>
+
                     {/* Navigation Items -- Mobile */}
                     <div class="md:hidden">
                         <ul class="text-sm sm:font-bold sm:text-lg flex flex-row  mt-1">
@@ -63,12 +64,16 @@ const Header = observer(() => {
                                 md:hover:text-blue-700 md:p-0 dark:text-green-600 hover:text-blue-700 ">Saree</Link>
                             </li>
                             <li>
-                                <Link href="/Lehenga" class="block p-2 sm:p-4 font-bold text-blue-900 rounded md:hover:bg-transparent md:border-0 
-                                md:hover:text-blue-700 md:p-0 dark:text-green-600 hover:text-blue-700">Lehenga</Link>
-                            </li>
-                            <li>
                                 <Link href="/Gown" class="block p-2 sm:p-4 font-bold text-blue-900 rounded md:hover:bg-transparent md:border-0 
                                 md:hover:text-blue-700 md:p-0 dark:text-green-600 hover:text-blue-700">Gown</Link>
+                            </li>
+                            <li>
+                                <Link href="/Suit" class="block p-2 sm:p-4 font-bold text-blue-900 rounded md:hover:bg-transparent md:border-0 
+                                md:hover:text-blue-700 md:p-0 dark:text-green-600 hover:text-blue-700">Suit</Link>
+                            </li>
+                            <li>
+                                <Link href="/Lehenga" class="block p-2 sm:p-4 font-bold text-blue-900 rounded md:hover:bg-transparent md:border-0 
+                                md:hover:text-blue-700 md:p-0 dark:text-green-600 hover:text-blue-700">Lehenga</Link>
                             </li>
                             <li>
                                 <Link href="/MensWear" class="block p-2 sm:p-4 font-bold text-blue-900 rounded  md:hover:bg-transparent md:border-0 
@@ -101,16 +106,20 @@ const Header = observer(() => {
                                 md:dark:hover:bg-transparent">Saree</Link>
                             </li>
                             <li>
-                                <Link href="/Lehenga" class="block text-blue-900 text-xl font-bold rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 
-                                md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white 
-                                md:dark:hover:bg-transparent">Lehenga</Link>
-                            </li>
-                            <li>
                                 <Link href="/Gown" class="block text-blue-900 text-xl font-bold rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 
                                 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white 
                                 md:dark:hover:bg-transparent">Gown</Link>
                             </li>
-
+                            <li>
+                                <Link href="/Suit" class="block text-blue-900 text-xl font-bold rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 
+                                md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white 
+                                md:dark:hover:bg-transparent">Suit</Link>
+                            </li>
+                            <li>
+                                <Link href="/Lehenga" class="block text-blue-900 text-xl font-bold rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 
+                                md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white 
+                                md:dark:hover:bg-transparent">Lehenga</Link>
+                            </li>
                             <li>
                                 <Link href="/MensWear" class="block text-blue-900 text-xl font-bold rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0
                                  md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white 
@@ -137,20 +146,35 @@ const Header = observer(() => {
                 <span class="absolute mx-auto py-4 flex border w-fit bg-gradient-to-r 
                             blur-xl from-blue-500 via-teal-500 to-pink-500 bg-clip-text text-2xl 
                             box-content font-extrabold text-transparent text-center select-none">
-                                Happy Dashain and Diwali
+                    Happy Dashain and Diwali
                 </span>
                 <h1
                     class="relative top-0 w-fit h-auto py-4 justify-center flex 
                             bg-gradient-to-r items-center from-blue-500 via-teal-500 to-pink-500 
                             bg-clip-text text-2xl font-extrabold text-transparent text-center select-auto">
-                                Happy Dashain and Diwali
+                    Happy Dashain and Diwali
                 </h1>
             </div>
-            <div class="flex items-center justify-center text-2xl text-red font-bold italic 
+            
+            {/* Search Box */}
+{/*             <form class="w-80 max-w-md mx-auto">
+                <label for="default-search" class="mb-2 text-sm font-medium text-gray-600 sr-only dark:text-white">Search</label>
+                <div class="relative">
+                    <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                        <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                        </svg>
+                    </div>
+                    <input type="search" id="default-search" class="block w-full p-1 ps-14 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search ......" required />
+                    <button type="submit" class="text-white absolute end-0.5 bottom-1 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-0.5 py-0.5 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
+                </div>
+                <br />
+            </form> */}
+            {/*  <div class="flex items-center justify-center text-2xl text-red font-bold italic 
                             text-green-600 underline decoration-red-900 decoration-4" >
                 <br />Pre-Order Available Now !!!!
                 <br /><br />
-            </div>
+            </div> */}
         </header>
     );
 });
