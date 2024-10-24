@@ -1,9 +1,9 @@
 import Phone from '../PhoneIcon/PhoneInfo'
-import Video from '../Video/Video'
+import Cart from '../Cart/Cart'
 import * as React from 'react';
 
 const Description = ({description}) => {
-    console.log(description)
+
     return (
         <div class="flex justify-between sm:w-5/6 h-full mx-auto ">
             <div class="">
@@ -51,6 +51,7 @@ const Description = ({description}) => {
                         </div>
                     </div>
                     <Phone/>
+                    <Cart id={description.code}/>
                     {/* {src && <div class="rounded-lg shadow-xl">
                         <Video src={src}/>
                     </div>} */}

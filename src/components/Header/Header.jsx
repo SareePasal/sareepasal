@@ -1,8 +1,14 @@
-import * as React from 'react';
-import Image from 'next/image'
-import Link from 'next/link'
+'use client'
+import { useState, useContext } from "react";
+import Image from 'next/image';
+import Link from 'next/link';
+import {StoreContext} from "../provider/Provider";
+import { observer } from "mobx-react";
 
-const Header = () => {
+
+const Header = observer(() => {
+    const { currentCart,carts } = useContext(StoreContext)
+    const[cart,setCart] = useState(currentCart)
     return (
         <header>
             <nav class="bg-pink-100 border-gray-200 dark:bg-pink-950">
@@ -68,8 +74,14 @@ const Header = () => {
                                 md:hover:text-blue-700 md:p-0 dark:text-green-600 hover:text-blue-700">Men</Link>
                             </li>
                             <li>
-                                <Link href="/About" class="block p-2 sm:p-4 font-bold text-blue-900 rounded  md:hover:bg-transparent md:border-0 
-                                md:hover:text-blue-700 md:p-0 dark:text-green-600 hover:text-blue-700">About</Link>
+                                <Link href="/About" class=" relative block p-2 sm:p-4 font-bold text-blue-900 rounded  md:hover:bg-transparent md:border-0 
+                                md:hover:text-blue-700 md:p-0 dark:text-green-600 hover:text-blue-700 fa-solid fa-cart-shopping">
+                                    { cart.length > 0 &&
+                                        <div class="bg-slate-700 rounded-full h-4 w-4 absolute z-10 top-0 left-1">
+                                            <span class='font-bold text-xs absolute z-20 right-1 text-white'> {cart.length} </span>
+                                        </div>
+                                    }
+                                </Link>
                             </li>
 
                         </ul>
@@ -104,9 +116,15 @@ const Header = () => {
                                  md:dark:hover:bg-transparent">Men</Link>
                             </li>
                             <li>
-                                <Link href="/About" class="block text-blue-900 text-xl font-bold rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0
+                                <Link href="/cart" class=" relative block text-blue-900 text-xl font-bold rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0
                                  md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white 
-                                 md:dark:hover:bg-transparent">About</Link>
+                                 md:dark:hover:bg-transparent fa-solid fa-cart-shopping">
+                                    { cart.length > 0 &&
+                                        <div class="bg-slate-700 rounded-full h-4 w-4 absolute z-10 -top-3 left-1">
+                                            <span class='font-bold text-xs absolute z-10 right-1 text-white' > {cart.length} </span>
+                                        </div>
+                                    }
+                                </Link>
                             </li>
 
                         </ul>
@@ -134,7 +152,7 @@ const Header = () => {
             </div>
         </header>
     );
-};
+});
 export default Header;
 
 
