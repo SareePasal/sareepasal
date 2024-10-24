@@ -7,8 +7,9 @@ import { observer } from "mobx-react";
 
 
 const Header = observer(() => {
-    const { currentCart,carts } = useContext(StoreContext)
+    const { currentCart,carts,totalPrice } = useContext(StoreContext)
     const[cart,setCart] = useState(currentCart)
+    console.log(cart,carts,totalPrice)
     return (
         <header>
             <nav class="bg-pink-100 border-gray-200 dark:bg-pink-950">
