@@ -3,18 +3,28 @@ import Image from 'next/image';
 const Display = ({item}) =>{
     const { src,alt,height,width } = item.image[0]
     return (
-        <div class="flex items-center p-10">
-            <Image
-                src={src}
-                width={height}
-                height={width}
-                alt={alt}
-                class="rounded-lg w-1/4"
+        <tr class="text-xs ">
+            <td class="w-6/12 md:w-3/12 p-3">
+                <Image
+                    src={src}
+                    width={width}
+                    height={height}
+                    alt={alt}
+                    class="rounded-lg"
                 />
-            <span class="text-sm md:text-lg">{item.name}</span>
-            <span class="p-1 font-semibold">quantity:{item.quantity}</span>
-            <span>totalPrice:{item.total}</span>
-        </div>
+                <span class="text-xs md:text-md md:pr-10 text-wrap font-semibold text-clip flex justify-center mt-2">{item.name}</span>
+
+            </td>
+            <td>
+                <span class="p-1 font-semibold flex justify-center">{item.price}</span>
+            </td>
+            <td>
+                <span class="p-1 font-semibold flex justify-center">{item.quantity}</span>
+            </td>
+            <td>
+                <span class="p-1 font-semibold flex justify-center" >{item.total}</span>
+            </td>
+        </tr>
     )
 }
 

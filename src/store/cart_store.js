@@ -202,7 +202,7 @@ class Store {
     }
 
     get totalPrice(){
-        return this.carts.reduce((n,{total})=> n + total,0)
+        return Math.round(this.carts.reduce((n,{total})=> n + total,0) * 100)/100
     }
 }
 export default Store;
