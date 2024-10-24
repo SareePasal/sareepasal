@@ -1,5 +1,5 @@
 'use client'
-import { useState, useContext } from "react";
+import {useContext } from "react";
 import {StoreContext} from "../provider/Provider";
 import { observer } from "mobx-react";
 import Display from "./Display"
@@ -11,7 +11,7 @@ const Card = observer(() =>{
       {
         currentCart.map((object,i)=>{
           return(
-            <div class="flex justify-center p-4">
+            <div class="flex justify-center p-4" key={i}>
               <Display key={i} item={object}/>
             </div>
           )
