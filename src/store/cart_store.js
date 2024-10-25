@@ -145,30 +145,33 @@ class Store {
           carts: observable,
           addToCart: action,
           removeFromCart: action,
-          increaseQuantityInCar: action,
+          increaseQuantityInCart: action,
           decreaseQuantityInCart: action,
           currentCart: computed,
           totalPrice: computed,
         })
       }
 
-    get totalPrice(){
-        
-    }
     removeFromCart = (id) =>  {
         this.carts = this.carts.filter(item => {
             return item.product_id !== id;
         });
     }
-    increaseQuantityInCar = (id) => {
+    increaseQuantityInCart = (id) => {
         this.carts.map(item => {
-            if (item.product_id === id) item.quantity += 1;
+            if (item.id === id ) {
+                item.quantity += 1;
+                item.total = Math.round((item.quantity * item.price) *100)/100
+            }
             return item;
         });
     }
     decreaseQuantityInCart = (id) =>  {
         this.carts.map(item => {
-            if (item.product_id === id && item.quantity > 1) item.quantity -= 1;
+            if (item.id === id && item.quantity > 0){
+                item.quantity -= 1;
+                item.total = Math.round((item.quantity * item.price) *100)/100
+            }
             return item;
         });
     }
@@ -191,7 +194,7 @@ class Store {
                     item.price = this.products[i].price;
                     item.quantity = 1
                     item.id = this.products[i].id
-                    item.total = item.quantity * item.price
+                    item.total = Math.round((item.quantity * item.price) *100)/100
                 }
             }
             this.carts.push(item);
@@ -204,5 +207,6 @@ class Store {
     get totalPrice(){
         return Math.round(this.carts.reduce((n,{total})=> n + total,0) * 100)/100
     }
+
 }
 export default Store;

@@ -3,7 +3,6 @@ import AddCart from '../AddCart/AddCart'
 import * as React from 'react';
 
 const Description = ({description}) => {
-
     return (
         <div class="flex justify-between sm:w-5/6 h-full mx-auto ">
             <div class="">

@@ -1,17 +1,16 @@
 'use client'
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import Image from 'next/image';
 import Link from 'next/link';
-import {StoreContext} from "../provider/Provider";
+import { StoreContext } from "../provider/Provider";
 import { observer } from "mobx-react";
 
 
 const Header = observer(() => {
     const { currentCart} = useContext(StoreContext)
-    console.log(currentCart)
     return (
         <header>
-            <nav class="bg-pink-100 border-gray-200 dark:bg-pink-950">
+            <nav class="bg-pink-100 border-gray-200 dark:bg-slate-800">
                 <div class="max-w-screen-xl flex flex-wrap xl:flex-row 
                         flex-col items-center md:justify-between mx-auto p-4">
                     <div class="hidden sm:flex flex-row justify-between p-4">
