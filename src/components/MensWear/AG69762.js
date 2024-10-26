@@ -1,7 +1,6 @@
 const item = {
     images: [
         { src: '/Images/MensWear/Appereal Garment/69762/69762-1.jpg', alt: '2', width: 300, height: 300 },
-
     ],
     description: {
         title: "RAYON LUCKNOWI SEQUENCE WORK MEN’S KURTA WITH PAYJAMA   (Pre-Order)",
@@ -12,7 +11,7 @@ const item = {
         ],
         colors: "Maroon",
         size: " Medium, Large",
-        code: " AG69762",
+        code: "AG69762",
         price: "$34.99   (Pre-Order)"
     }
 

@@ -21,6 +21,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/Resource/[id]/page.jsx", "src/app/Resources/page.jsx", "src/app/layout.tsx", "src/app/page.jsx", "src/app/Members/page.jsx", "src/app/Calendar/page.jsx", "src/app/Donations/page.jsx", "src/app/About/page.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/Resource/[id]/page.jsx", "src/app/Resources/page.jsx", "src/app/layout.jsx", "src/app/page.jsx", "src/app/Members/page.jsx", "src/app/Calendar/page.jsx", "src/app/Donations/page.jsx", "src/app/About/page.jsx"],
   "exclude": ["node_modules"]
 }
