@@ -20,9 +20,17 @@ const Description = ({description}) => {
                             </ul>
                         <div class="">
                             <h2 class="font-bold">Available Colors: </h2>
-                            <p class="text-black text-sm dark:text-blue-950 text-left mx-5 my-1">
-                                    {description.colors}                       
-                            </p>
+                            <div class="grid grid-cols-4">
+                                    {
+                                        description.colors.length > 0 &&
+                                        description.colors.map((object,i)=>(
+                                            <div class="flex flex-row justify-center">
+                                                <div class={`rounded-full w-10 h-10 shadow-md bg-pink`}></div>
+                                                <span>{object}</span>
+                                            </div>
+                                        ))
+                                    }                       
+                            </div>
                         </div>
                         <div>
                             <h2 class="font-bold">Size & Fit:</h2>

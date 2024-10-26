@@ -10,7 +10,7 @@ const item = {
     description: {
         title: "NEW LAUNCHING BEAUTIFUL FLAIR GOWN",
         detail: ["Premium Readymade Designer Gown Collections."],
-        colors: "Pink, Gren, Red, Maroon, Purple, Black",
+        colors: ["Pink", "Gren", "Red", "Maroon", "Purple", "Black"],
         size: "M-38, L-40",
         code: "H-2276",
         price: "$34.99"

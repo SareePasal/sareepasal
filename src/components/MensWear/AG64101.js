@@ -12,8 +12,8 @@ const item = {
             "KURTA WITH PAYJAMA",
 
         ],
-        colors: "Grey",
-        size: " Medium",
+        colors: ["Grey"],
+        size: "Medium",
         code: "AG64101",
         price: "$34.99   (Pre-Order)"
     }

@@ -14,7 +14,7 @@ const item = {
             "(4 inch LOOSENING )",
 
         ],
-        colors: "Grey",
+        colors: ["Grey"],
         size: " Small, Medium, Large",
         code: "AG67333",
         price: "$44.99   (Pre-Order)"
