@@ -1,11 +1,16 @@
-import * as React from 'react';
-import Image from 'next/image'
-import Link from 'next/link'
+'use client'
+import { useContext } from "react";
+import Image from 'next/image';
+import Link from 'next/link';
+import { StoreContext } from "../provider/Provider";
+import { observer } from "mobx-react";
 
-const Header = () => {
+
+const Header = observer(() => {
+    const { currentCart} = useContext(StoreContext)
     return (
         <header>
-            <nav class="bg-pink-100 border-gray-200 dark:bg-pink-950">
+            <nav class="bg-pink-100 border-gray-200 dark:bg-slate-800">
                 <div class="max-w-screen-xl flex flex-wrap xl:flex-row 
                         flex-col items-center md:justify-between mx-auto p-4">
                     <div class="hidden sm:flex flex-row justify-between p-4">
@@ -72,6 +77,17 @@ const Header = () => {
                                 <Link href="/MensWear" class="block p-2 sm:p-4 font-bold text-blue-900 rounded  md:hover:bg-transparent md:border-0 
                                 md:hover:text-blue-700 md:p-0 dark:text-green-600 hover:text-blue-700">Men</Link>
                             </li>
+                            <li>
+                                <Link href="/Cart" class=" relative block p-2 sm:p-4 font-bold text-blue-900 rounded  md:hover:bg-transparent md:border-0 
+                                md:hover:text-blue-700 md:p-0 dark:text-green-600 hover:text-blue-700 fa-solid fa-cart-shopping">
+                                    { currentCart.length > 0 &&
+                                        <div class="bg-slate-700 rounded-full h-4 w-4 absolute z-10 top-0 left-1">
+                                            <span class='font-bold text-xs absolute z-20 right-1 text-white'> {currentCart.length} </span>
+                                        </div>
+                                    }
+                                </Link>
+                            </li>
+
                         </ul>
                     </div>
                     {/* Navigation Items -- Big Screen */}
@@ -107,6 +123,18 @@ const Header = () => {
                                  md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white 
                                  md:dark:hover:bg-transparent">Men</Link>
                             </li>
+                            <li>
+                                <Link href="/Cart" class=" relative block text-blue-900 text-xl font-bold rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0
+                                 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white 
+                                 md:dark:hover:bg-transparent fa-solid fa-cart-shopping">
+                                    { currentCart.length > 0 &&
+                                        <div class="bg-slate-700 rounded-full h-4 w-4 absolute z-10 -top-3 left-1">
+                                            <span class='font-bold text-xs absolute z-10 right-1 text-white' > {currentCart.length} </span>
+                                        </div>
+                                    }
+                                </Link>
+                            </li>
+
                         </ul>
                     </div>
                 </div>
@@ -147,7 +175,7 @@ const Header = () => {
             </div> */}
         </header>
     );
-};
+});
 export default Header;
 
 

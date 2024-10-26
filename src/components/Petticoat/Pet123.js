@@ -14,7 +14,7 @@ const item = {
         detail: [""],
         colors: "Blue, Red, Black, Green, Rani, Maroon, Violet, Gold, Nude",
         size: "One Size Fits All",
-        code: "",
+        code: "P-1233",
         price: "$8.99"
     }
 

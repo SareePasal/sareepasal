@@ -18,7 +18,7 @@ const item = {
         ],
         colors: "Maroon",
         size: " Medium, Large",
-        code: " AG71422",
+        code: "AG71422",
         price: "$39.99   (Pre-Order)"
     }
 
