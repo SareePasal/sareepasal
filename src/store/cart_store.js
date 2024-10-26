@@ -13,23 +13,6 @@ class Store {
             color: ""
         },
         {
-            id: "AG64101",
-            name: 'COTTON SEQUENCE WORK MEN’S KURTA WITH PAYJAMA   (Pre-Order)',
-            price: 34.99,
-            images: [
-                { src: '/Images/MensWear/Appereal Garment/64101/64101-5.jpeg', alt: '2', width: 300, height: 300 },
-            ],
-            color: ""
-        },
-        {
-            id: "AG67333",
-            name: 'COTTON EMBROIDERY WORK MEN’S KURTA WITH PAYJAMA    (Pre-Order)',
-            price: 44.99,
-            images: [
-                { src: '/Images/MensWear/Appereal Garment/67333/67333-1 (1).jpg', alt: '1', width: 300, height: 300 },            ],
-            color: ""
-        },
-        {
             id: "AR-6058",
             name: 'Silky Zimichoo Blouse',
             price: 17.99,
@@ -39,9 +22,18 @@ class Store {
             color: ""
         },
         {
+            id: "AR-6053",
+            name: 'Jari Embroidery & Sequence Blouse',
+            price: 17.99,
+            image: [
+                { src: '/Images/Blouse/Leranath Fashion/AR-6053/AR6053 (1).jpg', alt: '1', width: 300, height: 300 },
+            ],
+            color: ""
+        },
+        {
             id: "H-2276",
             name: 'NEW LAUNCHING BEAUTIFUL FLAIR GOWN',
-            price: 39.99,
+            price: 34.99,
             image: [
                 { src: '/Images/Gown/Leranath Fashion/H-2276/1.jpg', alt: '1', width: 300, height: 300 },
             ],
@@ -50,7 +42,7 @@ class Store {
         {
             id: "LR-1005",
             name: 'GOWN WITH DUPATTA',
-            price: 79.99,
+            price: 69.99,
             image: [
                 { src: '/Images/Gown/Leranath Fashion/LR-1005/LR-1005 (1).jpg', alt: '1', width: 300, height: 300 },
             ],
@@ -102,9 +94,72 @@ class Store {
             color: ""
         },
         {
+            id: "IC-2411",
+            name: 'Premium Silk Kurtha',
+            price: 39.99,
+            image: [
+                { src: '/Images/MensWear/Leranath Fashion/IC-2411/IC-2411 (2).jpg', alt: '2', width: 300, height: 300 },
+            ],
+            color: ""
+        },
+        {
+            id: "AG72579",
+            name: 'BANGLORI SILK MENS KURTA',
+            price: 49.99,
+            image: [
+                { src: '/Images/MensWear/Appereal Garment/72579/72579-4 (2).jpeg', alt: '1', width: 300, height: 300 },
+            ],
+            color: ""
+        },
+        {
+            id: "AG71422",
+            name: 'SILK EMBROIDERY',
+            price: 39.99,
+            image: [
+                { src: '/Images/MensWear/Appereal Garment/71422-1/71422-1 (2).jpeg', alt: '2', width: 300, height: 300 },
+            ],
+            color: ""
+        },
+        {
+            id: "AG69762",
+            name: 'RAYON LUCKNOWI SEQUENCE WORK MEN’S',
+            price: 34.99,
+            image: [
+                { src: '/Images/MensWear/Appereal Garment/69762/69762-1.jpg', alt: '2', width: 300, height: 300 },
+            ],
+            color: ""
+        },
+        {
+            id: "AG68734",
+            name: 'COTTON JACQUARD WORK MEN’S',
+            price: 34.99,
+            image: [
+                { src: '/Images/MensWear/Appereal Garment/68734/68734-7 (1).jpeg', alt: '2', width: 300, height: 300 },
+            ],
+            color: ""
+        },
+        {
+            id: "AG67333",
+            name: 'COTTON EMBROIDERY WORK MEN’S KURTA',
+            price: 44.99,
+            image: [
+                { src: '/Images/MensWear/Appereal Garment/67333/67333-1 (1).jpg', alt: '1', width: 300, height: 300 },
+            ],
+            color: ""
+        },
+        {
+            id: "AG64101",
+            name: 'COTTON SEQUENCE WORK MEN’S KURTA WITH PAYJAMA',
+            price: 34.99,
+            image: [
+                { src: '/Images/MensWear/Appereal Garment/64101/64101-5.jpeg', alt: '2', width: 300, height: 300 },
+            ],
+            color: ""
+        },
+        {
             id: "DB-4090",
             name: 'JIMMY CHOO SILK WITH SEQUENCE EMBROIDERY DESIGN WORK',
-            price: 99.99,
+            price: 69.99,
             image: [
                 { src: '/Images/Saree/Leranath Fashion/DB-4090/DB-4090 (1).jpg', alt: '1', width: 300, height: 300 },
             ],
@@ -113,7 +168,7 @@ class Store {
         {
             id: "FB-L228",
             name: 'Net saree with fancy milky rainbow sequence',
-            price: 79.99,
+            price: 59.99,
             image: [
                 { src: '/Images/Saree/Leranath Fashion/FB L228/FB L228 (1).jpg', alt: '1', width: 300, height: 300 },
             ],
@@ -122,7 +177,7 @@ class Store {
         {
             id: "NA-4001",
             name: 'Banarasi saree',
-            price: 79.99,
+            price: 59.99,
             image: [
                 { src: '/Images/Saree/Leranath Fashion/NA-4001/NA-4001 (1).jpg', alt: '1', width: 300, height: 300 },
             ],
@@ -131,7 +186,7 @@ class Store {
         {
             id: "VC-4052",
             name: 'Chiffon Georgette',
-            price: 79.99,
+            price: 64.99,
             image: [
                 { src: '/Images/Saree/Leranath Fashion/VC-4052/VC-4052 (1).jpg', alt: '1', width: 300, height: 300 },
             ],
