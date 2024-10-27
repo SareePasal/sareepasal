@@ -19,7 +19,7 @@ const item = {
             "DUPATTA FABRIC :- FAUX GEORGETTE WITH EMBROIDERY WORK WITH FOUR SIDE LACE BORDER",
             ],
         colors: ["Yellow"],
-        size: "Medium",
+        size: ["Medium"],
         code: "62597",
         price: "$59.99 (Pre-Order)"
     }

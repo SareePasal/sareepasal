@@ -1,11 +1,11 @@
 const item = {
     images: [
+        { src: '/Images/Suits/Appereal Garment/71901/71901 (5).jpg', alt: '5', width: 213, height: 300 },
         { src: '/Images/Suits/Appereal Garment/71901/71901 (1).jpg', alt: '1', width: 213, height: 300 },
         { src: '/Images/Suits/Appereal Garment/71901/71901 (2).jpg', alt: '2', width: 213, height: 300 },
+        { src: '/Images/Suits/Appereal Garment/71901/71901 (6).jpg', alt: '6', width: 213, height: 300 },
         { src: '/Images/Suits/Appereal Garment/71901/71901 (3).jpg', alt: '3', width: 310, height: 300 },
         { src: '/Images/Suits/Appereal Garment/71901/71901 (4).jpg', alt: '4', width: 315, height: 300 },
-        { src: '/Images/Suits/Appereal Garment/71901/71901 (5).jpg', alt: '5', width: 213, height: 300 },
-        { src: '/Images/Suits/Appereal Garment/71901/71901 (6).jpg', alt: '6', width: 213, height: 300 },
 
     ],
     description: {
@@ -34,7 +34,7 @@ const item = {
             ,"SIZE : 2.2 METER"
         ],
         colors: ["Lavender"],
-        size: "Medium,Large",
+        size: ["Medium","Large"],
         code: "71901",
         price: "$49.99 (Pre-Order)"
     }

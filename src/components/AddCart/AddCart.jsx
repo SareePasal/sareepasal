@@ -7,10 +7,15 @@ import { observer } from "mobx-react";
  const AddCart = observer((id) => {
   const { addToCart } = useContext(StoreContext)
   const addingCart = () => {
-    if (id.color != ""){
+    if (id.color != "" && id.size !="" ){
       addToCart(id)
+    }else if (id.color == ""){
+      id.alert(true)
+    }else if (id.size == ""){
+      id.setAlertSize(true)
     }else{
       id.alert(true)
+      id.setAlertSize(true)
     }
   }
   return (

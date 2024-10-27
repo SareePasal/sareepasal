@@ -2,8 +2,8 @@ const item = {
     images: [
         { src: '/Images/Suits/Appereal Garment/68776/68776-2 (1).jpeg', alt: '1', width: 300, height: 300 },
         { src: '/Images/Suits/Appereal Garment/68776/68776-2 (2).jpeg', alt: '3', width: 300, height: 300 },
-        { src: '/Images/Suits/Appereal Garment/68776/68776-2 (3).jpeg', alt: '4', width: 280, height: 300 },
         { src: '/Images/Suits/Appereal Garment/68776/68776-2 (10).jpeg', alt: '5', width: 300, height: 300 },
+        { src: '/Images/Suits/Appereal Garment/68776/68776-2 (3).jpeg', alt: '4', width: 280, height: 300 },
 
     ],
     description: {
@@ -17,7 +17,7 @@ const item = {
             "SIZE :- XS(34) FULLY STITCHED COMPLETE READY TO WEAR",
             ],
         colors: ["Wine"],
-        size: "XS",
+        size: ["XS"],
         code: "AG68776",
         price: "$69.99 (Pre-Order)"
     }

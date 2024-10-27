@@ -29,7 +29,7 @@ const item = {
                 "SIZE :- XS[34]",
             ],
         colors: ["Wine"],
-        size: "XS",
+        size: ["XS"],
         code: "73369",
         price: "$54.99 (Pre-Order)"
     }

@@ -2,14 +2,14 @@ const item = {
     images: [
         { src: '/Images/Suits/Appereal Garment/68177/68177 (4).jpeg', alt: '1', width: 300, height: 300 },
         { src: '/Images/Suits/Appereal Garment/68177/68177 (5).jpeg', alt: '1', width: 300, height: 300 },
-        { src: '/Images/Suits/Appereal Garment/68177/68177 (1).jpeg', alt: '3', width: 280, height: 300 },
-        { src: '/Images/Suits/Appereal Garment/68177/68177 (2).jpeg', alt: '4', width: 280, height: 300 },
-        { src: '/Images/Suits/Appereal Garment/68177/68177 (3).jpeg', alt: '5', width: 280, height: 300 },
         { src: '/Images/Suits/Appereal Garment/68177/68177 (6).jpeg', alt: '3', width: 300, height: 300 },
         { src: '/Images/Suits/Appereal Garment/68177/68177 (7).jpeg', alt: '4', width: 300, height: 300 },
         { src: '/Images/Suits/Appereal Garment/68177/68177 (8).jpeg', alt: '5', width: 300, height: 300 },
         { src: '/Images/Suits/Appereal Garment/68177/68177 (9).jpeg', alt: '1', width: 300, height: 300 },
         { src: '/Images/Suits/Appereal Garment/68177/68177 (10).jpeg', alt: '1', width: 300, height: 300 },
+        { src: '/Images/Suits/Appereal Garment/68177/68177 (1).jpeg', alt: '3', width: 280, height: 300 },
+        { src: '/Images/Suits/Appereal Garment/68177/68177 (2).jpeg', alt: '4', width: 280, height: 300 },
+        { src: '/Images/Suits/Appereal Garment/68177/68177 (3).jpeg', alt: '5', width: 280, height: 300 },
 
     ],
     description: {
@@ -25,7 +25,7 @@ const item = {
             "SIZE :- XS(34) ,S(36) ,M(38) FULLY STITCHED READY TO WEAR",
             ],
         colors: ["Red"],
-        size: "XS, Small, Medium",
+        size: ["XS", "Small", "Medium"],
         code: "68177",
         price: "$44.99 (Pre-Order)"
     }

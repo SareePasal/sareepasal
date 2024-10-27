@@ -13,7 +13,7 @@ const item = {
             "DUPATTA : FAUX GEORGETTE",
         ],
         colors: ["Red"],
-        size: "Medium,Large, XL",
+        size: ["Medium","Large","XL"],
         code: "EG48594-3",
         price: "$36.99 (Pre-Order)"
     }

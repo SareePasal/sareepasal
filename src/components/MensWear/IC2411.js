@@ -21,7 +21,7 @@ const item = {
         title: "Premium Silk Kurtha",
         detail: ["Premium Silk With Embroidery Work Both side (kurta+Pyjama)","Pyjama : Raymond Cotton"],
         colors:[ "Blue", "Cream"],
-        size: "Small, Medium, Large",
+        size: ["Small", "Medium", "Large"],
         code: "IC-2411",
         price: "$39.99"
     }

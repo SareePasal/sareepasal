@@ -36,15 +36,21 @@ const colors = {
 
 const Description = ({description}) => {
     const [color, setColor] = useState("")
-    const [alert, setAlert] = useState(false)
+    const [size, setSize] = useState("")
+    const [alertColor, setAlertColor] = useState(false)
+    const [alertSize, setAlertSize] = useState(false)
     const onRadioChange =e=>{
        setColor(e.target.id)
-       setAlert(false)
+       setAlertColor(false)
     }
+    const onRadioSizeChange =e=>{
+        setSize(e.target.id)
+        setAlertSize(false)
+     }
     return (
-        <div class="flex justify-between sm:w-5/6 h-full mx-auto ">
+        <div class="flex sm:w-5/6 h-full mx-auto justify-center">
             <div class="">
-                <h1 class=" mb-2 text-xl font-bold md:text-2xl md:font-extrabold tracking-tight leading-none  text-blue-900 dark:text-blue-950">
+                <h1 class=" mb-2 text-xl font-semibold md:text-2xl md:font-extrabold tracking-tight leading-none  text-black dark:text-blue-950">
                     {description.title}
                 </h1>
                     <div class="mx-6">
@@ -64,12 +70,12 @@ const Description = ({description}) => {
                                         description.colors.map((object,i)=>(
                                             <div class="flex flex-row items-center" key={i}>
                                                 <div class=" p-1" key={i}>
-                                                    <input type="radio" id={object} class="checked:bg-blue-500" key={i} checked={object==color}
+                                                    <input type="radio" id={object} class="h-3 w-3 checked:bg-blue-500" key={i} checked={object==color}
                                                         onChange={onRadioChange}
                                                     />
                                                 </div>
                                                 
-                                                <div className={`rounded-full w-5 h-5 md:w-7 md:h-7 shadow-md ${colors[object]}`} key={i}></div>
+                                                <div className={`rounded-full w-5 h-5 shadow-md ${colors[object]}`} key={i}></div>
                                                 <span class="p-1 md:p-2 font-light md:font-semibold text-xs md:text-lg" key={i} >{object}</span>
                                             </div>
                                         ))
@@ -77,23 +83,33 @@ const Description = ({description}) => {
                                     }                       
                             </div>
                             <div>
-                            { alert && description.colors.length >1 &&
+                            { alertColor && description.colors.length >1 &&
                                 <span class="text-red-400 p-3">Please select a colors</span>
                             }
                             </div>
                         </div>
                         <div>
                             <h2 class="font-bold">Size & Fit:</h2>
-                            <p class="text-black text-sm dark:text-blue-950 text-left mx-5 my-1">
-                                {description.size}                          
-                            </p>
+                            <div class="grid grid-cols-2 md:grid-cols-4 pl-4">
+                                    {
+                                        description.size.length > 0 &&
+                                        description.size.map((object,i)=>(
+                                            <div class="flex flex-row items-center" key={i}>
+                                                <div class=" p-1" key={i}>
+                                                    <input type="radio" id={object} class="h-3 w-3 checked:bg-blue-500" key={i} checked={object==size}
+                                                        onChange={onRadioSizeChange}
+                                                    />
+                                                </div>
+                                                    <span class="p-1 md:p-2 font-light md:font-semibold text-xs md:text-lg" key={i} >{object}</span>
+                                            </div>
+                                        ))
+                                        
+                                    }                       
+                            </div>
                         </div>
-                        <div>
-                            <h2 class="font-bold">Product Code:</h2>
-                            <p class="text-black text-sm dark:text-blue-950 text-left mx-5 my-1">
-                                {description.code}
-                            </p>
-                        </div>
+                        { alertSize && description.colors.length >1 &&
+                                <span class="text-red-400 p-3">Please select a size</span>
+                        }
                         <div>
                             <h2 class="font-bold">Note:</h2>
                             <p class="text-black text-sm dark:text-blue-950 text-left mx-5 my-1">
@@ -108,7 +124,7 @@ const Description = ({description}) => {
                         </div>
                     </div>
                     <Phone/>
-                    <AddCart id={description.code} color={color} alert={setAlert}/>
+                    <AddCart id={description.code} color={color} size={size} alert={setAlertColor} setAlertSize={setAlertSize}/>
                     {/* {src && <div class="rounded-lg shadow-xl">
                         <Video src={src}/>
                     </div>} */}

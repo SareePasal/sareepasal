@@ -20,7 +20,7 @@ const item = {
             "LENGTH :- 2.2 METER",
         ],
         colors: ["Sky"],
-        size: "Medium,Large",
+        size: ["Medium","Large"],
         code: "62914",
         price: "$44.99 (Pre-Order)"
     }

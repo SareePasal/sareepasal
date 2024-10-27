@@ -13,7 +13,7 @@ const item = {
         title: "Chiffon Georgette",
         detail: ["Chiffon Georgette fabric with  Prizam print and c pallu dual sequence embroidery work and cutwork border."],
         colors: ["Blue", "Orange", "Pink"],
-        size: "Free",
+        size: ["Free"],
         code: "VC-4052",
         price: "$64.99"
     }

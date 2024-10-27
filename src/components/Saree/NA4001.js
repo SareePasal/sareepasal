@@ -15,7 +15,7 @@ const item = {
         title: "Banarasi saree",
         detail: ["Soft Banarasi silk saree with zari weaving Meenakari touchup design all over the saree & Meenakari weawing Rich pallu with Meenakari  weawing border & Tesseks attached at Pallu End"],
         colors: ["Purple", "Black", "Teal", "Green", "Blue", "Pink","Navy", "Yellow"],
-        size: "Free",
+        size: ["Free"],
         code: "NA-4001",
         price: "$59.99"
     }
