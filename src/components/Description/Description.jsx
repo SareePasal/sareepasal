@@ -53,19 +53,19 @@ const Description = ({description}) => {
                             </ul>
                         <div class="">
                             <h2 class="font-bold">Available Colors: </h2>
-                            <div class="grid grid-cols-4">
+                            <div class="grid grid-cols-2 md:grid-cols-4 pl-4">
                                     {
                                         description.colors.length > 0 &&
                                         description.colors.map((object,i)=>(
-                                            <div class="flex flex-row justify-center" key={i}>
-                                                <div class="flex flex-col justify-center p-1" key={i}>
+                                            <div class="flex flex-row items-center" key={i}>
+                                                <div class=" p-1" key={i}>
                                                     <input type="radio" id={object} class="checked:bg-blue-500" key={i} checked={object==color}
                                                         onChange={onRadioChange}
                                                     />
                                                 </div>
                                                 
-                                                <div className={`rounded-full w-10 h-10 shadow-md ${colors[object]}`} key={i}></div>
-                                                <span class="flex flex-col justify-center p-2" key={i} >{object}</span>
+                                                <div className={`rounded-full w-5 h-5 md:w-7 md:h-7 shadow-md ${colors[object]}`} key={i}></div>
+                                                <span class="p-1 md:p-2 font-light md:font-semibold text-xs md:text-lg" key={i} >{object}</span>
                                             </div>
                                         ))
                                         
@@ -73,7 +73,7 @@ const Description = ({description}) => {
                             </div>
                             <div>
                             { alert && description.colors.length >1 &&
-                                <span class="text-red-400">Please select a colors</span>
+                                <span class="text-red-400 p-3">Please select a colors</span>
                             }
                             </div>
                         </div>
