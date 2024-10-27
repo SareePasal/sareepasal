@@ -25,7 +25,12 @@ const colors = {
     Beige: "bg-stone-400",
     Champagne: "bg-neutral-500",
     Teal: "bg-teal-900",
-    Cream: "bg-lime-50"
+    Cream: "bg-lime-50",
+    Sky: 'bg-cyan-300',
+    Wine: "bg-pink-900",
+    Baby: "bg-pink-200",
+    Lavender:"bg-indigo-300",
+    Mustard: "bg-yellow-600"
   }
 
 
