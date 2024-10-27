@@ -22,7 +22,7 @@ const item = {
             "SHARARA FABRIC : GEORGETTE",
             "WORK : PRINTED WORK ", 
             ],
-        colors: "Pink",
+        colors: ["Pink"],
         size: "Samll,Medium",
         code: "72483",
         price: "$59.99 (Pre-Order)"

@@ -21,7 +21,7 @@ const item = {
             "DUPATTA : ORGANZA WITH DIGITAL PRINT AND HEAVY BORDER LACE WORK",
             "DUPATTA LENGTH : 2.2 METER",
         ],
-        colors: "White",
+        colors: ["White"],
         size: "Medium,Large",
         code: "73225-2",
         price: "$49.99 (Pre-Order)"

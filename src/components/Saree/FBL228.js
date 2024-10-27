@@ -10,7 +10,7 @@ const item = {
     description: {
         title: "Net saree with fancy milky rainbow sequence",
         detail: ["Net saree with fancy milky rainbow sequence & thread work + jhalar border work", "Net blouse with fancy milky rainbow sequence & thread work all over front & back Jhalar lace given"],
-        colors: "Pink, Beige, Champagne",
+        colors: ["Pink", "Beige", "Champagne"],
         size: "Free",
         code: "FB-L228",
         price: "$59.99"

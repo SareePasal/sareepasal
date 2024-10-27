@@ -21,7 +21,7 @@ const item = {
             "DUPATTA FABRIC :- FAUX GEORGETTE WITH SEQUENCE 5MM WORK WITH FOUR SIDE EMBROIDERY LACE BORDER",
             "DUPATTA LENGTH :- 2.40 METER",
             ],
-        colors: "Yellow",
+        colors: ["Yellow"],
         size: "Medium",
         code: "71236",
         price: "$49.99 (Pre-Order)"

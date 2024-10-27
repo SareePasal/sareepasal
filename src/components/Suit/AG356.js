@@ -25,7 +25,7 @@ const item = {
             "FABRIC :- 9MM ROMAN COTTON FABRIC EMBROIDERY",
             "LENGTH :- 2.25.METER",
             ],
-        colors: "Maroon",
+        colors: ["Maroon"],
         size: "XS",
         code: "AG356",
         price: "$54.99 (Pre-Order)"

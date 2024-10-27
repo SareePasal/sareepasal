@@ -31,7 +31,7 @@ const item = {
             "( FULLY STITCHED READY TO WEAR)",
             "DUPATTA FABRIC :- HEAVY FAUX GEORGETTE WITH EMBROIDERY SEQUENCE WORK WITH LACE BORDER",
             ],
-        colors: "Mustard, Wine, Teal, Maroon",
+        colors: ["Mustard", "Wine", "Teal", "Maroon"],
         size: "Small, Medium",
         code: "68133",
         price: "$44.99 (Pre-Order)"

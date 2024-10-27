@@ -19,7 +19,7 @@ const item = {
             "DUPATTA WORK : 2.3 METER PURE SOFT ORGANZA SILK WITH BORDER GOTA PATTI LACE WORK",
             "PENT : MICRO COTTON SILK FREE SIZE FULLY STTICHED",
             ],
-        colors: "Blue",
+        colors: ["Blue"],
         size: "XS,Small,Medium",
         code: "65068",
         price: "$44.99 (Pre-Order)"

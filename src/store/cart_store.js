@@ -248,6 +248,7 @@ class Store {
                     item.name = this.products[i].name;
                     item.price = this.products[i].price;
                     item.quantity = 1
+                    item.color = id.color
                     item.id = this.products[i].id
                     item.total = Math.round((item.quantity * item.price) *100)/100
                 }

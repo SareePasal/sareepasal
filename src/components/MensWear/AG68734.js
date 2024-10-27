@@ -13,7 +13,7 @@ const item = {
             "MEN SIZE :- S(36), M(38), L(40)",
 
         ],
-        colors: "Maroon",
+        colors: ["Maroon"],
         size: " Small, Medium, Large",
         code: "AG68734",
         price: "$34.99   (Pre-Order)"

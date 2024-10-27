@@ -19,7 +19,7 @@ const item = {
             "M | L",
 
         ],
-        colors: "Pink",
+        colors: ["Pink"],
         size: " Medium, Large",
         code: "AG72579",
         price: "$49.99   (Pre-Order)"

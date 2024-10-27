@@ -16,7 +16,7 @@ const item = {
             "LENGTH :- 53 54 INCH APPROX",
             "SIZE :- XS(34) FULLY STITCHED COMPLETE READY TO WEAR",
             ],
-        colors: "Wine",
+        colors: ["Wine"],
         size: "XS",
         code: "AG68776",
         price: "$69.99 (Pre-Order)"

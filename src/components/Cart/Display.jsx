@@ -14,6 +14,7 @@ const Display = ({item,increase,decrease}) =>{
                     class="rounded-lg"
                 />
                 <span class="text-xs md:text-md md:pr-10 text-wrap font-semibold text-clip flex justify-center mt-2">{item.name}</span>
+                <span class="text-xs md:text-md md:pr-10 text-wrap font-semibold text-clip flex justify-center mt-1">Color: {item.color}</span>
             </td>
             <td>
                 <span class="p-1 font-semibold flex justify-center">{item.price}</span>
