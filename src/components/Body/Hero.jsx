@@ -58,8 +58,8 @@ const HomePage = () => {
         },
     ]
     return (
-        <div class="grid lg:grid-cols-4 sm:px-9 lg:gap-15 sm:grid-cols-2 md:gap-24 
-                gap-9 justify-center m-4">
+        <div class="grid lg:grid-cols-4 sm:px-9 lg:gap-12 sm:grid-cols-1 md:gap-24 
+                gap-4 justify-center">
             {
                 item && item.map((object, i) =>
                     <Card key={i} link={object.link} text={object.text} src={object.src} />
