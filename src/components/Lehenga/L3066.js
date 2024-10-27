@@ -15,7 +15,7 @@ const item = {
             "Blouse: Kasturi silk georgette blouse with rainbow sequins & Dori work all over front & back",
             "Dupatta : Net Dupatta with rainbow sequins, Dori & stone work"
         ],
-        colors: ["NAVY BLUE"],
+        colors: ["Navy"],
         size: "Small, Medium",
         code: "L-3066",
         price: "$99.99"

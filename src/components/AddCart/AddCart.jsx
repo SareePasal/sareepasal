@@ -6,11 +6,18 @@ import { observer } from "mobx-react";
 
  const AddCart = observer((id) => {
   const { addToCart } = useContext(StoreContext)
+  const addingCart = () => {
+    if (id.color != ""){
+      addToCart(id)
+    }else{
+      id.alert(true)
+    }
+  }
   return (
     <div>
       <button class="bg-blue-500 hover:bg-blue-700 text-white 
           font-bold py-1 my-2 px-5 rounded-lg"
-          onClick={e => addToCart(id)}>
+          onClick={addingCart}>
            Add to Cart
       </button>
     </div>

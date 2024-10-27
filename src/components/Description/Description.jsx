@@ -1,8 +1,41 @@
+'use client'
 import Phone from '../PhoneIcon/PhoneInfo'
 import AddCart from '../AddCart/AddCart'
-import * as React from 'react';
+import React, { useState, useCallback } from 'react';
+
+
+const colors = {
+    Pink: 'bg-pink-400',
+    Gold: 'bg-yellow-300',
+    Red: "bg-red-700",
+    Green: "bg-green-600",
+    Blue: "bg-sky-400",
+    Black: "bg-slate-800",
+    Purple: "bg-indigo-700",
+    White: "bg-white",
+    Orange: "bg-orange-600",
+    Green: "bg-green-700",
+    Maroon: "bg-rose-900",
+    Yellow: "bg-yellow-400",
+    Navy: "bg-sky-400",
+    Grey: "bg-stone-700",
+    Rani: "bg-pink-600",
+    Violet: "bg-purple-600",
+    Nude: "bg-yellow-700",
+    Beige: "bg-stone-400",
+    Champagne: "bg-neutral-500",
+    Teal: "bg-teal-900",
+    Cream: "bg-lime-50"
+  }
+
 
 const Description = ({description}) => {
+    const [color, setColor] = useState("")
+    const [alert, setAlert] = useState(false)
+    const onRadioChange =e=>{
+       setColor(e.target.id)
+       setAlert(false)
+    }
     return (
         <div class="flex justify-between sm:w-5/6 h-full mx-auto ">
             <div class="">
@@ -24,12 +57,24 @@ const Description = ({description}) => {
                                     {
                                         description.colors.length > 0 &&
                                         description.colors.map((object,i)=>(
-                                            <div class="flex flex-row justify-center">
-                                                <div class={`rounded-full w-10 h-10 shadow-md bg-pink`}></div>
-                                                <span>{object}</span>
+                                            <div class="flex flex-row justify-center" key={i}>
+                                                <div class="flex flex-col justify-center p-1" key={i}>
+                                                    <input type="radio" id={object} class="checked:bg-blue-500" key={i} checked={object==color}
+                                                        onChange={onRadioChange}
+                                                    />
+                                                </div>
+                                                
+                                                <div className={`rounded-full w-10 h-10 shadow-md ${colors[object]}`} key={i}></div>
+                                                <span class="flex flex-col justify-center p-2" key={i} >{object}</span>
                                             </div>
                                         ))
+                                        
                                     }                       
+                            </div>
+                            <div>
+                            { alert && description.colors.length >1 &&
+                                <span class="text-red-400">Please select a colors</span>
+                            }
                             </div>
                         </div>
                         <div>
@@ -58,7 +103,7 @@ const Description = ({description}) => {
                         </div>
                     </div>
                     <Phone/>
-                    <AddCart id={description.code}/>
+                    <AddCart id={description.code} color={color} alert={setAlert}/>
                     {/* {src && <div class="rounded-lg shadow-xl">
                         <Video src={src}/>
                     </div>} */}
