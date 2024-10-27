@@ -192,6 +192,177 @@ class Store {
             ],
             color: ""
         },
+        {
+            id: "EG48594-3",
+            name: 'GEORGETTE EMBROIDERY DESIGN WORK FULL STITCHED KURTI',
+            price: 36.99,
+            image: [
+                { src: '/Images/Suits/Appereal Garment/EG48594-3/EG48594-3 (2).jpg', alt: '2', width: 300, height: 300 },
+            ],
+            color: ""
+        },
+        {
+            id: "73369",
+            name: 'GEORGETTE EMBROIDERY WORK GOWN BOTTOM WITH DUPATTA',
+            price: 54.99,
+            image: [
+                { src: '/Images/Suits/Appereal Garment/73369/73369 (7).jpeg', alt: '7', width: 300, height: 300 },
+            ],
+            color: ""
+        },
+        {
+            id: "73225-2",
+            name: 'Chinon sequence embroidery work top palazzo with dupatta',
+            price: 49.99,
+            image: [
+                { src: '/Images/Suits/Appereal Garment/73225/73225-2 (1).jpg', alt: '1', width: 300, height: 300 },
+            ],
+            color: ""
+        },
+        {
+            id: "72483",
+            name: 'ATTRACTIVE GEORGETTE EMBROIDERY WORK CHOLI WITH PRINTED SHRUG',
+            price: 59.99,
+            image: [
+                { src: '/Images/Suits/Appereal Garment/72483/72483 (8).jpg', alt: '8', width: 300, height: 300 },
+            ],
+            color: ""
+        },
+        {
+            id: "72430",
+            name: 'GEORGETTE EMBROIDERY WORK CHOLI SHARARA',
+            price: 59.99,
+            image: [
+                { src: '/Images/Suits/Appereal Garment/72430/72430 (2).jpg', alt: '2', width: 300, height: 300 },
+            ],
+            color: ""
+        },
+        {
+            id: "71970",
+            name: 'DESIGNER GEORGETTE EMBROIDERY LACE WORK SHRUG CHOLI',
+            price: 59.99,
+            image: [
+                { src: '/Images/Suits/Appereal Garment/71970/71970-1 (3).jpeg', alt: '3', width: 300, height: 300 },
+            ],
+            color: ""
+        },
+        {
+            id: "71901",
+            name: 'TOP PALAZZO KOTI WITH DUPATTA LAVENDER',
+            price: 49.99,
+            image: [
+                { src: '/Images/Suits/Appereal Garment/71901/71901 (1).jpg', alt: '1', width: 213, height: 300 },
+            ],
+            color: ""
+        },
+        {
+            id: "71820",
+            name: 'CHINON SILK EMBROIDERY WORK GOWN PALAZZO WITH DUPATTA MUSTARD',
+            price: 49.99,
+            image: [
+                { src: '/Images/Suits/Appereal Garment/71820/71820-3 (3).jpeg', alt: '3', width: 300, height: 300 },
+            ],
+            color: ""
+        },
+        {
+            id: "71236",
+            name: 'GEORGETTE SEQUENCE EMBROIDERY WORK GOWN PANT',
+            price: 49.99,
+            image: [
+                { src: '/Images/Suits/Appereal Garment/71236/71236 (1).jpeg', alt: '3', width: 225, height: 300 },
+            ],
+            color: ""
+        },
+        {
+            id: "69583",
+            name: 'Fancy organza embroidrey top palazzo with dupatta',
+            price: 39.99,
+            image: [
+                { src: '/Images/Suits/Appereal Garment/69583/69583 (1).jpeg', alt: '1', width: 300, height: 300 },
+            ],
+            color: ""
+        },
+        {
+            id: "AG68776",
+            name: 'ROMAN COTTON PLAIN GOWN BOTTOM WITH EMBROIDERY WORK',
+            price: 69.99,
+            image: [
+                { src: '/Images/Suits/Appereal Garment/68776/68776-2 (1).jpeg', alt: '1', width: 300, height: 300 },
+            ],
+            color: ""
+        },
+        {
+            id: "68685",
+            name: 'PARTY WEAR GEORGETTE EMBROIDERY SEQUENCE WORK TOP DHOTI',
+            price: 54.99,
+            image: [
+                { src: '/Images/Suits/Appereal Garment/68685/60670 (1).jpg', alt: '1', width: 230, height: 300 },
+            ],
+            color: ""
+        },
+        {
+            id: "68177",
+            name: 'GEORGETTE KALMKARI PRINT WORK ANARKALI GOWN BOTTOM WITH DUPATTA',
+            price: 44.99,
+            image: [
+                { src: '/Images/Suits/Appereal Garment/68177/68177 (4).jpeg', alt: '1', width: 300, height: 300 },
+            ],
+            color: ""
+        },
+        {
+            id: "68133",
+            name: 'GEORGETTE PLAIN GOWN BOTTOM WITH EMBROIDERY SEQUENCE',
+            price: 44.99,
+            image: [
+                { src: '/Images/Suits/Appereal Garment/68133/68133 (2).jpeg', alt: '2', width: 300, height: 300 },
+            ],
+            color: ""
+        },
+        {
+            id: "65068",
+            name: 'ORGANZA BEAUTIFUL PRINT WORK GOWN BOTTOM WITH DUPATTA RAM',
+            price: 44.99,
+            image: [
+                { src: '/Images/Suits/Appereal Garment/65068/65068-1 (1).jpeg', alt: '4', width: 300, height: 300 },
+            ],
+            color: ""
+        },
+        {
+            id: "62914",
+            name: 'TRENDY GEORGETTE EMBROIDERY THREAD WORK TOP PALAZZO',
+            price: 44.99,
+            image: [
+                { src: '/Images/Suits/Appereal Garment/62914-10/62914-10 (1).jpg', alt: '1', width: 280, height: 300 },
+            ],
+            color: ""
+        },
+        {
+            id: "62914",
+            name: 'GEORGETTE EMBROIDERY SEQUENCE WORK GOWN BOTTOM WITH DUPATTA YELLOW',
+            price: 59.99,
+            image: [
+                { src: '/Images/Suits/Appereal Garment/62597/62597 (1).jpeg', alt: '3', width: 225, height: 300 },
+            ],
+            color: ""
+        },
+        {
+            id: "AG356",
+            name: 'ROMAN COTTON PLAIN GOWN BOTTOM WITH EMBROIDERY WORK',
+            price: 54.99,
+            image: [
+                { src: '/Images/Suits/Appereal Garment/356-9356/AG356 (1).jpg', alt: '1', width: 330, height: 300 },
+            ],
+            color: ""
+        },
+        {
+            id: "AG337",
+            name: 'PURE CHINON EMBROIDERY LACE WORK GOWN ATTACHED DUPATTA',
+            price: 44.99,
+            image: [
+                { src: '/Images/Suits/Appereal Garment/AG337-2/AG337-2 (3).jpeg', alt: '3', width: 300, height: 300 },
+            ],
+            color: ""
+        },
     ];
     carts = [];
 
