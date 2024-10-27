@@ -11,7 +11,7 @@ const item = {
         title: "JIMMY CHOO SILK WITH SEQUENCE EMBROIDERY DESIGN WORK",
         detail: ["Jimmy choo silk with sequence embroidery design work"],
         colors: ["Purple", "Green","Blue", "Red"],
-        size: "Free",
+        size: ["Free"],
         code: "DB-4090",
         price: "$69.99"
     }

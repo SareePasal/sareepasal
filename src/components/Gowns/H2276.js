@@ -11,7 +11,7 @@ const item = {
         title: "NEW LAUNCHING BEAUTIFUL FLAIR GOWN",
         detail: ["Premium Readymade Designer Gown Collections."],
         colors: ["Pink", "Green", "Red", "Maroon", "Purple", "Black"],
-        size: "M-38, L-40",
+        size: ["M-38", "L-40"],
         code: "H-2276",
         price: "$34.99"
     }

@@ -15,7 +15,7 @@ const item = {
         title: "Sparkling Lehenga",
         detail: ["This sparkling lehenga set is sure to impress , making it a perfect choice for your wedding , parties & other special events"],
         colors:["Gold"],
-        size: "Small, Medium",
+        size: ["Small", "Medium"],
         code: "L-3074",
         price: "$129.99"
     }

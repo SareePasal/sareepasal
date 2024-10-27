@@ -1,7 +1,7 @@
 const item = {
     images: [
-        { src: '/Images/Suits/Appereal Garment/73225/73225-2 (1).jpg', alt: '1', width: 300, height: 300 },
         { src: '/Images/Suits/Appereal Garment/73225/73225-2 (2).jpg', alt: '2', width: 280, height: 300 },
+        { src: '/Images/Suits/Appereal Garment/73225/73225-2 (1).jpg', alt: '1', width: 300, height: 300 },
         { src: '/Images/Suits/Appereal Garment/73225/73225-2 (3).jpg', alt: '3', width: 300, height: 300 },
         { src: '/Images/Suits/Appereal Garment/73225/73225-2 (4).jpg', alt: '4', width: 320, height: 300 },
 
@@ -22,7 +22,7 @@ const item = {
             "DUPATTA LENGTH : 2.2 METER",
         ],
         colors: ["White"],
-        size: "Medium,Large",
+        size: ["Medium","Large"],
         code: "73225-2",
         price: "$49.99 (Pre-Order)"
     }

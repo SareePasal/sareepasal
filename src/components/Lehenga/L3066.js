@@ -16,7 +16,7 @@ const item = {
             "Dupatta : Net Dupatta with rainbow sequins, Dori & stone work"
         ],
         colors: ["Navy"],
-        size: "Small, Medium",
+        size: ["Small", "Medium"],
         code: "L-3066",
         price: "$99.99"
     }

@@ -1,9 +1,9 @@
 const item = {
     images: [
-        { src: '/Images/Suits/Appereal Garment/71970/71970-1 (3).jpeg', alt: '3', width: 300, height: 300 },
-        { src: '/Images/Suits/Appereal Garment/71970/71970-1 (4).jpeg', alt: '4', width: 300, height: 300 },
         { src: '/Images/Suits/Appereal Garment/71970/71970-1 (1).jpeg', alt: '1', width: 335, height: 300 },
         { src: '/Images/Suits/Appereal Garment/71970/71970-1 (2).jpeg', alt: '2', width: 335, height: 300 },
+        { src: '/Images/Suits/Appereal Garment/71970/71970-1 (3).jpeg', alt: '3', width: 300, height: 300 },
+        { src: '/Images/Suits/Appereal Garment/71970/71970-1 (4).jpeg', alt: '4', width: 300, height: 300 },
         { src: '/Images/Suits/Appereal Garment/71970/71970-1 (5).jpeg', alt: '5', width: 300, height: 300 },
         { src: '/Images/Suits/Appereal Garment/71970/71970-1 (6).jpeg', alt: '6', width: 300, height: 300 },
 
@@ -29,7 +29,7 @@ const item = {
             "INNER :- MICRO COTTON",
             ],
         colors: ["Purple"],
-        size: "Medium",
+        size: ["Medium"],
         code: "71970",
         price: "$59.99 (Pre-Order)"
     }

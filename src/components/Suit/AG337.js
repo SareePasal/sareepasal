@@ -28,7 +28,7 @@ const item = {
             "SIZE:-  2.30 METER",
             ],
         colors: ["Pink"],
-        size: "Medium, Large",
+        size: ["Medium", "Large"],
         code: "AG337",
         price: "$44.99 (Pre-Order)"
     }

@@ -18,7 +18,7 @@ const item = {
             "LENGTH :- 50″ INCH",
             ],
         colors: ["Blue"],
-        size: "Small",
+        size: ["Small"],
         code: "72430",
         price: "$59.99 (Pre-Order)"
     }

@@ -1,9 +1,9 @@
 const item = {
     images: [
+        { src: '/Images/Suits/Appereal Garment/65068/65068-1 (4).jpeg', alt: '3', width: 280, height: 300 },
         { src: '/Images/Suits/Appereal Garment/65068/65068-1 (1).jpeg', alt: '4', width: 300, height: 300 },
         { src: '/Images/Suits/Appereal Garment/65068/65068-1 (2).jpeg', alt: '1', width: 300, height: 300 },
         { src: '/Images/Suits/Appereal Garment/65068/65068-1 (3).jpeg', alt: '2', width: 300, height: 300 },
-        { src: '/Images/Suits/Appereal Garment/65068/65068-1 (4).jpeg', alt: '3', width: 280, height: 300 },
         { src: '/Images/Suits/Appereal Garment/65068/65068-1 (9).jpeg', alt: '2', width: 300, height: 300 },
         { src: '/Images/Suits/Appereal Garment/65068/65068-1 (10).jpeg', alt: '3', width: 300, height: 300 },
 
@@ -20,7 +20,7 @@ const item = {
             "PENT : MICRO COTTON SILK FREE SIZE FULLY STTICHED",
             ],
         colors: ["Blue"],
-        size: "XS,Small,Medium",
+        size: ["XS","Small","Medium"],
         code: "65068",
         price: "$44.99 (Pre-Order)"
     }

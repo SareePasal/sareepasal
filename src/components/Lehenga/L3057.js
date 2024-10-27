@@ -22,7 +22,7 @@ const item = {
             "Dupatta : Premium Heavy Soft Net Embellished With Beautiful Heavy Embroidery  ,Coding , And Sequins Work*( 2.5 )"
         ],
         colors: ["As shown in Picture"],
-        size: "Small, Medium",
+        size: ["Small", "Medium"],
         code: "L-3057",
         price: "$94.99"
     }

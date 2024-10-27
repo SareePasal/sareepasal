@@ -1,9 +1,9 @@
 const item = {
     images: [
+        { src: '/Images/Suits/Appereal Garment/356-9356/AG356 (5).jpg', alt: '5', width: 290, height: 300 },
+        { src: '/Images/Suits/Appereal Garment/356-9356/AG356 (4).jpg', alt: '4', width: 270, height: 300 },
         { src: '/Images/Suits/Appereal Garment/356-9356/AG356 (1).jpg', alt: '1', width: 330, height: 300 },
         { src: '/Images/Suits/Appereal Garment/356-9356/AG356 (3).jpg', alt: '3', width: 300, height: 300 },
-        { src: '/Images/Suits/Appereal Garment/356-9356/AG356 (4).jpg', alt: '4', width: 270, height: 300 },
-        { src: '/Images/Suits/Appereal Garment/356-9356/AG356 (5).jpg', alt: '5', width: 290, height: 300 },
 
     ],
     description: {
@@ -26,7 +26,7 @@ const item = {
             "LENGTH :- 2.25.METER",
             ],
         colors: ["Maroon"],
-        size: "XS",
+        size: ["XS"],
         code: "AG356",
         price: "$54.99 (Pre-Order)"
     }

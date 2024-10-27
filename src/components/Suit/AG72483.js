@@ -23,7 +23,7 @@ const item = {
             "WORK : PRINTED WORK ", 
             ],
         colors: ["Pink"],
-        size: "Samll,Medium",
+        size: ["Samll","Medium"],
         code: "72483",
         price: "$59.99 (Pre-Order)"
     }
