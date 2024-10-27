@@ -12,7 +12,7 @@ const item = {
             "INNER : CREPE",
             "DUPATTA : FAUX GEORGETTE",
         ],
-        colors: "Red",
+        colors: ["Red"],
         size: "Medium,Large, XL",
         code: "EG48594-3",
         price: "$36.99 (Pre-Order)"

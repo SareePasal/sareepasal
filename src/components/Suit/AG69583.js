@@ -19,7 +19,7 @@ const item = {
             "MATERIAL:- ORGANZA",
             "WORK :- EMBROIDREY",
         ],
-        colors: "Brown",
+        colors: ["Brown"],
         size: "Medium,Large",
         code: "69583",
         price: "$39.99 (Pre-Order)"

@@ -30,7 +30,7 @@ const item = {
             "FABRIC : HEAVY SOFT TABBY ORGANZA WITH FOUR SIDE FANCY LACE BORDER",
             "LENGTH : 2.20 METER",
             ],
-        colors: "Mustard",
+        colors: ["Mustard"],
         size: "Medium, Large",
         code: "71820",
         price: "$49.99 (Pre-Order)"

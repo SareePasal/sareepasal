@@ -28,7 +28,7 @@ const item = {
                 "DUPATTA LENGTH :- 2.30.METER",
                 "SIZE :- XS[34]",
             ],
-        colors: "Wine",
+        colors: ["Wine"],
         size: "XS",
         code: "73369",
         price: "$54.99 (Pre-Order)"

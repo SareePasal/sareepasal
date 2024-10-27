@@ -27,7 +27,7 @@ const item = {
             "DUPATTA FABRIC :- HEAVY FAUX GEORGETTE MATERIAL WITH EMBROIDERY 5MM SEQUENCE WORK",
             "DUPATTA LENGTH :- 2.30 METER ", 
             ],
-        colors: "Purple, Pink, Green",
+        colors: ["Purple", "Pink", "Green"],
         size: "Medium,Large",
         code: "68685",
         price: "$54.99 (Pre-Order)"

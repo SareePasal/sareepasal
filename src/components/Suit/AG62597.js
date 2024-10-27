@@ -18,7 +18,7 @@ const item = {
             "BOTTOM FABRIC :- MICRO COTTON ( FULL STITCHED)",
             "DUPATTA FABRIC :- FAUX GEORGETTE WITH EMBROIDERY WORK WITH FOUR SIDE LACE BORDER",
             ],
-        colors: "Yellow",
+        colors: ["Yellow"],
         size: "Medium",
         code: "62597",
         price: "$59.99 (Pre-Order)"

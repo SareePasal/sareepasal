@@ -28,7 +28,7 @@ const item = {
             "FABRIC :- HEAVY FAUX GEORGETTE",
             "INNER :- MICRO COTTON",
             ],
-        colors: "Purple",
+        colors: ["Purple"],
         size: "Medium",
         code: "71970",
         price: "$59.99 (Pre-Order)"

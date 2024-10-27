@@ -33,7 +33,7 @@ const item = {
             ,"FABRIC : ORGANZA WITH LACE BORDER"
             ,"SIZE : 2.2 METER"
         ],
-        colors: "Lavender",
+        colors: ["Lavender"],
         size: "Medium,Large",
         code: "71901",
         price: "$49.99 (Pre-Order)"

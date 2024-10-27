@@ -19,7 +19,7 @@ const item = {
             "DUPATTA :- FAUX GEORGETTE WITH GPO LACE WORK",
             "LENGTH :- 2.2 METER",
         ],
-        colors: "SKy Blue",
+        colors: ["Sky"],
         size: "Medium,Large",
         code: "62914",
         price: "$44.99 (Pre-Order)"

@@ -21,7 +21,7 @@ const item = {
             "(FULLY STITCHED)",
             "DUPATTA FABRIC : PURE FAUX GEORGETTE WITH EMBROIDERY 5MM SEQUENCE WORK WITH FULL-STITCH",
             ],
-        colors: "Baby Pink",
+        colors: ["Baby"],
         size: "Medium, Large",
         code: "73031",
         price: "$44.99 (Pre-Order)"

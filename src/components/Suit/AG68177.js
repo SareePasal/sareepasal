@@ -24,7 +24,7 @@ const item = {
             "PANT FABRIC :- PURE MICRO CRAPE SILK FREE SIZE (FULLY STITCHED )",
             "SIZE :- XS(34) ,S(36) ,M(38) FULLY STITCHED READY TO WEAR",
             ],
-        colors: "Red",
+        colors: ["Red"],
         size: "XS, Small, Medium",
         code: "68177",
         price: "$44.99 (Pre-Order)"

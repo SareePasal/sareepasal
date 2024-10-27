@@ -27,7 +27,7 @@ const item = {
             "FABRIC :- PURE CHINON",
             "SIZE:-  2.30 METER",
             ],
-        colors: "Pink",
+        colors: ["Pink"],
         size: "Medium, Large",
         code: "AG337",
         price: "$44.99 (Pre-Order)"
