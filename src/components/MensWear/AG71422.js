@@ -1,10 +1,10 @@
 const item = {
     images: [
-        { src: '/Images/MensWear/Appereal Garment/71422-1/71422-1 (2).jpeg', alt: '2', width: 300, height: 300 },
         { src: '/Images/MensWear/Appereal Garment/71422-1/71422-1 (1).jpeg', alt: '1', width: 300, height: 300 },
-        { src: '/Images/MensWear/Appereal Garment/71422-1/71422-1 (3).jpeg', alt: '3', width: 280, height: 300 },
         { src: '/Images/MensWear/Appereal Garment/71422-1/71422-1 (5).jpeg', alt: '5', width: 300, height: 300 },
         { src: '/Images/MensWear/Appereal Garment/71422-1/71422-1 (4).jpeg', alt: '4', width: 300, height: 300 },
+        { src: '/Images/MensWear/Appereal Garment/71422-1/71422-1 (2).jpeg', alt: '2', width: 300, height: 300 },
+        { src: '/Images/MensWear/Appereal Garment/71422-1/71422-1 (3).jpeg', alt: '3', width: 280, height: 300 },
 
     ],
     description: {

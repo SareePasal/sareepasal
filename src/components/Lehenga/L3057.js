@@ -1,13 +1,13 @@
 const item = {
     images: [
-        { src: '/Images/Lehenga/Leranath Fashion/L-3057/L-3057 (1).jpg', alt: '1', width: 430, height: 430 },
+        { src: '/Images/Lehenga/Leranath Fashion/L-3057/L-3057 (8).jpg', alt: '8', width: 650, height: 650 },
         { src: '/Images/Lehenga/Leranath Fashion/L-3057/L-3057 (2).jpg', alt: '2', width: 510, height: 430 },
         { src: '/Images/Lehenga/Leranath Fashion/L-3057/L-3057 (3).jpg', alt: '3', width: 460, height: 430 },
+        { src: '/Images/Lehenga/Leranath Fashion/L-3057/L-3057 (7).jpg', alt: '7', width: 460, height: 460 },
+        { src: '/Images/Lehenga/Leranath Fashion/L-3057/L-3057 (1).jpg', alt: '1', width: 430, height: 430 },
         { src: '/Images/Lehenga/Leranath Fashion/L-3057/L-3057 (4).jpg', alt: '4', width: 430, height: 430 },
         { src: '/Images/Lehenga/Leranath Fashion/L-3057/L-3057 (5).jpg', alt: '5', width: 430, height: 430 },
         { src: '/Images/Lehenga/Leranath Fashion/L-3057/L-3057 (6).jpg', alt: '6', width: 430, height: 430 },
-        { src: '/Images/Lehenga/Leranath Fashion/L-3057/L-3057 (7).jpg', alt: '7', width: 460, height: 460 },
-        { src: '/Images/Lehenga/Leranath Fashion/L-3057/L-3057 (8).jpg', alt: '8', width: 650, height: 650 },
         { src: '/Images/Lehenga/Leranath Fashion/L-3057/L-3057 (9).jpg', alt: '9', width: 430, height: 430 },
         { src: '/Images/Lehenga/Leranath Fashion/L-3057/L-3057 (10).jpg', alt: '10', width: 430, height: 430 },
 

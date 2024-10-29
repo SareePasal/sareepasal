@@ -404,7 +404,7 @@ class Store {
     addToCart = (id) => {
         let found = false;
         this.carts.map(item => {
-            if (item.id === id.id) {
+            if (item.id === id.id && item.color == id.color && item.size == id.size) {
                 item.quantity += 1;
                 item.total += item.price;
                 found = true;
@@ -420,6 +420,7 @@ class Store {
                     item.price = this.products[i].price;
                     item.quantity = 1
                     item.color = id.color
+                    item.size = id.size
                     item.id = this.products[i].id
                     item.total = Math.round((item.quantity * item.price) *100)/100
                 }
