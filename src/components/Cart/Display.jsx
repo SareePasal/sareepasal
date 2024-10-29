@@ -22,9 +22,9 @@ const Display = ({item,increase,decrease}) =>{
             </td>
             <td class="w-10">
                 <div class="grid grid-cols-3 col-start-2 divide-x-4 border ">
-                    <button class="fa-solid fa-plus" onClick={e=>increase(item.id)}></button>
-                    <span class="font-semibold flex justify-center">{item.quantity}</span>
                     <button class="fa-solid fa-minus"  onClick={e=>decrease(item.id)}></button>
+                    <span class="font-semibold flex justify-center">{item.quantity}</span>
+                    <button class="fa-solid fa-plus" onClick={e=>increase(item.id)}></button>
                 </div>
             </td>
             <td>
