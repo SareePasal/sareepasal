@@ -10,8 +10,8 @@ const Slider = ({imageList}) => {
                         <div class="shrink-0 w-48 h-56"></div>
                     </div>
                     { imageList && imageList.map((object,i) => 
-                        <div class="snap-normal snap-center shrink-0  rounded-2xl w-60 h-auto mx-2 mb-10" key={i}>
-                            <Image  class="rounded-md shadow-md shadow-neutral-500 drop-shadow-md dark:shadow-zinc-400" src={object.src} alt="1" width={250} height={300} key={i}/>
+                        <div class="snap-normal snap-center shrink-0  rounded-2xl mx-2 mb-10 " key={i}>
+                            <Image  class="rounded-md shadow-md shadow-neutral-500 drop-shadow-md dark:shadow-zinc-400" src={object.src} alt="1" width={object.width} height={object.height} key={i}/>
                         </div>
                     )}   
                     <div class=" snap-center shrink-0 md:mx-7 md:flex hidden ">

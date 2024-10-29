@@ -74,8 +74,6 @@ const Description = ({description}) => {
                                                         onChange={onRadioChange}
                                                     />
                                                 </div>
-                                                
-                                                <div className={`rounded-full w-5 h-5 shadow-md ${colors[object]}`} key={i}></div>
                                                 <span class="p-1 md:p-2 font-light md:font-semibold text-xs md:text-lg" key={i} >{object}</span>
                                             </div>
                                         ))
@@ -91,20 +89,19 @@ const Description = ({description}) => {
                         <div>
                             <h2 class="font-bold">Size & Fit:</h2>
                             <div class="grid grid-cols-2 md:grid-cols-4 pl-4">
-                                    {
-                                        description.size.length > 0 &&
-                                        description.size.map((object,i)=>(
-                                            <div class="flex flex-row items-center" key={i}>
-                                                <div class=" p-1" key={i}>
-                                                    <input type="radio" id={object} class="h-3 w-3 checked:bg-blue-500" key={i} checked={object==size}
-                                                        onChange={onRadioSizeChange}
-                                                    />
-                                                </div>
-                                                    <span class="p-1 md:p-2 font-light md:font-semibold text-xs md:text-lg" key={i} >{object}</span>
+                                {
+                                    description.size.length > 0 &&
+                                    description.size.map((object,i)=>(
+                                        <div class="flex flex-row items-center" key={i}>
+                                            <div class=" p-1" key={i}>
+                                                <input type="radio" id={object} class="h-3 w-3 checked:bg-blue-500" key={i} checked={object==size}
+                                                    onChange={onRadioSizeChange}
+                                                />
                                             </div>
-                                        ))
-                                        
-                                    }                       
+                                                <span class="p-1 md:p-2 font-light md:font-semibold text-xs md:text-lg" key={i} >{object}</span>
+                                        </div>
+                                    )) 
+                                }                       
                             </div>
                         </div>
                         { alertSize && description.colors.length >1 &&
