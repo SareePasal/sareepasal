@@ -2,7 +2,6 @@ import * as React from 'react';
 import Slider from '../Slider/Slider'
 import Description from "../Description/Description"
 import AG71901 from "./AG71901"
-import AG73225 from "./AG73225"
 import AG69583 from "./AG69583"
 import AG62914 from "./AG62914"
 import EG48594 from "./EG48594"
@@ -11,9 +10,8 @@ import AG72483 from "./AG72483"
 import AG71970 from "./AG71970"
 import AG337 from "./AG337"
 import AG72430 from "./AG72430"
-import AG68133 from "./AG68133"
+import AG68133 from "./AG68133.js"
 import AG71820 from "./AG71820"
-import AG62597 from "./AG62597"
 import AG71236 from "./AG71236"
 import AG68177 from "./AG68177"
 import AG73031 from "./AG73031"
@@ -23,9 +21,9 @@ import AG356 from "./AG356"
 import AG68776 from "./AG68776"
 
 //Add Items Here
-const itemCode = [AG71901,AG73225,AG69583,AG62914,EG48594, 
+const itemCode = [AG71901,AG69583,AG62914,EG48594, 
                     AG68685, AG72483, AG71970, AG337, AG72430,
-                    AG68133, AG71820, AG62597, AG71236, AG68177,
+                    AG68133, AG71820, AG71236, AG68177,
                     AG73031, AG65068, AG73369, AG356,AG68776]
 
 //Do Not Touch the code below

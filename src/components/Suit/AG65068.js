@@ -9,7 +9,7 @@ const item = {
 
     ],
     description: {
-        title: "ORGANZA BEAUTIFUL PRINT WORK GOWN BOTTOM WITH DUPATTA RAMA  (Pre-Order)",
+        title: "ORGANZA BEAUTIFUL PRINT WORK GOWN BOTTOM WITH DUPATTA RAMA",
         detail: ["Attractive organza beautiful print work gown bottom with dupatta rama",
             "GOWN FABRIC : HEAVY PURE SOFT ORGANZA SILK PRINT",
             "GOWN FLAIR : 4 METER FLAIR WITH KALI CUT ATTACHED COMPLETE WITH CANVAS PATTA",
@@ -22,7 +22,7 @@ const item = {
         colors: "Blue",
         size: "XS,Small,Medium",
         code: "65068",
-        price: "$44.99 (Pre-Order)"
+        price: "$55.00"
     }
 
 }

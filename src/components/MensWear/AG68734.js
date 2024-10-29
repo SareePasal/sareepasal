@@ -6,7 +6,7 @@ const item = {
 
     ],
     description: {
-        title: "COTTON JACQUARD WORK MEN’S WEAR KURTA WITH PAYJAMA   (Pre-Order)",
+        title: "COTTON JACQUARD WORK MEN’S WEAR KURTA WITH PAYJAMA",
         detail: ["Traditional cotton jacquard work men’s wear kurta with payjama maroon",
             "KURTA :- PURE COTTON FABRIC WITH JACQUARD BUTTI",
             "PAYZAMA :- COTTON",
@@ -16,7 +16,7 @@ const item = {
         colors: "Maroon",
         size: " Small, Medium, Large",
         code: " AG68734",
-        price: "$34.99   (Pre-Order)"
+        price: "$30.00"
     }
 
 }

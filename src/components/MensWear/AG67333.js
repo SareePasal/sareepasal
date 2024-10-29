@@ -6,7 +6,7 @@ const item = {
 
     ],
     description: {
-        title: "COTTON EMBROIDERY WORK MEN’S KURTA WITH PAYJAMA    (Pre-Order)",
+        title: "COTTON EMBROIDERY WORK MEN’S KURTA WITH PAYJAMA",
         detail: ["Party wear cotton embroidery work men’s kurta with payjama grey",
             "KURTA FABRIC :- HEAVY COTTON JACQUARD WITH HEAVY EMBROIDERY WORK",
             "PAYJAMA :- RAYMOND COTTON",
@@ -17,7 +17,7 @@ const item = {
         colors: "Grey",
         size: " Small, Medium, Large",
         code: " AG67333",
-        price: "$44.99   (Pre-Order)"
+        price: "$45.00"
     }
 
 }

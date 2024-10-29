@@ -4,7 +4,7 @@ const item = {
 
     ],
     description: {
-        title: "COTTON SEQUENCE WORK MEN’S KURTA WITH PAYJAMA   (Pre-Order)",
+        title: "COTTON SEQUENCE WORK MEN’S KURTA WITH PAYJAMA",
         detail: ["Designer cotton sequence work men’s kurta with payjama grey",
             "KURTA FABRIC – MAGIC COTTON WITH BIG SEQUENCE",
             "PAYJAMA FABRIC – COTTON",
@@ -15,7 +15,7 @@ const item = {
         colors: "Grey",
         size: " Medium",
         code: " AG64101",
-        price: "$34.99   (Pre-Order)"
+        price: "$55.00"
     }
 
 }

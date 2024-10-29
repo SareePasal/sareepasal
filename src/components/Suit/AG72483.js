@@ -11,7 +11,7 @@ const item = {
 
     ],
     description: {
-        title: "ATTRACTIVE GEORGETTE EMBROIDERY WORK CHOLI WITH PRINTED SHRUG AND SHARARA BABY PINK   (Pre-Order)",
+        title: "ATTRACTIVE GEORGETTE EMBROIDERY WORK CHOLI WITH PRINTED SHRUG AND SHARARA BABY PINK",
         detail: ["Attractive georgette embroidery work choli with printed shrug and sharara baby pink",
             "CHOLI FABRIC : GEORGETTE",
             "WORK : EMBROIDERY",
@@ -25,7 +25,7 @@ const item = {
         colors: "Pink",
         size: "Samll,Medium",
         code: "72483",
-        price: "$59.99 (Pre-Order)"
+        price: "$70.00"
     }
 
 }

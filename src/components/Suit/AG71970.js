@@ -9,7 +9,7 @@ const item = {
 
     ],
     description: {
-        title: "DESIGNER GEORGETTE EMBROIDERY LACE WORK SHRUG CHOLI WITH PALAZZO PURPLE   (Pre-Order)",
+        title: "DESIGNER GEORGETTE EMBROIDERY LACE WORK SHRUG CHOLI WITH PALAZZO PURPLE",
         detail: ["Designer georgette embroidery lace work shrug choli with palazzo purple",
             "SHRUG",
             "========",
@@ -31,7 +31,7 @@ const item = {
         colors: "Purple",
         size: "Medium",
         code: "71970",
-        price: "$59.99 (Pre-Order)"
+        price: "$70.00"
     }
 
 }

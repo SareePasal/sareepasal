@@ -12,7 +12,7 @@ const item = {
 
     ],
     description: {
-        title: "Fancy organza embroidrey top palazzo with dupatta brown  (Pre-Order)",
+        title: "Fancy organza embroidrey top palazzo with dupatta brown",
         detail: ["fancy organza embroidrey top palazzo with dupatta brown",
             "TOP PALAZZO WITH DUPATTA :",
             "===========================",
@@ -22,7 +22,7 @@ const item = {
         colors: "Brown",
         size: "Medium,Large",
         code: "69583",
-        price: "$39.99 (Pre-Order)"
+        price: "$45.00"
     }
 
 }

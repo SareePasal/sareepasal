@@ -8,7 +8,7 @@ const item = {
 
     ],
     description: {
-        title: "SILK EMBROIDERY SEQUENCE WORK MENS KURTA PAJAMA MAROON   (Pre-Order)",
+        title: "SILK EMBROIDERY SEQUENCE WORK MENS KURTA PAJAMA MAROON",
         detail: ["Rich look silk embroidery sequence work mens kurta pajama maroon",
             "MENS KURTA FABRIC : 14 KG ROMAN SILK",
             "WORK : EMBROIDERY SEQUENCE WORK",
@@ -19,7 +19,7 @@ const item = {
         colors: "Maroon",
         size: " Medium, Large",
         code: " AG71422",
-        price: "$39.99   (Pre-Order)"
+        price: "$45.00"
     }
 
 }
