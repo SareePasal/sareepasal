@@ -7,7 +7,7 @@ const item = {
 
     ],
     description: {
-        title: "ROMAN COTTON PLAIN GOWN BOTTOM WITH EMBROIDERY WORK DUPATTA MAROON   (Pre-Order)",
+        title: "ROMAN COTTON PLAIN GOWN BOTTOM WITH EMBROIDERY WORK DUPATTA MAROON",
         detail: ["designer roman cotton plain gown bottom with embroidery work dupatta maroon",
             "GOWN",
             "FABRIC :- ROMAN COTTON FABRIC",
@@ -28,7 +28,7 @@ const item = {
         colors: "Maroon",
         size: "XS",
         code: "AG356",
-        price: "$54.99 (Pre-Order)"
+        price: "$55.00"
     }
 
 }

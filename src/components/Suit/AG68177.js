@@ -13,7 +13,7 @@ const item = {
 
     ],
     description: {
-        title: "GEORGETTE KALMKARI PRINT WORK ANARKALI GOWN BOTTOM WITH DUPATTA  (Pre-Order)",
+        title: "GEORGETTE KALMKARI PRINT WORK ANARKALI GOWN BOTTOM WITH DUPATTA",
         detail: ["Designer georgette kalmkari print work anarkali gown bottom with dupatta red",
             "ANARKALI FABRIC :- HEAVY PURE SOFT FAUX GEORGETTE KALAMKARI PRINT WORK",
             "GOWN FLAIR :- 8.25 METER PLUS FULLY FLAIR",
@@ -27,7 +27,7 @@ const item = {
         colors: "Red",
         size: "XS, Small, Medium",
         code: "68177",
-        price: "$44.99 (Pre-Order)"
+        price: "$55.00"
     }
 
 }

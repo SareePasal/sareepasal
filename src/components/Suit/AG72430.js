@@ -9,7 +9,7 @@ const item = {
         { src: '/Images/Suits/Appereal Garment/72430/72430 (7).jpg', alt: '7', width: 300, height: 300 },
     ],
     description: {
-        title: "GEORGETTE EMBROIDERY WORK CHOLI SHARARA WITH PRINTED SHRUG BLUE   (Pre-Order)",
+        title: "GEORGETTE EMBROIDERY WORK CHOLI SHARARA WITH PRINTED SHRUG BLUE",
         detail: ["Trending georgette embroidery work choli sharara with printed shrug blue",
             "CHOLI WITH PRINTED SHRUG AND SHARARA :",
             "FABRIC DETAIL :- GEORGETTE",
@@ -20,7 +20,7 @@ const item = {
         colors: "Blue",
         size: "Small",
         code: "72430",
-        price: "$59.99 (Pre-Order)"
+        price: "$70.00"
     }
 
 }

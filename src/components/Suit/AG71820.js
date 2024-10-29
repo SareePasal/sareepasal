@@ -10,7 +10,7 @@ const item = {
 
     ],
     description: {
-        title: "CHINON SILK EMBROIDERY WORK GOWN PALAZZO WITH DUPATTA MUSTARD   (Pre-Order)",
+        title: "CHINON SILK EMBROIDERY WORK GOWN PALAZZO WITH DUPATTA MUSTARD",
         detail: ["Attractive chinon silk embroidery work gown palazzo with dupatta mustard",
             "GOWN",
             "========",
@@ -33,7 +33,7 @@ const item = {
         colors: "Mustard",
         size: "Medium, Large",
         code: "71820",
-        price: "$49.99 (Pre-Order)"
+        price: "$65.00"
     }
 
 }

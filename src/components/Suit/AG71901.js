@@ -9,7 +9,7 @@ const item = {
 
     ],
     description: {
-        title: "TOP PALAZZO KOTI WITH DUPATTA LAVENDER  (Pre-Order)",
+        title: "TOP PALAZZO KOTI WITH DUPATTA LAVENDER",
         detail: ["Latest malay satin embroidery sequence work top palazzo koti with dupatta lavender"
             ,"TOP"
             ,"======="
@@ -36,7 +36,7 @@ const item = {
         colors: "Lavender",
         size: "Medium,Large",
         code: "71901",
-        price: "$49.99 (Pre-Order)"
+        price: "$55.00"
     }
 
 }

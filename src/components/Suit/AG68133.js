@@ -19,7 +19,7 @@ const item = {
 
     ],
     description: {
-        title: "GEORGETTE PLAIN GOWN BOTTOM WITH EMBROIDERY SEQUENCE WORK DUPATTA   (Pre-Order)",
+        title: "GEORGETTE PLAIN GOWN BOTTOM WITH EMBROIDERY SEQUENCE WORK DUPATTA",
         detail: ["Designer georgette plain gown bottom with embroidery sequence work dupatta",
             "GOWN FABRIC :- HEAVY FAUX GEORGETTE WITH FULL SLEEVE AND FULLY FLAIR",
             "GOWN INNER :- MICRO COTTON",
@@ -34,7 +34,7 @@ const item = {
         colors: "Mustard, Wine, Teal, Maroon",
         size: "Small, Medium",
         code: "68133",
-        price: "$44.99 (Pre-Order)"
+        price: "$55.00"
     }
 
 }

@@ -21,7 +21,7 @@ const Header = () => {
                                 <br />All Sales Are Final !!!
                                 <br />No Return !!!    No Exchange !!!
                                 <p class="self-center text-sm text-green-600">
-                                    Contact Us For Shipping Cost !!!
+                                    For Limited Time Offer FREE SHIPPING !!! FREE SHIPPING !!!
                                 </p>
                             </div>
                         </span>
@@ -39,7 +39,7 @@ const Header = () => {
                                 All Sales Are Final
                                 <br />No Return !!!    No Exchange !!!
                                 <p class="self-center text-xs text-green-600 whitespace-pre dark:text-blue-300">
-                                    Contact Us For Shipping Cost !!!
+                                    For Limited Time Offer FREE SHIPPING !!!
                                 </p>
                             </div>
                         </span>
@@ -117,12 +117,14 @@ const Header = () => {
                             blur-xl from-blue-500 via-teal-500 to-pink-500 bg-clip-text text-2xl 
                             box-content font-extrabold text-transparent text-center select-none">
                     Happy Dashain and Diwali
+                    <br />FREE SHIPPING !!! FREE SHIPPING !!!
                 </span>
                 <h1
                     class="relative top-0 w-fit h-auto py-4 justify-center flex 
                             bg-gradient-to-r items-center from-blue-500 via-teal-500 to-pink-500 
                             bg-clip-text text-2xl font-extrabold text-transparent text-center select-auto">
                     Happy Dashain and Diwali
+                    <br />FREE SHIPPING !!! FREE SHIPPING !!!
                 </h1>
             </div>
             

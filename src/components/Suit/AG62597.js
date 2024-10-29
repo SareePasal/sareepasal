@@ -7,7 +7,7 @@ const item = {
 
     ],
     description: {
-        title: "GEORGETTE EMBROIDERY SEQUENCE WORK GOWN BOTTOM WITH DUPATTA YELLOW   (Pre-Order)",
+        title: "GEORGETTE EMBROIDERY SEQUENCE WORK GOWN BOTTOM WITH DUPATTA YELLOW",
         detail: ["Designer georgette embroidery sequence work gown bottom with dupatta yellow",
             "GOWN FABRIC :- FAUX GEORGETTE WITH HEAVY EMBROIDERY SEQUENCE WORK WITH FULL SLEEVE AND FULLY 3 METER FLAIR READY TO WEAR WITH ATTACHED CUP",
             "GOWN FLAIR :- 3 METER",
@@ -21,7 +21,7 @@ const item = {
         colors: "Yellow",
         size: "Medium",
         code: "62597",
-        price: "$59.99 (Pre-Order)"
+        price: ""
     }
 
 }

@@ -9,7 +9,7 @@ const item = {
 
     ],
     description: {
-        title: "PURE CHINON EMBROIDERY LACE WORK GOWN ATTACHED DUPATTA WITH JACKET BELT PINK   (Pre-Order)",
+        title: "PURE CHINON EMBROIDERY LACE WORK GOWN ATTACHED DUPATTA WITH JACKET BELT PINK",
         detail: ["Attaractive pure chinon embroidery lace work gown attached dupatta with jacket belt pink",
             "GOWN ATTACHED WITH DUPATTA",
             "FABRIC :- PURE CHINON",
@@ -30,7 +30,7 @@ const item = {
         colors: "Pink",
         size: "Medium, Large",
         code: "AG337",
-        price: "$44.99 (Pre-Order)"
+        price: "$60.00"
     }
 
 }

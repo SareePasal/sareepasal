@@ -5,7 +5,7 @@ const item = {
 
     ],
     description: {
-        title: "TRENDY GEORGETTE EMBROIDERY THREAD WORK TOP PALAZZO WITH DUPATTA SKY  (Pre-Order)",
+        title: "TRENDY GEORGETTE EMBROIDERY THREAD WORK TOP PALAZZO WITH DUPATTA SKY",
         detail: ["Trendy georgette embroidery thread work top palazzo with dupatta sky",
             "TOP FABRIC :- FAUX GEORGETTE",
             "WORK :- COTTON THREAD EMBROIDERY WORK WITH GPO LACE WORK",
@@ -22,7 +22,7 @@ const item = {
         colors: "SKy Blue",
         size: "Medium,Large",
         code: "62914",
-        price: "$44.99 (Pre-Order)"
+        price: "$65.00"
     }
 
 }
