@@ -83,7 +83,7 @@ const CheckoutElement = (amount) => {
     );
   }
     return(
-        <form>
+        <form onSubmit={handleSubmit} class="bg-white p-2 rounded-md">
             <input
           id="email"
           type="text"
@@ -91,7 +91,7 @@ const CheckoutElement = (amount) => {
           placeholder="Enter email address"
         />
             {clientSecret && <PaymentElement class="dark:text-white" options={paymentElementOptions}/>}
-            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 my-2 px-5 rounded-lg">Pay {amount.amount}</button>
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 my-2 px-5 rounded-lg ">Pay {amount.amount}</button>
         </form>
     )
 }
