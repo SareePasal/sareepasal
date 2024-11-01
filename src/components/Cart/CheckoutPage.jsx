@@ -61,6 +61,7 @@ const CheckoutElement = (amount) => {
       // confirming the payment. Show the error to your customer (for example, payment details incomplete)
       setErrorMessage(error.message);
     } else {
+      console.log("Done")
       redirect(`/Success?amount=${amount.amount}`)
     }
 
@@ -90,7 +91,9 @@ const CheckoutElement = (amount) => {
           placeholder="Enter email address"
         />
             {clientSecret && <PaymentElement class="dark:text-white" options={paymentElementOptions}/>}
-            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 my-2 px-5 rounded-lg ">Pay {amount.amount}</button>
+            <button 
+            disabled={!stripe || loading}
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 my-2 px-5 rounded-lg ">{!loading ? `Pay $${amount.amount}` : "Processing..."}</button>
         </form>
     )
 }
