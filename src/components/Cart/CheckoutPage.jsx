@@ -6,7 +6,6 @@ import {
     PaymentElement,
 } from '@stripe/react-stripe-js'
 import convertToCents from '@/utils/convertToCents';
-import { redirect } from 'next/navigation'
 
 const CheckoutElement = (amount) => {
     const stripe = useStripe();
@@ -18,7 +17,6 @@ const CheckoutElement = (amount) => {
         spacedAccordionItems: true
       }
         };
-    console.log(amount.amount)
     const elements = useElements();
     const [errorMessage, setErrorMessage] = useState("");
     const [clientSecret, setClientSecret] = useState("");
@@ -49,12 +47,12 @@ const CheckoutElement = (amount) => {
       setLoading(false);
       return;
     }
-
     const { error } = await stripe.confirmPayment({
       elements,
       clientSecret,
       confirmParams: {
-        return_url: redirect(`/Success?amount=${amount.amount}`),
+
+        return_url: `http://localhost:3000/Success?amount=${amount.amount}`,
       },
     });
 
@@ -62,10 +60,7 @@ const CheckoutElement = (amount) => {
       // This point is only reached if there's an immediate error when
       // confirming the payment. Show the error to your customer (for example, payment details incomplete)
       setErrorMessage(error.message);
-    } else {
-      redirect(`/Success?amount=${amount.amount}`)
     }
-
     setLoading(false);
   };
 
@@ -84,12 +79,14 @@ const CheckoutElement = (amount) => {
     );
   }
     return(
-        <form onSubmit={handleSubmit} class="bg-white p-2 rounded-md md:w-1/2">
+        <form onSubmit={handleSubmit} class="bg-white p-2 rounded-md w-full md:w-1/2">
            
             {clientSecret && <PaymentElement class="dark:text-white" options={paymentElementOptions}/>}
+            <div class="flex justify-center mt-2">
             <button 
             disabled={!stripe || loading}
-            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 my-2 px-5 rounded-lg ">{!loading ? `Pay $${amount.amount}` : "Processing..."}</button>
+            class="  bg-blue-500 hover:bg-blue-700   text-white font-bold py-1 my-2 px-5 rounded-md shadow-md shadow-neutral-500 drop-shadow-xl dark:shadow-zinc-400">{!loading ? `Pay $${amount.amount}` : "Processing..."}</button>
+            </div>
         </form>
     )
 }
