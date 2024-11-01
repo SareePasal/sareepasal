@@ -7,7 +7,7 @@ import { observer } from "mobx-react";
 import Display from "./Display"
 import Link from 'next/link';
 import convertToCents from '../../utils/convertToCents'
-import Checkout from "../Checkout/Checkout";
+import CheckoutElement from "./CheckoutPage";
 
 if (process.env.NEXT_PUBLIC_P_S_KEY == undefined){
   throw new Error("Next pub not defined")
@@ -82,15 +82,15 @@ const Card = observer(() =>{
     }
       { totalPrice && totalPrice > 0 &&
         <div class="flex justify-center flux-row mt-10 md:mb-10 mb-2 ">
-      <Elements
-        stripe={stripePromise}
-        options={{
-          mode: "payment",
-          amount: convertToCents(totalPrice),
-          currency: "usd"
-        }}>
-          <Checkout amount={totalPrice}/>
-      </Elements>
+        <Elements
+          stripe={stripePromise}
+          options={{
+            mode: "payment",
+            amount: convertToCents(totalPrice),
+            currency: "usd"
+          }}>
+            <CheckoutElement amount={totalPrice}/>
+        </Elements>
       </div>
       }
   </div>
