@@ -34,13 +34,13 @@ const CheckoutElement = (amount) => {
     },[amount.amount])
 
     const handleSubmit = async (event) => {
-        event.preventDefault();
-        setLoading(true);
-    
-        if (!stripe || !elements) {
-          return;
-    }
-    const { error: submitError } = await elements.submit();
+      event.preventDefault();
+      setLoading(true);
+  
+      if (!stripe || !elements) {
+        return;
+      }
+      const { error: submitError } = await elements.submit();
 
     if (submitError) {
       setErrorMessage(submitError.message);
@@ -61,8 +61,7 @@ const CheckoutElement = (amount) => {
       // confirming the payment. Show the error to your customer (for example, payment details incomplete)
       setErrorMessage(error.message);
     } else {
-      // The payment UI automatically closes with a success animation.
-      // Your customer is redirected to your `return_url`.
+      redirect(`/Success?amount=${amount.amount}`)
     }
 
     setLoading(false);
