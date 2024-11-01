@@ -7,6 +7,7 @@ import {
 } from '@stripe/react-stripe-js'
 import convertToCents from '@/utils/convertToCents';
 
+
 const CheckoutElement = (amount) => {
     const stripe = useStripe();
     const paymentElementOptions = {
@@ -51,8 +52,7 @@ const CheckoutElement = (amount) => {
       elements,
       clientSecret,
       confirmParams: {
-
-        return_url: `http://localhost:3000/Success?amount=${amount.amount}`,
+        return_url: `https://testing.sareepasal.com/Success?amount=${amount.amount}`,
       },
     });
 
