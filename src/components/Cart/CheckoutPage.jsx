@@ -11,10 +11,12 @@ import { redirect } from 'next/navigation'
 const CheckoutElement = (amount) => {
     const stripe = useStripe();
     const paymentElementOptions = {
+      layout: {
         type: 'accordion',
         defaultCollapsed: false,
         radios: true,
-        spacedAccordionItems: false
+        spacedAccordionItems: true
+      }
         };
     console.log(amount.amount)
     const elements = useElements();
@@ -61,7 +63,6 @@ const CheckoutElement = (amount) => {
       // confirming the payment. Show the error to your customer (for example, payment details incomplete)
       setErrorMessage(error.message);
     } else {
-      console.log("Done")
       redirect(`/Success?amount=${amount.amount}`)
     }
 
@@ -83,13 +84,8 @@ const CheckoutElement = (amount) => {
     );
   }
     return(
-        <form onSubmit={handleSubmit} class="bg-white p-2 rounded-md">
-            <input
-          id="email"
-          type="text"
-          class="border p-3"
-          placeholder="Enter email address"
-        />
+        <form onSubmit={handleSubmit} class="bg-white p-2 rounded-md md:w-1/2">
+           
             {clientSecret && <PaymentElement class="dark:text-white" options={paymentElementOptions}/>}
             <button 
             disabled={!stripe || loading}

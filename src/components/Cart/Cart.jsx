@@ -81,7 +81,7 @@ const Card = observer(() =>{
       </div>
     }
       { totalPrice && totalPrice > 0 &&
-        <div class="flex justify-center flux-row mt-10 md:mb-10 mb-2 ">
+        <div class="flex justify-center w-full">
         <Elements
           stripe={stripePromise}
           options={{
