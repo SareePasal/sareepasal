@@ -6,6 +6,7 @@ import {
     PaymentElement,
 } from '@stripe/react-stripe-js'
 import convertToCents from '@/utils/convertToCents';
+import { redirect } from 'next/navigation'
 
 const CheckoutElement = (amount) => {
     const stripe = useStripe();
@@ -51,7 +52,7 @@ const CheckoutElement = (amount) => {
       elements,
       clientSecret,
       confirmParams: {
-        return_url: `http://www.localhost:3000/payment-success?amount=${amount}`,
+        return_url: redirect(`/Success?amount=${amount.amount}`),
       },
     });
 
