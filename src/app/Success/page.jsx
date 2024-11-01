@@ -1,12 +1,19 @@
+'use client'
 import Header from "../../components/Header/Header";
 import PaymentSuccess from "../../components/Success/Success"
 import Footer from "../../components/Footer/Footer"
+import { useSearchParams } from 'next/navigation'
+import { Suspense } from 'react'
 
-export default function Ab() {
+export default function Success() {
+    const searchParams = useSearchParams()
+    const amount = searchParams.get('amount')
   return (
-    <main class="flex flex-col h-dvh ">
+      <main class="flex flex-col h-dvh ">
       <Header/>
-      <PaymentSuccess/>
+        <Suspense>
+            <PaymentSuccess amount={amount}/>
+        </Suspense>
       <Footer/>
     </main>
   );

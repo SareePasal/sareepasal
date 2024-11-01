@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+import {  NextResponse } from "next/server";
 const stripe = require("stripe")(process.env.S_S_KEY);
 
 export async function POST(request) {
@@ -11,7 +11,7 @@ export async function POST(request) {
       automatic_payment_methods: { enabled: true },
     });
 
-    return NextResponse.json({ clientSecret: paymentIntent.client_secret });
+    return NextResponse.json({ clientSecret: paymentIntent.client_secret,id:paymentIntent.id  });
   } catch (error) {
     console.error("Internal Error:", error);
     // Handle other errors (e.g., network issues, parsing errors)

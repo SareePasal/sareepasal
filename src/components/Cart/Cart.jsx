@@ -1,11 +1,10 @@
 'use client'
-import { useContext,useState } from "react";
+import { useContext,useState,useEffect } from "react";
 import { StoreContext } from "../provider/Provider";
 import {loadStripe} from '@stripe/stripe-js'
 import { Elements } from '@stripe/react-stripe-js'
 import { observer } from "mobx-react";
 import Display from "./Display"
-import Link from 'next/link';
 import convertToCents from '../../utils/convertToCents'
 import CheckoutElement from "./CheckoutPage";
 
@@ -13,10 +12,31 @@ if (process.env.NEXT_PUBLIC_P_S_KEY == undefined){
   throw new Error("Next pub not defined")
 }
 
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_P_S_KEY)
 
 const Card = observer(() =>{
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const handleDarkModeChange = (e) => {
+      setIsDarkMode(e.matches);
+    };
+    handleDarkModeChange(mediaQuery); // Initial check
+    mediaQuery.addEventListener('change', handleDarkModeChange);
+    return () => {
+      mediaQuery.removeEventListener('change', handleDarkModeChange);
+    };
+  }, []);
+  const [stripePromise, setStripePromise] = useState(() => loadStripe(process.env.NEXT_PUBLIC_P_S_KEY))
   const { currentCart,increaseQuantityInCart,decreaseQuantityInCart, totalPrice} = useContext(StoreContext)
+  const elementOptions = {
+    mode: "payment",
+    amount: convertToCents(totalPrice),
+    currency: "usd",
+    appearance: {
+      theme: isDarkMode ? 'night' : 'stripe',
+    }
+  };
   const [amount,setAmount] = useState(totalPrice)
   return(
     <div class="flex flex-col border border-gray-100 shadow-xl rounded-lg m-4 bg-white dark:bg-slate-800 ">
@@ -81,15 +101,11 @@ const Card = observer(() =>{
       </div>
     }
       { totalPrice && totalPrice > 0 &&
-        <div class="flex justify-center w-full">
+        <div class="flex justify-center w-full p-4">
         <Elements
           stripe={stripePromise}
-          options={{
-            mode: "payment",
-            amount: convertToCents(totalPrice),
-            currency: "usd"
-          }}>
-            <CheckoutElement amount={totalPrice}/>
+          options={elementOptions}>
+            <CheckoutElement amount={Math.round((totalPrice + (Math.round((totalPrice * 0.07) * 100)/100))*100)/100}/>
         </Elements>
       </div>
       }
