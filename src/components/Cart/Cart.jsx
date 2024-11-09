@@ -1,11 +1,43 @@
 'use client'
-import { useContext } from "react";
+import { useContext,useState,useEffect } from "react";
 import { StoreContext } from "../provider/Provider";
+import {loadStripe} from '@stripe/stripe-js'
+import { Elements } from '@stripe/react-stripe-js'
 import { observer } from "mobx-react";
 import Display from "./Display"
+import convertToCents from '../../utils/convertToCents'
+import CheckoutElement from "./CheckoutPage";
+
+if (process.env.NEXT_PUBLIC_P_S_KEY == undefined){
+  throw new Error("Next pub not defined")
+}
+
 
 const Card = observer(() =>{
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const handleDarkModeChange = (e) => {
+      setIsDarkMode(e.matches);
+    };
+    handleDarkModeChange(mediaQuery); // Initial check
+    mediaQuery.addEventListener('change', handleDarkModeChange);
+    return () => {
+      mediaQuery.removeEventListener('change', handleDarkModeChange);
+    };
+  }, []);
+  const [stripePromise, setStripePromise] = useState(() => loadStripe(process.env.NEXT_PUBLIC_P_S_KEY))
   const { currentCart,increaseQuantityInCart,decreaseQuantityInCart, totalPrice} = useContext(StoreContext)
+  const elementOptions = {
+    mode: "payment",
+    amount: convertToCents(totalPrice),
+    currency: "usd",
+    appearance: {
+      theme: isDarkMode ? 'night' : 'stripe',
+    }
+  };
+  const [amount,setAmount] = useState(totalPrice)
   return(
     <div class="flex flex-col border border-gray-100 shadow-xl rounded-lg m-4 bg-white dark:bg-slate-800 ">
     <h1 class="text-2xl item-center justify-center flex text-blue-500 dark:text-slate-200 font-bold font-mono p-2">Cart</h1>
@@ -53,7 +85,7 @@ const Card = observer(() =>{
                 <span class="font-bold ">Taxes: </span>
                 </td>
                 <td class="pt-2">
-                <span class="pl-10">{Math.round((totalPrice * 0.07) * 100)/100}</span>
+                <span class="pl-10">{totalPrice}</span>
                 </td>
             </tr>
             <tr class="text-xs ">
@@ -68,6 +100,15 @@ const Card = observer(() =>{
       </table>
       </div>
     }
+      { totalPrice && totalPrice > 0 &&
+        <div class="flex justify-center w-full p-4">
+        <Elements
+          stripe={stripePromise}
+          options={elementOptions}>
+            <CheckoutElement amount={Math.round((totalPrice + (Math.round((totalPrice * 0.07) * 100)/100))*100)/100}/>
+        </Elements>
+      </div>
+      }
   </div>
   )
 })
