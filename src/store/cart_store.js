@@ -69,7 +69,7 @@ class Store {
         {
             id: "L-3074",
             name: 'Sparkling Lehenga',
-            price: 129.99,
+            price: 0.00,
             image: [
                 { src: '/Images/Lehenga/Leranath Fashion/L-3074/L-3074 (1).jpg', alt: '1', width: 300, height: 300 },
             ],
@@ -81,6 +81,60 @@ class Store {
             price: 39.99,
             image: [
                 { src: '/Images/MensWear/Leranath Fashion/IC-2411/IC-2411 (4).jpg', alt: '4', width: 300, height: 300 },
+            ],
+            color: ""
+        },
+        {
+            id: "AG64101",
+            name: 'COTTON MEN’S KURTA',
+            price: 55.00,
+            image: [
+                { src: '/Images/MensWear/Appereal Garment/64101/64101-5.jpeg', alt: '2', width: 300, height: 300 },
+            ],
+            color: ""
+        },
+        {
+            id: "AG67333",
+            name: 'COTTON MEN’S KURTA',
+            price: 45.00,
+            image: [
+                { src: '/Images/MensWear/Appereal Garment/67333/67333-1 (1).jpg', alt: '1', width: 300, height: 300 },
+            ],
+            color: ""
+        },
+        {
+            id: "AG68734",
+            name: 'COTTON MEN’S KURTA',
+            price: 30.00,
+            image: [
+                { src: '/Images/MensWear/Appereal Garment/68734/68734-7 (1).jpeg', alt: '2', width: 300, height: 300 },
+            ],
+            color: ""
+        },
+        {
+            id: "AG69762",
+            name: 'COTTON MEN’S KURTA',
+            price: 45.00,
+            image: [
+                { src: '/Images/MensWear/Appereal Garment/69762/69762-1.jpg', alt: '2', width: 300, height: 300 },
+            ],
+            color: ""
+        },
+        {
+            id: "AG71422",
+            name: 'COTTON MEN’S KURTA',
+            price: 45.00,
+            image: [
+                { src: '/Images/MensWear/Appereal Garment/71422-1/71422-1 (2).jpeg', alt: '2', width: 300, height: 300 },
+            ],
+            color: ""
+        },
+        {
+            id: "AG72579",
+            name: 'COTTON MEN’S KURTA',
+            price: 55.00,
+            image: [
+                { src: '/Images/MensWear/Appereal Garment/72579/72579-4 (1).jpeg', alt: '2', width: 300, height: 300 },
             ],
             color: ""
         },
