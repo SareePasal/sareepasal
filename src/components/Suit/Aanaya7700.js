@@ -1,6 +1,6 @@
 const item = {
     images: [
-        { src: '/Images/Lehenga/RoyalTextile/Aanaya7700/Aanaya7700 (1).jpeg', alt: '1', width: 430, height: 430 },
+        { src: '/Images/Lehenga/RoyalTextile/Aanaya7700/Aanaya7700A (1).jpeg', alt: '1', width: 430, height: 430 },
         { src: '/Images/Lehenga/RoyalTextile/Aanaya7700/Aanaya7700 (2).jpeg', alt: '2', width: 430, height: 430 },        
         
     ],
