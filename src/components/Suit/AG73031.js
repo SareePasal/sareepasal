@@ -7,7 +7,7 @@ const item = {
 
     ],
     description: {
-        title: "GEORGETTE EMBROIDERY SEQUENCE WORK GOWN BOTTOM WITH DUPATTA BABY PINK",
+        title: "GEORGETTE EMBROIDERY SEQUENCE WORK GOWN BOTTOM WITH DUPATTA BABY PINK --- (SOLD OUT)",
         detail: ["Fancy georgette embroidery sequence work gown bottom with dupatta baby pink",
             "GOWN FABRIC : PURE FAUX GEORGETTE WITH HEAVY EMBROIDERY 5MM SEQUENCE WORK WITH",
             "(ATTACHED PAD WITH CANVAS-PATTA)",
@@ -24,7 +24,7 @@ const item = {
         colors: "Baby Pink",
         size: "Medium, Large",
         code: "73031",
-        price: "$50.00"
+        price: "$50.00--- (SOLD OUT)"
     }
 
 }
