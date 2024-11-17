@@ -24,7 +24,7 @@ const item = {
         colors: "Baby Pink",
         size: "Medium, Large",
         code: "73031",
-        price: "$50.00--- (SOLD OUT)"
+        price: "(SOLD OUT)"
     }
 
 }
