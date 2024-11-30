@@ -7,14 +7,14 @@ const item = {
         
     ],
     description: {
-        title: "Premium Silk Gown With Dupatta---- (PRE-ORDER)",
+        title: "Premium Silk Gown With Dupatta",
         detail: ["PREMIUM SILK",
             "Fabric: Silk"
         ],
         colors: "As shown in Picture",
         size: "XS,S,M,L,XL,XXL",
         code: "RT1003",
-        price: "(PRE-ORDER)"
+        price: "$120.00"
     }
 
 }

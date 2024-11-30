@@ -5,7 +5,7 @@ const item = {
 
     ],
     description: {
-        title: "Faux Georgette Designer Lehenga Choli ---- (PRE-ORDER)",
+        title: "Anamika Vol 106 Faux Georgette Designer Lehenga Choli",
         detail: ["Lehenga: Fox Georgette | Inner:- Micro Cotton | Work:- Embroidery 7mm Sequence Work | Flair:- 3.50 Mtr ",
             "Blouse: Fox Georgette | Work:- Embroidery 7mm Sequence Work with Belt Inner:- Micro Cotton",
             "Dupatta: Fox Georgette | Size:- 2.30Mtr",
@@ -14,7 +14,7 @@ const item = {
         colors: "Red",
         size: "M,L",
         code: "RT106",
-        price: "(PRE-ORDER)"
+        price: "90.00"
     }
 
 }

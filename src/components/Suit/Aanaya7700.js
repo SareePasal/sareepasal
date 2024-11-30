@@ -5,14 +5,14 @@ const item = {
         
     ],
     description: {
-        title: "Party Wear Net Salwar Kameez---- (PRE-ORDER)",
+        title: "Party Wear Net Salwar Kameez",
         detail: ["Top - Net | Inner - Satin | Bottom - Net | Dupatta - Net",
             "Fabric: Net"
         ],
         colors: "As shown in Picture",
         size: "38,40,42,44",
         code: "Aanaya7700",
-        price: "(PRE-ORDER)"
+        price: "$80.00"
     }
 
 }

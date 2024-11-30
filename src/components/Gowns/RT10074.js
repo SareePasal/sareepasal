@@ -7,14 +7,16 @@ const item = {
         
     ],
     description: {
-        title: "Georgette Gown With Dupatta---- (PRE-ORDER)",
-        detail: ["TOP: GEORGETTE",
-            "DUPATTA: GEORGETTE"
+        title: "Georgette Gown With Dupatta",
+        detail: ["Faux Georgette Abaya Style Kameez in Pink",
+            "TOP: GEORGETTE",
+            "DUPATTA: GEORGETTE",
+            "This Readymade V Neck and Full Sleeve attire with Poly Shantoon Lining is Enhanced with Zari, Dori, Mirror and Sequins Work"
         ],
-        colors: "Green, Pink, Purple",
-        size: "S,M,L,XL,XXL",
+        colors: "As shown in Picture",
+        size: "Multiple Sizes Available. Call for Details !!!!!",
         code: "RT10074",
-        price: "(PRE-ORDER)"
+        price: "$150.00"
     }
 
 }

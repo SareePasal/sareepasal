@@ -7,14 +7,14 @@ const item = {
         
     ],
     description: {
-        title: "Silver Georgette Gown With Dupatta---- (PRE-ORDER)",
+        title: "Silver Georgette Gown With Dupatta",
         detail: ["TOP: GEORGETTE",
             "DUPATTA: GEORGETTE"
         ],
         colors: "Blue, Pink, Purple, Lavender",
         size: "XS,S,M,L,XXL",
         code: "RT1004",
-        price: "(PRE-ORDER)"
+        price: "$110.00"
     }
 
 }

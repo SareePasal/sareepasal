@@ -1,19 +1,27 @@
 import * as React from 'react';
+import Slider from '../Slider/Slider'
+import Description from "../Description/Description"
+import AG72430 from "./AG72430"
+import AG72483 from "./AG72483"
+
+
+//Add Items Here
+const itemCode = [AG72430,AG72483]
 
 //Do Not Touch the code below
 const Sale = () => {
     return (
-        <div class="h-svh  bg-white flex">
-            <div class="max-w-screen-xl flex flex-row justify-between mx-auto p-4">
-            <span class="text-2xl font-extrabold md:text-lg font-semibold whitespace-nowrap text-green-500 dark:text-gray-400">
-                    No Items Found !!!!!
-                    </span>
-            </div>
-        </div>
+        <div class="mx-10">
+            {itemCode && itemCode.map((object, i) =>
+                <div class="flex-row" key={i}>                    
+                    <Slider imageList={object.images} key={i}/>
+                    <Description description ={object.description} key={i}/>
+                </div>)
 
-    )            
+            }            
       
-        }
-
+        </div>
+    )
+}
 
 export default Sale
