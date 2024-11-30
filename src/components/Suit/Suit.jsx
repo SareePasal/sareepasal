@@ -1,6 +1,9 @@
 import * as React from 'react';
 import Slider from '../Slider/Slider'
 import Description from "../Description/Description"
+import RT1003Eba from "./RT1003Eba"
+import RT1006 from "../Suit/RT1006"
+import RT1007 from "../Suit/RT1007"
 import Aanaya7700 from "../Suit/Aanaya7700"
 import GloriousS52 from "../Suit/GloriousS52"
 import AG71901 from "./AG71901"
@@ -23,7 +26,7 @@ import AG356 from "./AG356"
 import AG68776 from "./AG68776"
 
 //Add Items Here
-const itemCode = [Aanaya7700,GloriousS52,AG71901,AG69583,AG62914,EG48594, 
+const itemCode = [RT1003Eba,RT1007, RT1006,Aanaya7700,GloriousS52,AG71901,AG69583,AG62914,EG48594, 
                     AG68685, AG72483, AG71970, AG337, AG72430,
                     AG68133, AG71820, AG71236, AG68177,
                     AG73031, AG65068, AG73369, AG356,AG68776]

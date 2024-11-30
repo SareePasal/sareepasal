@@ -1,22 +1,29 @@
 const item = {
     images: [
-        { src: '/Images/RoyalTextile/RT1001/RT1001 (1).jpeg', alt: '1', width: 430, height: 430 },
         { src: '/Images/RoyalTextile/RT1001/RT1001 (2).jpeg', alt: '2', width: 430, height: 430 },
-        { src: '/Images/RoyalTextile/RT1001/RT1001 (3).jpeg', alt: '3', width: 430, height: 430 },
+        { src: '/Images/RoyalTextile/RT1001/11.jpeg', alt: '2', width: 430, height: 430 },
+        { src: '/Images/RoyalTextile/RT1001/12.jpeg', alt: '2', width: 430, height: 430 },
+        { src: '/Images/RoyalTextile/RT1001/13.jpeg', alt: '2', width: 430, height: 430 },
 
 
 
     ],
     description: {
-        title: "Sayuri Amarpali Georgette Designer Lehenga Choli ---- (PRE-ORDER)",
-        detail: ["Fabric Description: GEORGETTE (EMBROIDERED LEHENGA WITH CANCAN AND EMBROIDERD DUPATTA) (FREE SIZE STITCHED)",
-            "Fabric: Georgette",
-            "Brand: Sayuri Designer"
+        title: "Sayuri Amarpali Georgette Designer Lehenga Choli for Engagement",
+        detail: ["Fabric Description: GEORGETTE (EMBROIDERED LEHENGA WITH CANCAN AND EMBROIDERD DUPATTA)",
+                "Type :Embroidered Lehenga",
+                "Style :A Line ",
+                "Occasion :Bridesmaid Wear, Guest of Wedding Wear, Sangeet, Engagement, Festival Wear",
+                "Festival :Diwali,Lohri,Navratri",
+                "Color :Lehenga - Lavender Purple, Blouse - Lavender Purple, Dupatta - Lavender Purple",
+                "Fabric :Lehenga - Georgette, Blouse - Georgette, Dupatta - Georgette",
+                "Work :Lehenga - Resham Work, Sequins Work, Thread Work, Faux Mirror Work, Blouse - Resham Work, Sequins Work, Thread Work, Faux Mirror Work, Dupatta - Resham Work, Thread Work, Faux Mirror Work",
+                "Package :Lehenga, Blouse & Dupatta"
         ],
         colors: "As shown in Picture",
         size: "S,M,L",
         code: "RT1001",
-        price: "(PRE-ORDER)"
+        price: "$190.00"
     }
 
 }

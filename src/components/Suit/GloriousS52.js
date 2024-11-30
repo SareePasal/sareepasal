@@ -7,14 +7,14 @@ const item = {
         
     ],
     description: {
-        title: "Fancy Party Wear Kurti With Bottom Dupatta---- (PRE-ORDER)",
+        title: "Fancy Party Wear Kurti With Bottom Dupatta",
         detail: ["Fabric Description: Faux Georgette | Embroidered",
             "Fabric: Faux Georgette",
         ],
         colors: "As shown in Picture",
         size: "Sm, M, L",
         code: "GloriousS52",
-        price: "(PRE-ORDER)"
+        price: "$55.00"
     }
 
 }

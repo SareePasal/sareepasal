@@ -10,7 +10,7 @@ const item = {
             "PAYJAMA FABRIC : COTTON",
             "SIZE : M(38) , L(40)",
         ],
-        colors: "Maroon",
+        colors: "Green",
         size: " Medium, Large",
         code: " AG69762",
         price: "$45.00"

@@ -5,7 +5,7 @@ const item = {
         
     ],
     description: {
-        title: "Hazel 2302 And 2304 Party Wear Georgette Lehenga---- (PRE-ORDER)",
+        title: "Hazel 2302 And 2304 Party Wear Georgette Lehenga",
         detail: ["Georgette | Dupatta : Net | Inner : Micro Cotton | Lehenga Falir : 3.5 Meter | Choli Length : 14 Inch ",
             "Note : Sleeves Are Attach In The Choli",
             "Fabric: Georgette",
@@ -14,7 +14,7 @@ const item = {
         colors: "As shown in Picture",
         size: "L,XL",
         code: "Hazel2302",
-        price: "(PRE-ORDER)"
+        price: "$150.00"
     }
 
 }
