@@ -10,14 +10,14 @@ const item = {
 
     ],
     description: {
-        title: "Party Designer Georgette Saree ---- (PRE-ORDER)",
+        title: "Party Designer Georgette Saree",
         detail: ["Saree: Georgette with Sequence Lace Border ( 5.50 MTR )",
             "Blouse: Sattin Banglori Silk"
         ],
         colors: "As shown in Picture",
         size: "32,34,36,38,40,42,44,46",
         code: "Akshita765",
-        price: "(PRE-ORDER)"
+        price: "$60.00"
     }
 
 }

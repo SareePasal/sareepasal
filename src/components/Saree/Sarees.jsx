@@ -1,7 +1,9 @@
 import * as React from 'react';
 import Slider from '../Slider/Slider'
 import Description from "../Description/Description"
+import Bt3118 from "./Bt3118"
 import Akshita765 from "./Akshita765"
+import DS610 from "./DS610"
 import Suman01 from "./Suman01"
 import FBL228 from "./FBL228"
 import NA4001 from "./NA4001"
@@ -10,7 +12,7 @@ import VC4052 from "./VC4052"
 
 
 //Add Items Here
-const itemCode = [Akshita765,Suman01,FBL228,NA4001,DB4090,VC4052]
+const itemCode = [Bt3118,Akshita765,DS610,Suman01,FBL228,NA4001,DB4090,VC4052]
 
 //Do Not Touch the code below
 const Sarees = () => {
