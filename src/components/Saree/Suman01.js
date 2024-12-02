@@ -7,14 +7,14 @@ const item = {
 
     ],
     description: {
-        title: "Beautiful Georgette Designer Saree ---- (PRE-ORDER)",
+        title: "Beautiful Georgette Designer Saree",
         detail: ["Saree: Fox Georgette | Work: Heavy Embroidery Sequnce Work | Length : 5.5Mtr ",
             "Blouse: Fox Georgette | Work: Embroidery Sequnce Work (0.80Mtr)"
         ],
         colors: "Purple, Black",
         size: "36,38,40,42,44",
         code: "Suman01",
-        price: "(PRE-ORDER)"
+        price: "$50.00"
     }
 
 }
