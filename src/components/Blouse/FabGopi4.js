@@ -13,14 +13,14 @@ const item = {
         
     ],
     description: {
-        title: "Fancy Georgette Blouse---- (PRE-ORDER)",
+        title: "Fancy Georgette Blouse",
         detail: ["Soft Bluming Fox Georgette",
             "Fabric: Fancy fabrics",
         ],
         colors: "Call for colors",
         size: "Call for sizes",
         code: "FabGopi4",
-        price: "(PRE-ORDER)"
+        price: "$30.00"
     }
 
 }
