@@ -14,14 +14,14 @@ const item = {
         
     ],
     description: {
-        title: "Multi Thread Work Blouse Soft Italian Blouse---- (PRE-ORDER)",
+        title: "Multi Thread Work Blouse Soft Italian Blouse",
         detail: ["Soft Italian With Tricot Fuising",
             "Fabric: Fancy fabrics",
         ],
         colors: "Call for colors",
         size: "Call for sizes",
         code: "FabMultiThread",
-        price: "(PRE-ORDER)"
+        price: "$20.00"
     }
 
 }
