@@ -3,6 +3,7 @@ import Slider from '../Slider/Slider'
 import Description from "../Description/Description"
 import Bt3118 from "./Bt3118"
 import KimoraSindhuri from "./KimoraSindhuri"
+import KimoraSindhuriAnokhi from "./KimoraSindhuriAnokhi"
 import Karigari from "./Karigari"
 import Glint from "./Glint"
 import Akshita765 from "./Akshita765"
@@ -15,7 +16,7 @@ import VC4052 from "./VC4052"
 
 
 //Add Items Here
-const itemCode = [Bt3118,KimoraSindhuri,Karigari,Glint,Akshita765,DS610,Suman01,FBL228,NA4001,DB4090,VC4052]
+const itemCode = [Bt3118,KimoraSindhuri,KimoraSindhuriAnokhi,Karigari,Glint,Akshita765,DS610,Suman01,FBL228,NA4001,DB4090,VC4052]
 
 //Do Not Touch the code below
 const Sarees = () => {

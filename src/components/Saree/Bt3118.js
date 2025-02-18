@@ -16,7 +16,7 @@ const item = {
         colors: "As shown in Picture",
         size: "Call for Sizes",
         code: "Bt3118",
-        price: "$65.00"
+        price: "$55.00"
     }
 
 }

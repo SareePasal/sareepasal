@@ -23,7 +23,7 @@ const item = {
         colors: "As shown in Picture",
         size: "Call for Sizes",
         code: "KimoraSindhuri",
-        price: "$160.00"
+        price: "$150.00"
     }
 
 }
