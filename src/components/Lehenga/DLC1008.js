@@ -6,7 +6,7 @@ const item = {
         
     ],
     description: {
-        title: "Rangoli Embroidered Lehenga Choli---- (PRE-ORDER)",
+        title: "Rangoli Embroidered Lehenga Choli",
         detail: ["Lehenga/ Blouse: Rangoly With Mirror Paper Embroidery Work | Lehenga Length: 44 Inches | Flare: 3 Mtr Approx |  ",
             "Choli: 1 Mtr Approx | Inner: American Crepe With Can Can",
             "Dupatta: Net With Embroidery Work Paper Mirror 92.25 Mtr Approx) ",
@@ -15,7 +15,7 @@ const item = {
         colors: "Blue, Green",
         size: "36,38,42",
         code: "DLC1008",
-        price: "(PRE-ORDER)"
+        price: "$80.00"
     }
 
 }
