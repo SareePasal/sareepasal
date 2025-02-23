@@ -9,7 +9,7 @@ const item = {
         { src: '/Images/Lehenga/Leranath Fashion/L-3066/L-3066 (7).jpg', alt: '7', width: 372, height: 372 },
     ],
     description: {
-        title: "Kasturi Silk Georgette Lehenga",
+        title: "Kasturi Silk Georgette Lehenga---- (SOLD OUT)",
         detail: ["Kasturi Silk georgette lehenga with rainbow sequins & Dori work",
             "Flair : 3.25 meter",
             "Blouse: Kasturi silk georgette blouse with rainbow sequins & Dori work all over front & back",
@@ -18,7 +18,7 @@ const item = {
         colors: "NAVY BLUE",
         size: "Small, Medium",
         code: "L-3066",
-        price: "$99.99"
+        price: "(SOLD OUT)"
     }
 
 }

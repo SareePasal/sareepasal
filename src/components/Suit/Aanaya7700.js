@@ -12,7 +12,7 @@ const item = {
         colors: "As shown in Picture",
         size: "38,40,42,44",
         code: "Aanaya7700",
-        price: "$80.00"
+        price: "$70.00"
     }
 
 }

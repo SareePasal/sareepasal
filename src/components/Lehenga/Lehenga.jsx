@@ -16,7 +16,7 @@ import L3074 from "./L3074"
 
 
 //Add Items Here
-const itemCode = [RT1001,RT1001copy,RT1001copy2,RT1002,RT1002copy,Hazel2302,DLC1008,RT106,L3066,L3057,L3074]
+const itemCode = [RT1001,RT1001copy,RT1001copy2,RT1002,RT1002copy,Hazel2302,DLC1008,RT106,L3057,L3066,L3074]
 
 //Do Not Touch the code below
 const Lehengas = () => {
