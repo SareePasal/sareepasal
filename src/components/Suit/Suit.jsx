@@ -28,8 +28,8 @@ import AG68776 from "./AG68776"
 //Add Items Here
 const itemCode = [RT1003Eba,RT1007, RT1006,Aanaya7700,GloriousS52,AG71901,AG69583,AG62914,EG48594, 
                     AG68685, AG72483, AG71970, AG337, AG72430,
-                    AG68133, AG71820, AG71236, AG68177,
-                    AG73031, AG65068, AG73369, AG356,AG68776]
+                    AG68133, AG71820, AG68177,
+                    AG73031, AG65068, AG73369, AG356,AG68776,AG71236]
 
 //Do Not Touch the code below
 const Suits = () => {
