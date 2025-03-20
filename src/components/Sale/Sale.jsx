@@ -7,10 +7,10 @@ import AG68734 from "./AG68734"
 
 
 //Add Items Here
-//const itemCode = [AG72430, AG72483]
-
 const Sale = ({ products = [AG72430, AG72483, AG68734] }) => {
     const isOnSale = products.some(product => product?.description?.newPrice?.includes("Now"));
+
+    //Do Not Change Below Code
   
     return (
         <div class="mx-10">
