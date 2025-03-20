@@ -14,7 +14,7 @@ const item = {
         colors: "Call for colors",
         size: "Call for size",
         code: "AN146",
-        price: "Pre-Order"
+        price: "Call for Price"
     }
 
 }
