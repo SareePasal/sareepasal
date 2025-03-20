@@ -16,7 +16,10 @@ const item = {
         colors: "Maroon",
         size: " Small, Medium, Large",
         code: " AG68734",
-        price: "Was $40.00 Now $30.00 only if you purchase by calling"
+        price: "This price is only valid for the customer who calls",
+        oldPrice: "Was $40",
+        newPrice: "Now $30"
+
     }
 
 }
