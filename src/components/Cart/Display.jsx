@@ -1,37 +1,70 @@
+'use client';
+import { observer } from 'mobx-react-lite';
 import Image from 'next/image';
 
+const Display = observer(({ item, increase, decrease }) => {
+  // Safely handle missing values
+  const price = Number(item?.price) || 0;
+  const quantity = Number(item?.quantity) || 0;
+  const total = (price * quantity).toFixed(2);
+  const { src,alt,height,width } = item.image[0]
 
-const Display = ({item,increase,decrease}) =>{
-    const { src,alt,height,width } = item.image[0]
-    return (
-        <tr class="text-xs border-b dark:border-slate-600 border-2">
-            <td class="w-6/12 md:w-3/12 p-3">
-                <Image
-                    src={src}
-                    width={width}
-                    height={height}
-                    alt={alt}
-                    class="rounded-lg"
-                />
-                <span class="text-xs md:text-md md:pr-10 text-wrap font-semibold text-clip flex justify-center mt-2">{item.name}</span>
-                <span class="text-xs md:text-md md:pr-10 text-wrap font-semibold text-clip flex justify-center mt-1">Color: {item.color}</span>
-                <span class="text-xs md:text-md md:pr-10 text-wrap font-semibold text-clip flex justify-center mt-1">Size: {item.size}</span>
-            </td>
-            <td>
-                <span class="p-1 font-semibold flex justify-center">{item.price}</span>
-            </td>
-            <td class="w-10">
-                <div class="grid grid-cols-3 col-start-2 divide-x-4 border ">
-                    <button class="fa-solid fa-minus"  onClick={e=>decrease(item.id)}></button>
-                    <span class="font-semibold flex justify-center">{item.quantity}</span>
-                    <button class="fa-solid fa-plus" onClick={e=>increase(item.id)}></button>
-                </div>
-            </td>
-            <td>
-                <span class="p-1 font-semibold flex justify-center" >{item.total}</span>
-            </td>
-        </tr>
-    )
-}
+  return (
+    <tr className="border-b dark:border-slate-600 border-slate-300">
+      {/* Item with thumbnail */}
+      <td className="p-4 text-left">
+        <div className="flex items-center">
+          <Image 
+            src={src} 
+            alt={item.name}
+            width={80}
+            height={80}
+            className="w-20 h-20 object-cover rounded mr-4"
+          />
+          <div>
+            <p className="font-medium text-gray-800 dark:text-slate-200">
+              {item.name}
+            </p>
+            {item.color && (
+              <p className="text-sm text-gray-600 dark:text-slate-400">
+                Color: {item.color}
+              </p>
+            )}
+            {item.size && (
+              <p className="text-sm text-gray-600 dark:text-slate-400">
+                Size: {item.size}
+              </p>
+            )}
+          </div>
+        </div>
+      </td>
 
-export default Display
+      {/* Price */}
+      <td className="p-4 text-center">${price.toFixed(2)}</td>
+
+      {/* Quantity Controls */}
+      <td className="p-4 text-center">
+        <div className="flex items-center justify-center space-x-2">
+          <button
+            onClick={() => decrease(item.id)}
+            className="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full hover:bg-gray-300"
+          >
+            -
+          </button>
+          <span className="font-medium">{quantity}</span>
+          <button
+            onClick={() => increase(item.id)}
+            className="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full hover:bg-gray-300"
+          >
+            +
+          </button>
+        </div>
+      </td>
+
+      {/* Total */}
+      <td className="p-4 text-right">${total}</td>
+    </tr>
+  );
+});
+
+export default Display;

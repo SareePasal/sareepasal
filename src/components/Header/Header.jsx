@@ -2,12 +2,15 @@
 import { useContext } from "react";
 import Image from 'next/image';
 import Link from 'next/link';
-import { StoreContext } from "../provider/Provider";
+import { useStore  } from "/src/components/provider/Provider";
 import { observer } from "mobx-react";
 
 
 const Header = observer(() => {
-    const { currentCart} = useContext(StoreContext)
+    // Use the custom useStore hook instead of useContext directly
+    const store = useStore();
+    const currentCart = store?.currentCart || []; // Safe access with fallback
+
     return (
         <header>
             <nav class="bg-pink-100 border-gray-200 dark:bg-slate-800">
@@ -140,7 +143,7 @@ const Header = observer(() => {
                 </div>
 
             </nav>
-            <div class="flex h-18  items-center justify-center bg-black">
+{/*             <div class="flex h-18  items-center justify-center bg-black">
                 <span class="absolute mx-auto py-4 flex border w-fit bg-gradient-to-r 
                             blur-xl from-blue-500 via-teal-500 to-pink-500 bg-clip-text text-2xl 
                             box-content font-extrabold text-transparent text-center select-none">
@@ -153,7 +156,7 @@ const Header = observer(() => {
                     Happy Dashain and Diwali
                 </h1>
             </div>
-            
+ */}            
             {/* Search Box */}
 {/*             <form class="w-80 max-w-md mx-auto">
                 <label for="default-search" class="mb-2 text-sm font-medium text-gray-600 sr-only dark:text-white">Search</label>
