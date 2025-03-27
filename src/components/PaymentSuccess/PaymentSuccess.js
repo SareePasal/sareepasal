@@ -203,7 +203,10 @@ export default function PaymentSuccess() {
                     </button>
                     
                     <p className="text-xs text-gray-500 dark:text-slate-400 mt-2 text-center">
-                      This will open your email client with your order details pre-filled
+                      This will open your email client with your order details pre-filled.
+                    </p>
+                    <p className="text-xs font-bold text-red-500 dark:text-slate-400 mt-2 text-center">
+                      Without this Seller will not receive your Order. Please send Confirmation Email.
                     </p>
                   </div>
                 </div>
