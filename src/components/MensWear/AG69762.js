@@ -9,9 +9,15 @@ const item = {
             "PAYJAMA FABRIC : COTTON",
             "SIZE : M(38) , L(40)",
         ],
+<<<<<<< HEAD
         colors: ["Maroon"],
         size: ["Medium", "Large"],
         code: "AG69762",
+=======
+        colors: "Green",
+        size: " Medium, Large",
+        code: " AG69762",
+>>>>>>> main
         price: "$45.00"
     }
 

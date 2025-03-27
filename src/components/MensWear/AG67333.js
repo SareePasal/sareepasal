@@ -14,9 +14,15 @@ const item = {
             "(4 inch LOOSENING )",
 
         ],
+<<<<<<< HEAD
         colors: ["Grey"],
         size: ["Small", "Medium", "Large"],
         code: "AG67333",
+=======
+        colors: "Grey",
+        size: " Small, Medium, Large",
+        code: " AG67333",
+>>>>>>> main
         price: "$45.00"
     }
 

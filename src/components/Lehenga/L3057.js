@@ -21,8 +21,13 @@ const item = {
             "Blouse : Premium Heavy Diamond Silk Embellished With Beautiful Embroidery ,Coding,  And Sequins Work Both Side Work Front And Back With Extra Cloth Given For Sleeves Fabric",
             "Dupatta : Premium Heavy Soft Net Embellished With Beautiful Heavy Embroidery  ,Coding , And Sequins Work*( 2.5 )"
         ],
+<<<<<<< HEAD
         colors: ["As shown in Picture"],
         size: ["Small", "Medium"],
+=======
+        colors: "As shown in Picture",
+        size: "40",
+>>>>>>> main
         code: "L-3057",
         price: "$94.99"
     }

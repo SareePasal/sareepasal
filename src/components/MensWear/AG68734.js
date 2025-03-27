@@ -13,10 +13,20 @@ const item = {
             "MEN SIZE :- S(36), M(38), L(40)",
 
         ],
+<<<<<<< HEAD
         colors: ["Maroon"],
         size: ["Small", "Medium", "Large"],
         code: "AG68734",
         price: "$30.00"
+=======
+        colors: "Maroon",
+        size: " Small, Medium, Large",
+        code: " AG68734",
+        price: "This price is only valid for the customer who calls",
+        oldPrice: "Was $40",
+        newPrice: "Now $30"
+
+>>>>>>> main
     }
 
 }

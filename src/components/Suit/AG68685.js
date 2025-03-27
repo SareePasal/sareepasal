@@ -14,7 +14,7 @@ const item = {
         
     ],
     description: {
-        title: "PARTY WEAR GEORGETTE EMBROIDERY SEQUENCE WORK TOP DHOTI WITH DUPATTA   (Pre-Order)",
+        title: "PARTY WEAR GEORGETTE EMBROIDERY SEQUENCE WORK TOP DHOTI WITH DUPATTA",
         detail: ["Party wear georgette embroidery sequence work top dhoti with dupatta",
             "FABRIC DETAIL :",
             "TOP FABRIC :- FAUX GEORGETTE WITH HEAVY EMBROIDERY 5MM SEQUENCE WORK WITH SLEEVES",
@@ -30,7 +30,7 @@ const item = {
         colors: ["Purple", "Pink", "Green"],
         size: ["Medium","Large"],
         code: "68685",
-        price: "$54.99 (Pre-Order)"
+        price: "$65.00"
     }
 
 }

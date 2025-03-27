@@ -19,9 +19,15 @@ const item = {
             "M | L",
 
         ],
+<<<<<<< HEAD
         colors: ["Pink"],
         size: ["Medium", "Large"],
         code: "AG72579",
+=======
+        colors: "Pink",
+        size: " Medium, Large",
+        code: " AG72579",
+>>>>>>> main
         price: "$55.00"
     }
 

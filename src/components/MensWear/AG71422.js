@@ -16,9 +16,15 @@ const item = {
             "(SIZE CHART PROVIDED)",
             "CONTAIN : MENS KURTA ,PAJAMA",
         ],
+<<<<<<< HEAD
         colors: ["Maroon"],
         size: ["Medium", "Large"],
         code: "AG71422",
+=======
+        colors: "Maroon",
+        size: " Medium, Large",
+        code: " AG71422",
+>>>>>>> main
         price: "$45.00"
     }
 

@@ -7,7 +7,7 @@ const item = {
 
     ],
     description: {
-        title: "ROMAN COTTON PLAIN GOWN BOTTOM WITH EMBROIDERY WORK DUPATTA MAROON   (Pre-Order)",
+        title: "ROMAN COTTON PLAIN GOWN BOTTOM WITH EMBROIDERY WORK DUPATTA MAROON",
         detail: ["designer roman cotton plain gown bottom with embroidery work dupatta maroon",
             "GOWN FABRIC:- HEAVY PURE SOFT FAUX GEORGETTE 7 METER PLUS FLAIR YOKE NECK POTLI, PADDED ATTACHED",
             "INNER :- MICRO COTTON FULL INNER",
@@ -19,7 +19,7 @@ const item = {
         colors: ["Wine"],
         size: ["XS"],
         code: "AG68776",
-        price: "$69.99 (Pre-Order)"
+        price: "$65.00"
     }
 
 }

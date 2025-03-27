@@ -7,7 +7,7 @@ const item = {
 
     ],
     description: {
-        title: "GEORGETTE EMBROIDERY WORK GOWN BOTTOM WITH DUPATTA  (Pre-Order)",
+        title: "GEORGETTE EMBROIDERY WORK GOWN BOTTOM WITH DUPATTA",
         detail: ["GOWN",
                 "=========",
                 "FABRIC :- FAUX GEORGETTE WITH ALL OVER EMBROIDERY WORK",
@@ -31,7 +31,7 @@ const item = {
         colors: ["Wine"],
         size: ["XS"],
         code: "73369",
-        price: "$54.99 (Pre-Order)"
+        price: "$65.00"
     }
 
 }

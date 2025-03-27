@@ -5,7 +5,7 @@ const item = {
 
     ],
     description: {
-        title: "GEORGETTE EMBROIDERY DESIGN WORK FULL STITCHED KURTI WITH DUPATTA FULL STITCHED RED  (Pre-Order)",
+        title: "GEORGETTE EMBROIDERY DESIGN WORK FULL STITCHED KURTI WITH DUPATTA FULL STITCHED RED",
         detail: ["Georgette embroidery design work full stitched kurti with dupatta full stitched red",
             "FABRIC : FAUX GEORGETTE",
             "WORK : EMBROIDERY DESIGN WORK FULL STITCHED KURTI",
@@ -15,7 +15,7 @@ const item = {
         colors: ["Red"],
         size: ["Medium","Large","XL"],
         code: "EG48594-3",
-        price: "$36.99 (Pre-Order)"
+        price: "$45.00"
     }
 
 }

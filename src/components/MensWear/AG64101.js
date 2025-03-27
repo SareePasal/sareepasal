@@ -12,9 +12,15 @@ const item = {
             "KURTA WITH PAYJAMA",
 
         ],
+<<<<<<< HEAD
         colors: ["Grey"],
         size: ["Medium"],
         code: "AG64101",
+=======
+        colors: "Grey",
+        size: " Medium",
+        code: " AG64101",
+>>>>>>> main
         price: "$55.00"
     }
 

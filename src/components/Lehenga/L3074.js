@@ -12,12 +12,12 @@ const item = {
         { src: '/Images/Lehenga/Leranath Fashion/L-3074/L-3074 (10).jpg', alt: '10', width: 300, height: 300 },
     ],
     description: {
-        title: "Sparkling Lehenga",
+        title: "Sparkling Lehenga ---- (SOLD OUT)",
         detail: ["This sparkling lehenga set is sure to impress , making it a perfect choice for your wedding , parties & other special events"],
         colors:["Gold"],
         size: ["Small", "Medium"],
         code: "L-3074",
-        price: "$129.99"
+        price: "(SOLD OUT)"
     }
 
 }

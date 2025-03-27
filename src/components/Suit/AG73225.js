@@ -7,7 +7,7 @@ const item = {
 
     ],
     description: {
-        title: "Chinon sequence embroidery work top palazzo with dupatta white  (Pre-Order)",
+        title: "Chinon sequence embroidery work top palazzo with dupatta white",
         detail: ["Chinon sequence embroidery work top palazzo with dupatta white",
             "TOP FABRIC : CHINON",
             "WORK : SEQUENCE EMBROIDERY WORK",
@@ -24,7 +24,7 @@ const item = {
         colors: ["White"],
         size: ["Medium","Large"],
         code: "73225-2",
-        price: "$49.99 (Pre-Order)"
+        price: ""
     }
 
 }

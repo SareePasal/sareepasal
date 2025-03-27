@@ -24,7 +24,7 @@ const item = {
         colors: ["Black", "Purple", "White", "Orange", "Gold", "Red", "Green", "Pink", "Blue"],
         size: ["Plus Size 40” Ready ulter upto 42 Inch."],
         code: "AR-6053",
-        price: "$17.99"
+        price: "$20.00"
     }
 
 }
