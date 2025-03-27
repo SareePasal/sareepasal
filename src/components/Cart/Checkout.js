@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect, useContext, useMemo } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { StoreContext } from '../provider/Provider';
@@ -9,7 +9,7 @@ import { useSearchParams } from 'next/navigation';
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
 
-const CheckoutForm = ({ shippingAddress, billingAddress }) => {
+const CheckoutForm = ({ shippingAddress, billingAddress, isShippingValid }) => {
   const stripe = useStripe();
   const elements = useElements();
   const [error, setError] = useState(null);
@@ -26,47 +26,74 @@ const CheckoutForm = ({ shippingAddress, billingAddress }) => {
     setError(null);
 
     if (!stripe || !elements) {
+      setError('Payment system is not ready. Please try again.');
+      setLoading(false);
       return;
     }
 
-    // Save addresses to localStorage for payment success page
-    localStorage.setItem('sareePasalShippingAddress', JSON.stringify(shippingAddress));
-    if (billingAddress) {
-      localStorage.setItem('sareePasalBillingAddress', JSON.stringify(billingAddress));
+    if (!isShippingValid) {
+      setError('Please complete all required shipping address fields');
+      setLoading(false);
+      return;
     }
 
-    // Create a payment intent on your server
-    const response = await fetch('/api/create-payment-intent', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ 
-        amount: grandTotal * 100, // Convert to cents
-        shippingAddress,
-        billingAddress
-      }),
-    });
+    try {
+      // Save addresses to localStorage
+      localStorage.setItem('sareePasalShippingAddress', JSON.stringify(shippingAddress));
+      localStorage.setItem('sareePasalBillingAddress', JSON.stringify(billingAddress));
 
-    const { clientSecret } = await response.json();
+      const response = await fetch('/api/create-payment-intent', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ 
+          amount: Math.round(grandTotal * 100),
+          shippingAddress,
+          billingAddress,
+          metadata: {
+            orderType: 'saree-purchase'
+          }
+        }),
+      });
 
-    // Confirm the payment on the client side
-    const { error, paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
-      payment_method: {
-        card: elements.getElement(CardElement),
-      },
-    });
+      if (!response.ok) throw new Error('Failed to create payment intent');
 
-    if (error) {
-      setError(error.message);
+      const { clientSecret } = await response.json();
+      if (!clientSecret) throw new Error('Invalid client secret received');
+
+      const { error: stripeError, paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
+        payment_method: {
+          card: elements.getElement(CardElement),
+          billing_details: {
+            name: shippingAddress.name,
+            address: {
+              line1: shippingAddress.street,
+              city: shippingAddress.city,
+              state: shippingAddress.state,
+              postal_code: shippingAddress.zip,
+              country: 'US',
+            },
+            phone: shippingAddress.phone,
+          },
+        }
+      });
+
+      if (stripeError) {
+        setError(stripeError.message || 'Payment failed. Please try again.');
+        setLoading(false);
+        return;
+      }
+
+      if (paymentIntent?.status === 'succeeded') {
+        setPaymentSuccess(true);
+        localStorage.setItem('sareePasalOrderComplete', 'true');
+        setTimeout(() => router.push(`/payment-success?total=${grandTotal}`), 2000);
+      }
+    } catch (err) {
+      console.error('Payment error:', err);
+      setError(err.message || 'An error occurred during payment. Please try again.');
       setLoading(false);
-    } else if (paymentIntent.status === 'succeeded') {
-      setPaymentSuccess(true);
-      setLoading(false);
-      // Redirect to success page with total amount
-      setTimeout(() => {
-        router.push(`/payment-success?total=${grandTotal}`);
-      }, 2000);
     }
   };
 
@@ -89,6 +116,7 @@ const CheckoutForm = ({ shippingAddress, billingAddress }) => {
           }}
         />
       </div>
+      
       {error && (
         <div className="bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 p-3 rounded-lg flex items-center animate-fade-in">
           <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -97,6 +125,7 @@ const CheckoutForm = ({ shippingAddress, billingAddress }) => {
           {error}
         </div>
       )}
+      
       {paymentSuccess && (
         <div className="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 p-3 rounded-lg flex items-center animate-fade-in">
           <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -105,11 +134,12 @@ const CheckoutForm = ({ shippingAddress, billingAddress }) => {
           Payment successful! Redirecting...
         </div>
       )}
+      
       <button
         type="submit"
-        disabled={!stripe || loading}
+        disabled={!stripe || loading || !isShippingValid}
         className={`w-full bg-gradient-to-r from-pink-600 to-rose-500 hover:from-pink-700 hover:to-rose-600 text-white font-bold py-3 px-4 rounded-lg shadow-lg transition-all duration-300 transform hover:scale-[1.01] ${
-          (!stripe || loading) ? 'opacity-50 cursor-not-allowed' : ''
+          (!stripe || loading || !isShippingValid) ? 'opacity-50 cursor-not-allowed' : ''
         }`}
       >
         {loading ? (
@@ -128,9 +158,30 @@ const CheckoutForm = ({ shippingAddress, billingAddress }) => {
   );
 };
 
+const AddressField = ({ name, value, onChange, onBlur, error, label, type = 'text', placeholder }) => (
+  <div>
+    <label className="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-2">
+      {label}
+    </label>
+    <input
+      type={type}
+      name={name}
+      placeholder={placeholder}
+      className={`w-full p-3 border ${
+        error ? 'border-red-500' : 'border-gray-300 dark:border-slate-600'
+      } rounded-lg bg-white dark:bg-slate-700 text-gray-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent transition duration-200`}
+      required
+      value={value}
+      onChange={onChange}
+      onBlur={onBlur}
+    />
+    {error && <p className="mt-1 text-sm text-red-500">{error}</p>}
+  </div>
+);
+
 const CheckoutPage = () => {
   const [sameAddress, setSameAddress] = useState(true);
-  const { totalPrice, cartItems = [] } = useContext(StoreContext);
+  const { cartItems = [] } = useContext(StoreContext);
   const searchParams = useSearchParams();
   const grandTotal = parseFloat(searchParams.get('grandTotal')) || 0;
   const taxes = parseFloat(searchParams.get('taxes')) || 0;
@@ -153,23 +204,48 @@ const CheckoutPage = () => {
     phone: ''
   });
 
+  const [errors, setErrors] = useState({
+    shipping: {
+      name: '',
+      street: '',
+      city: '',
+      state: '',
+      zip: '',
+      phone: ''
+    }
+  });
+
+  const isShippingValid = useMemo(() => {
+    return Object.values(shippingAddress).every(field => field.trim() !== '') && 
+           Object.values(errors.shipping).every(error => error === '');
+  }, [shippingAddress, errors]);
+
   const handleShippingChange = (e) => {
     const { name, value } = e.target;
-    setShippingAddress(prev => ({
-      ...prev,
-      [name]: value
-    }));
+    setShippingAddress(prev => ({ ...prev, [name]: value }));
+    if (errors.shipping[name]) {
+      setErrors(prev => ({
+        ...prev,
+        shipping: { ...prev.shipping, [name]: '' }
+      }));
+    }
   };
 
   const handleBillingChange = (e) => {
     const { name, value } = e.target;
-    setBillingAddress(prev => ({
-      ...prev,
-      [name]: value
-    }));
+    setBillingAddress(prev => ({ ...prev, [name]: value }));
   };
 
-  // Persist cart data for payment success page
+  const handleShippingBlur = (e) => {
+    const { name, value } = e.target;
+    if (!value.trim()) {
+      setErrors(prev => ({
+        ...prev,
+        shipping: { ...prev.shipping, [name]: 'This field is required' }
+      }));
+    }
+  };
+
   useEffect(() => {
     if (cartItems.length > 0) {
       localStorage.setItem('sareePasalCart', JSON.stringify(cartItems));
@@ -179,7 +255,6 @@ const CheckoutPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-rose-50 to-pink-50 dark:from-slate-900 dark:to-slate-800 py-12 px-4 sm:px-6">
       <div className="max-w-5xl mx-auto">
-        {/* Header with decorative elements */}
         <div className="text-center mb-12 relative">
           <div className="absolute -top-6 left-1/2 transform -translate-x-1/2">
             <div className="w-16 h-16 bg-pink-200 dark:bg-rose-900/30 rounded-full blur-xl opacity-70"></div>
@@ -199,7 +274,6 @@ const CheckoutPage = () => {
         </div>
 
         <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-xl overflow-hidden border border-pink-100 dark:border-slate-700">
-          {/* Progress Steps */}
           <div className="relative px-8 py-6 border-b dark:border-slate-700 bg-gradient-to-r from-pink-50 to-rose-50 dark:from-slate-800 dark:to-slate-800">
             <div className="flex justify-between">
               <div className="flex flex-col items-center">
@@ -231,9 +305,7 @@ const CheckoutPage = () => {
 
           <div className="p-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-              {/* Left Column - Forms */}
               <div>
-                {/* Shipping Address */}
                 <div className="mb-10">
                   <div className="flex items-center mb-6">
                     <div className="w-10 h-10 rounded-full bg-pink-100 dark:bg-pink-900/30 text-pink-600 dark:text-pink-300 flex items-center justify-center mr-3">
@@ -247,86 +319,68 @@ const CheckoutPage = () => {
                     </h2>
                   </div>
                   <form className="space-y-5">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-2">Full Name</label>
-                      <input
-                        type="text"
-                        name="name"
-                        placeholder="Your full name"
-                        className="w-full p-3 border border-gray-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-gray-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent transition duration-200"
-                        required
-                        value={shippingAddress.name}
+                    <AddressField
+                      name="name"
+                      value={shippingAddress.name}
+                      onChange={handleShippingChange}
+                      onBlur={handleShippingBlur}
+                      error={errors.shipping.name}
+                      label="Full Name"
+                      placeholder="Your full name"
+                    />
+                    <AddressField
+                      name="street"
+                      value={shippingAddress.street}
+                      onChange={handleShippingChange}
+                      onBlur={handleShippingBlur}
+                      error={errors.shipping.street}
+                      label="Street Address"
+                      placeholder="Street address"
+                    />
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                      <AddressField
+                        name="city"
+                        value={shippingAddress.city}
                         onChange={handleShippingChange}
+                        onBlur={handleShippingBlur}
+                        error={errors.shipping.city}
+                        label="City"
+                        placeholder="City"
                       />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-2">Street Address</label>
-                      <input
-                        type="text"
-                        name="street"
-                        placeholder="Street address"
-                        className="w-full p-3 border border-gray-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-gray-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent transition duration-200"
-                        required
-                        value={shippingAddress.street}
+                      <AddressField
+                        name="state"
+                        value={shippingAddress.state}
                         onChange={handleShippingChange}
+                        onBlur={handleShippingBlur}
+                        error={errors.shipping.state}
+                        label="State"
+                        placeholder="State"
                       />
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-2">City</label>
-                        <input
-                          type="text"
-                          name="city"
-                          placeholder="City"
-                          className="w-full p-3 border border-gray-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-gray-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent transition duration-200"
-                          required
-                          value={shippingAddress.city}
-                          onChange={handleShippingChange}
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-2">State</label>
-                        <input
-                          type="text"
-                          name="state"
-                          placeholder="State"
-                          className="w-full p-3 border border-gray-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-gray-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent transition duration-200"
-                          required
-                          value={shippingAddress.state}
-                          onChange={handleShippingChange}
-                        />
-                      </div>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-2">Postal Code</label>
-                        <input
-                          type="text"
-                          name="zip"
-                          placeholder="ZIP/Postal code"
-                          className="w-full p-3 border border-gray-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-gray-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent transition duration-200"
-                          required
-                          value={shippingAddress.zip}
-                          onChange={handleShippingChange}
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-2">Phone Number</label>
-                        <input
-                          type="tel"
-                          name="phone"
-                          placeholder="Phone number"
-                          className="w-full p-3 border border-gray-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-gray-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent transition duration-200"
-                          required
-                          value={shippingAddress.phone}
-                          onChange={handleShippingChange}
-                        />
-                      </div>
+                      <AddressField
+                        name="zip"
+                        value={shippingAddress.zip}
+                        onChange={handleShippingChange}
+                        onBlur={handleShippingBlur}
+                        error={errors.shipping.zip}
+                        label="Postal Code"
+                        placeholder="ZIP/Postal code"
+                      />
+                      <AddressField
+                        name="phone"
+                        value={shippingAddress.phone}
+                        onChange={handleShippingChange}
+                        onBlur={handleShippingBlur}
+                        error={errors.shipping.phone}
+                        label="Phone Number"
+                        placeholder="Phone number"
+                        type="tel"
+                      />
                     </div>
                   </form>
                 </div>
 
-                {/* Billing Address Toggle */}
                 <div className="flex items-center mb-8 p-4 bg-pink-50 dark:bg-slate-700/50 rounded-lg border border-pink-100 dark:border-slate-600">
                   <input
                     type="checkbox"
@@ -353,87 +407,57 @@ const CheckoutPage = () => {
                       </h2>
                     </div>
                     <form className="space-y-5">
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-2">Full Name</label>
-                        <input
-                          type="text"
-                          name="name"
-                          placeholder="Your full name"
-                          className="w-full p-3 border border-gray-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-gray-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent transition duration-200"
-                          required
-                          value={billingAddress.name}
+                      <AddressField
+                        name="name"
+                        value={billingAddress.name}
+                        onChange={handleBillingChange}
+                        label="Full Name"
+                        placeholder="Your full name"
+                      />
+                      <AddressField
+                        name="street"
+                        value={billingAddress.street}
+                        onChange={handleBillingChange}
+                        label="Street Address"
+                        placeholder="Street address"
+                      />
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <AddressField
+                          name="city"
+                          value={billingAddress.city}
                           onChange={handleBillingChange}
+                          label="City"
+                          placeholder="City"
                         />
-                      </div>
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-2">Street Address</label>
-                        <input
-                          type="text"
-                          name="street"
-                          placeholder="Street address"
-                          className="w-full p-3 border border-gray-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-gray-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent transition duration-200"
-                          required
-                          value={billingAddress.street}
+                        <AddressField
+                          name="state"
+                          value={billingAddress.state}
                           onChange={handleBillingChange}
+                          label="State"
+                          placeholder="State"
                         />
                       </div>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                        <div>
-                          <label className="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-2">City</label>
-                          <input
-                            type="text"
-                            name="city"
-                            placeholder="City"
-                            className="w-full p-3 border border-gray-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-gray-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent transition duration-200"
-                            required
-                            value={billingAddress.city}
-                            onChange={handleBillingChange}
-                          />
-                        </div>
-                        <div>
-                          <label className="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-2">State</label>
-                          <input
-                            type="text"
-                            name="state"
-                            placeholder="State"
-                            className="w-full p-3 border border-gray-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-gray-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent transition duration-200"
-                            required
-                            value={billingAddress.state}
-                            onChange={handleBillingChange}
-                          />
-                        </div>
-                      </div>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                        <div>
-                          <label className="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-2">Postal Code</label>
-                          <input
-                            type="text"
-                            name="zip"
-                            placeholder="ZIP/Postal code"
-                            className="w-full p-3 border border-gray-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-gray-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent transition duration-200"
-                            required
-                            value={billingAddress.zip}
-                            onChange={handleBillingChange}
-                          />
-                        </div>
-                        <div>
-                          <label className="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-2">Phone Number</label>
-                          <input
-                            type="tel"
-                            name="phone"
-                            placeholder="Phone number"
-                            className="w-full p-3 border border-gray-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-gray-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent transition duration-200"
-                            required
-                            value={billingAddress.phone}
-                            onChange={handleBillingChange}
-                          />
-                        </div>
+                        <AddressField
+                          name="zip"
+                          value={billingAddress.zip}
+                          onChange={handleBillingChange}
+                          label="Postal Code"
+                          placeholder="ZIP/Postal code"
+                        />
+                        <AddressField
+                          name="phone"
+                          value={billingAddress.phone}
+                          onChange={handleBillingChange}
+                          label="Phone Number"
+                          placeholder="Phone number"
+                          type="tel"
+                        />
                       </div>
                     </form>
                   </div>
                 )}
 
-                {/* Payment Section */}
                 <div>
                   <div className="flex items-center mb-6">
                     <div className="w-10 h-10 rounded-full bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-300 flex items-center justify-center mr-3">
@@ -448,13 +472,13 @@ const CheckoutPage = () => {
                   <Elements stripe={stripePromise}>
                     <CheckoutForm 
                       shippingAddress={shippingAddress} 
-                      billingAddress={sameAddress ? shippingAddress : billingAddress} 
+                      billingAddress={sameAddress ? shippingAddress : billingAddress}
+                      isShippingValid={isShippingValid}
                     />
                   </Elements>
                 </div>
               </div>
 
-              {/* Right Column - Order Summary */}
               <div>
                 <div className="bg-gradient-to-b from-pink-50 to-rose-50 dark:from-slate-700 dark:to-slate-800 p-8 rounded-2xl shadow-inner border border-pink-100 dark:border-slate-700">
                   <div className="flex items-center mb-6">
@@ -468,10 +492,9 @@ const CheckoutPage = () => {
                     </h2>
                   </div>
                   
-                  {/* Order Items Preview */}
                   <div className="mb-6 max-h-64 overflow-y-auto pr-2">
                     <h3 className="text-lg font-medium text-gray-700 dark:text-slate-300 mb-3">Your Items</h3>
-                    {cartItems && cartItems.length > 0 ? (
+                    {cartItems?.length > 0 ? (
                       <ul className="space-y-4">
                         {cartItems.map((item, index) => (
                           <li key={index} className="flex items-start">
@@ -517,7 +540,6 @@ const CheckoutPage = () => {
                     )}
                   </div>
 
-                  {/* Order Totals */}
                   <div className="space-y-4 mb-6">
                     <div className="flex justify-between py-2 border-b border-pink-100 dark:border-slate-700">
                       <span className="text-gray-600 dark:text-slate-300">Subtotal</span>
