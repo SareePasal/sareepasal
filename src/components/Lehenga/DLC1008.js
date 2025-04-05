@@ -15,7 +15,7 @@ const item = {
         colors: "Blue, Green",
         size: "36,38,42",
         code: "DLC1008",
-        price: "$80.00"
+        price: "(SOLD OUT)"
     }
 
 }
