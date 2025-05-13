@@ -19,7 +19,7 @@ const item = {
         colors: "Wine",
         size: "XS",
         code: "AG68776",
-        price: "$65.00"
+        price: "SOLD OUT"
     }
 
 }

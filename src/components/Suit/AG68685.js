@@ -30,7 +30,7 @@ const item = {
         colors: "Purple, Pink, Green",
         size: "Medium,Large",
         code: "68685",
-        price: "$65.00"
+        price: "SOLD OUT"
     }
 
 }
