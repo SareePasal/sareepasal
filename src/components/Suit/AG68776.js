@@ -7,7 +7,7 @@ const item = {
 
     ],
     description: {
-        title: "ROMAN COTTON PLAIN GOWN BOTTOM WITH EMBROIDERY WORK DUPATTA MAROON",
+        title: "ROMAN COTTON PLAIN GOWN BOTTOM WITH EMBROIDERY WORK DUPATTA MAROON (SOLD OUT)",
         detail: ["designer roman cotton plain gown bottom with embroidery work dupatta maroon",
             "GOWN FABRIC:- HEAVY PURE SOFT FAUX GEORGETTE 7 METER PLUS FLAIR YOKE NECK POTLI, PADDED ATTACHED",
             "INNER :- MICRO COTTON FULL INNER",
