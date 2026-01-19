@@ -29,17 +29,21 @@ const Header = () => {
             <Link href="/Sale" className="block group">
                 <div className="bg-gradient-to-r from-red-600 via-pink-600 to-red-600 text-white text-center py-3 text-sm font-black uppercase tracking-[0.3em] hover:from-black hover:to-black transition-all cursor-pointer shadow-lg overflow-hidden relative">
                     <motion.div 
-    animate={{ x: ["0%", "-100%"] }} // Changed direction for a smoother "infinite" feel
+    animate={{ x: ["0%", "-50%"] }} // Changed direction for a smoother "infinite" feel
     transition={{ 
         repeat: Infinity, 
-        duration: 30, // Increase this number to slow it down further
+        duration: 40, // Increase this number to slow it down further
         ease: "linear" 
     }}
-    className="whitespace-nowrap flex gap-20"
+    className="whitespace-nowrap flex gap-20 w-fit"
 >
                         <span>🔥 NEW Customer 5% Discount at checkout!!! 🔥</span>
                         <span>✨ FREE SHIPPING ON ALL ORDERS ✨</span>
                         <span>🔥 FESTIVE COLLECTION On SALE 🔥</span>
+                        {/* We repeat the text here to make the loop seamless */}
+            <span>🔥 NEW YEAR SALE IS LIVE - SHOP NOW 🔥</span>
+            <span>✨ FREE SHIPPING ON ALL ORDERS ✨</span>
+            <span>🔥 FESTIVE COLLECTION UP TO 50% OFF 🔥</span>
                     </motion.div>
                 </div>
             </Link>
