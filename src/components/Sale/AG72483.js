@@ -25,7 +25,9 @@ const item = {
         colors: "Pink",
         size: "Small,Medium",
         code: "72483",
-        price: "Was $70.00 Now $60.00 !!!!"
+        price: "",
+        oldPrice: "Was $70.00",
+        newPrice: "Now $60"
     }
 
 }
