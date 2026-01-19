@@ -11,7 +11,7 @@ export async function POST(request) {
         const { items, customerEmail, customerName, totalAmount, shippingAddress, discountAmount, subtotal } = body;
 
         // 1. Build the Item Table
-        const BASE_URL = "https://www.sareepasal.com"; 
+        const BASE_URL = "https://www.sareepasal.com/"; 
         const itemsHtml = items.map(item => {
             const itemImg = item.img || item.image || "";
             const fullImageUrl = itemImg.startsWith('http') ? itemImg : `${BASE_URL}${itemImg}`;
