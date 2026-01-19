@@ -31,9 +31,9 @@ export async function POST(request) {
         }).join('');
 
         // 2. Send the Email
-        const { data, error } = await resend.emails.send({
-            from: "Saree Pasal <orders@sareepasal.com>",
-            to: ["sareepasalusa@gmail.com"], // Change to [customerEmail, "sareepasalusa@gmail.com"] after domain verification
+         const { data, error } = await resend.emails.send({
+            from: "Saree Pasal <orders@sareepasal.com>", // <--- NEW PROFESSIONAL ADDRESS
+            to: ["sareepasalusa@gmail.com", customerEmail], // <--- NOW SENDING TO BOTH!
             subject: `Order Confirmed - Saree Pasal`,
             html: `
                 <div style="font-family: sans-serif; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #fce7f3; border-radius: 20px;">
