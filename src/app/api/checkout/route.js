@@ -1,38 +1,39 @@
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
-
 export async function POST(request) {
+    // 1. Get the key inside the function
+    const secretKey = process.env.STRIPE_SECRET_KEY;
+
+    // 2. If the key is missing, don't crash, just return an error
+    if (!secretKey) {
+        console.error("ERROR: STRIPE_SECRET_KEY is not set in Vercel Environment Variables.");
+        return NextResponse.json({ error: "Store configuration error. Please contact admin." }, { status: 500 });
+    }
+
+    // 3. Initialize Stripe ONLY when this function is called
+    const stripe = new Stripe(secretKey);
+
     try {
         const body = await request.json();
-        // 1. Get the cart and the discount percentage from the frontend
         const { cart, discountPercent } = body;
-
-        console.log("--- PRICE CALCULATION ---");
-        console.log("Discount being applied:", discountPercent, "%");
+        const origin = request.headers.get("origin");
 
         const lineItems = cart.map((item) => {
-            // 2. Clean the price string (remove $, commas)
             const cleanPrice = item.price.toString().replace(/[^0-9.]/g, "");
-            const unitAmountInCents = Math.round(parseFloat(cleanPrice) * 100);
-            
-            // 3. APPLY THE DISCOUNT HERE
-            // Example: 10000 cents * (1 - 10/100) = 9000 cents
+            const unitAmount = Math.round(parseFloat(cleanPrice) * 100);
             const discountMultiplier = 1 - (Number(discountPercent) / 100);
-            const finalUnitAmount = Math.round(unitAmountInCents * discountMultiplier);
-
-            console.log(`Product: ${item.title} | Original: ${unitAmountInCents} | After ${discountPercent}% off: ${finalUnitAmount}`);
+            const finalUnitAmount = Math.round(unitAmount * discountMultiplier);
 
             return {
                 price_data: {
                     currency: "usd",
                     product_data: {
                         name: item.title,
-                        images: [], 
-                        description: `Size: ${item.selectedSize}, Color: ${item.selectedColor} (${discountPercent}% OFF Applied)`,
+                        images: [], // Keep empty for localhost/build testing
+                        description: `Size: ${item.selectedSize}, Color: ${item.selectedColor}`,
                     },
-                    unit_amount: finalUnitAmount, // <--- This is the price Stripe will charge
+                    unit_amount: finalUnitAmount, 
                 },
                 quantity: item.quantity || 1,
             };
@@ -42,15 +43,15 @@ export async function POST(request) {
             payment_method_types: ["card"],
             line_items: lineItems,
             mode: "payment",
-            success_url: `${request.headers.get("origin")}/success`,
-            cancel_url: `${request.headers.get("origin")}/Checkout`,
+            success_url: `${origin}/success`,
+            cancel_url: `${origin}/Checkout`,
             shipping_address_collection: { allowed_countries: ["US"] },
         });
 
         return NextResponse.json({ url: session.url });
 
     } catch (err) {
-        console.error("STRIPE ERROR:", err.message);
+        console.error("STRIPE API ERROR:", err.message);
         return NextResponse.json({ error: err.message }, { status: 500 });
     }
 }
