@@ -32,7 +32,7 @@ export async function POST(request) {
 
         // 2. Send the Email
         const { data, error } = await resend.emails.send({
-            from: "Saree Pasal <onboarding@resend.dev>",
+            from: "Saree Pasal <orders@sareepasal.com>",
             to: ["sareepasalusa@gmail.com"], // Change to [customerEmail, "sareepasalusa@gmail.com"] after domain verification
             subject: `Order Confirmed - Saree Pasal`,
             html: `
