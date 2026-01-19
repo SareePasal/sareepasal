@@ -1,13 +1,11 @@
-import Header from "../../components/Header/Header";
-import Suit from "../../components/Suit/Suit"
-import Footer from "../../components/Footer/Footer"
+import CategoryView from "../../components/Category/CategoryView";
 
-export default function Ab() {
-  return (
-    <main class="flex flex-col h-dvh ">
-      <Header/>
-      <Suit/>
-      <Footer/>
-    </main>
-  );
+export default function SuitPage() {
+    return (
+        <CategoryView 
+            type="Suit" 
+            title="Salwar Kameez & Suits" 
+            subtitle="Elegant Ethnic Sets for Every Occasion" 
+        />
+    );
 }

@@ -1,13 +1,11 @@
-import Header from "../../components/Header/Header";
-import Sarees from "../../components/Saree/Sarees"
-import Footer from "../../components/Footer/Footer"
+import CategoryView from "../../components/Category/CategoryView";
 
-export default function Ab() {
-  return (
-    <main class="flex flex-col">
-      <Header/>
-      <Sarees/>
-      <Footer/>
-    </main>
-  );
+export default function SareePage() {
+    return (
+        <CategoryView 
+            type="Saree"  // <--- This MUST match the dropdown in Admin
+            title="The Saree Collection" 
+            subtitle="Timeless Elegance" 
+        />
+    );
 }

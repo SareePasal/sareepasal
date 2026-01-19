@@ -1,13 +1,11 @@
-import Header from "../../components/Header/Header";
-import MensWear from "../../components/MensWear/MensWear"
-import Footer from "../../components/Footer/Footer"
+import CategoryView from "../../components/Category/CategoryView";
 
-export default function Ab() {
-  return (
-    <main class="flex flex-col h-dvh ">
-      <Header/>
-      <MensWear/>
-      <Footer/>
-    </main>
-  );
+export default function MensPage() {
+    return (
+        <CategoryView 
+            type="Men" 
+            title="Men's Collection" 
+            subtitle="Classic Kurtas & Traditional Grooming" 
+        />
+    );
 }

@@ -1,13 +1,5 @@
-import Header from "../../components/Header/Header";
-import Sale from "../../components/Sale/Sale"
-import Footer from "../../components/Footer/Footer"
+import SaleView from "../../components/Category/SaleView";
 
-export default function Ab() {
-  return (
-    <main class="flex flex-col h-dvh ">
-      <Header/>
-      <Sale/>
-      <Footer/>
-    </main>
-  );
+export default function SalePage() {
+    return <SaleView />;
 }
