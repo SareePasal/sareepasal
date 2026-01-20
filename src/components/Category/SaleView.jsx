@@ -4,7 +4,7 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import ProductCard from "./ProductCard";
 import { db } from '../../lib/firebase';
-import { collection, getDocs, query, where } from 'firebase/firestore';
+import { collection, getDocs } from 'firebase/firestore';
 import { Loader2, Tag, Percent, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -15,11 +15,30 @@ export default function SaleView() {
     useEffect(() => {
         const fetchSaleItems = async () => {
             try {
-                // Fetch ONLY items where isOnSale is true
-                const q = query(collection(db, "products"), where("isOnSale", "==", true));
-                const querySnapshot = await getDocs(q);
-                const items = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-                setProducts(items);
+                // 1. Get ALL products from the cloud
+                const querySnapshot = await getDocs(collection(db, "products"));
+                const allItems = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+                
+                // 2. SMART FILTER: An item is on sale if:
+                // - You clicked the 'Sale' badge in Admin OR
+                // - It has an 'oldPrice' (Was price) set in the database
+                const filtered = allItems.filter(item => {
+                    const hasSaleBadge = item.isOnSale === true;
+                    const hasOldPrice = item.oldPrice && item.oldPrice.length > 0;
+                    return hasSaleBadge || hasOldPrice;
+                });
+
+                // 3. Separate Sold Out items to the bottom
+                const available = filtered.filter(item => {
+                    const isSoldOut = (item.variants?.length > 0) ? item.variants.every(v => Number(v.qty) <= 0) : (Number(item.quantity) === 0);
+                    return !isSoldOut;
+                });
+                const soldOut = filtered.filter(item => {
+                    const isSoldOut = (item.variants?.length > 0) ? item.variants.every(v => Number(v.qty) <= 0) : (Number(item.quantity) === 0);
+                    return isSoldOut;
+                });
+
+                setProducts([...available, ...soldOut]);
             } catch (err) { 
                 console.error("Sale Page Error:", err); 
             } finally { 
@@ -38,7 +57,7 @@ export default function SaleView() {
             <div className="bg-gradient-to-br from-red-600 via-pink-700 to-pink-900 py-24 px-4 text-center text-white relative overflow-hidden">
                 <motion.div 
                     animate={{ rotate: 360 }} 
-                    transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
+                    transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
                     className="absolute -top-20 -right-20 opacity-10"
                 >
                     <Percent size={300} />
@@ -55,7 +74,7 @@ export default function SaleView() {
                         Flash Sale: Limited Stock Remaining
                     </p>
                     <div className="mt-8 inline-block bg-white text-red-600 px-10 py-3 rounded-full font-black text-sm shadow-2xl">
-                        UP TO 60% OFF
+                        UP TO 50% OFF
                     </div>
                 </motion.div>
             </div>
@@ -74,7 +93,9 @@ export default function SaleView() {
                             <div className="col-span-full py-40 text-center bg-gray-50 rounded-[3rem] border-2 border-dashed border-gray-200">
                                 <Tag className="mx-auto text-gray-300 mb-4" size={48} />
                                 <p className="text-gray-400 font-serif italic text-2xl">No items on sale right now.</p>
-                                <p className="text-gray-500 mt-2">Check back during our next festive season!</p>
+                                <p className="text-gray-500 mt-2 italic text-sm">
+                                    Admin: Set a "Was Price" (Original Price) in the Inventory tab to show items here!
+                                </p>
                             </div>
                         )}
                     </div>
