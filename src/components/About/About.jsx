@@ -9,9 +9,7 @@ import Image from 'next/image';
 export default function AboutPage() {
     return (
         <main className="min-h-screen bg-white text-gray-900">
-            <Header />
-
-            {/* Hero Section */}
+           {/* Hero Section */}
             <div className="bg-pink-50 py-20 px-4 text-center border-b border-pink-100 relative overflow-hidden">
                 <motion.div 
                     initial={{ opacity: 0, y: 20 }} 
@@ -123,8 +121,6 @@ export default function AboutPage() {
                     </div>
                 </div>
             </section>
-
-            <Footer />
         </main>
     );
 }

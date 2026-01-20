@@ -6,14 +6,9 @@ import Link from "next/link";
 // Mock data for now - Later Admin can change this!
 const saleProducts = [
   { id: 1, title: "New Customer", image: "/Saree.png", discount: "5% OFF", link: "/" },
-  { id: 2, title: "New Glamour: Designer Gowns", image: "/Gown.jpg", discount: "FREE SHIPPING", link: "/Gown" },
-  { 
-    id: 3, 
-    title: "On SALE Items", 
-    image: "/Saree.png", 
-    discount: "", 
-    link: "/Sale"  // <--- Takes them to the "Boutique Outlet" page we built
-  },
+  { id: 2, title: "On SALE Items", image: "/Saree.png", discount: "", link: "/Sale"  },
+  { id: 3, title: "New Glamour: Designer Gowns", image: "/Gown.jpg", discount: "FREE SHIPPING", link: "/Gown" },
+
 ];
 
 export default function SaleBanner() {
