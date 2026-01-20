@@ -1,13 +1,4 @@
-import Header from "../../components/Header/Header";
-import Petticoat from "../../components/Petticoat/Petticoat"
-import Footer from "../../components/Footer/Footer"
-
-export default function Ab() {
-  return (
-    <main class="flex flex-col h-dvh ">
-      <Header/>
-      <Petticoat/>
-      <Footer/>
-    </main>
-  );
+import CategoryView from "../../components/Category/CategoryView";
+export default function PetticoatPage() {
+    return <CategoryView type="Petticoat" title="Essential Petticoats" subtitle="Perfect matching for your Sarees" />;
 }
