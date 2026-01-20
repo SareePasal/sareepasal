@@ -1,13 +1,11 @@
-import Header from "../../components/Header/Header";
-import Gowns from "../../components/Gowns/Gowns"
-import Footer from "../../components/Footer/Footer"
+import CategoryView from "../../components/Category/CategoryView";
 
-export default function Ab() {
-  return (
-    <main class="flex flex-col h-dvh ">
-      <Header/>
-      <Gowns/>
-      <Footer/>
-    </main>
-  );
+export default function GownPage() {
+    return (
+        <CategoryView 
+            type="Gown" 
+            title="Designer Gowns" 
+            subtitle="Modern Silhouettes for Special Evenings" 
+        />
+    );
 }

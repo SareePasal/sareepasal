@@ -8,7 +8,7 @@ const item = {
 
     ],
     description: {
-        title: "GEORGETTE SEQUENCE EMBROIDERY WORK GOWN PANT WITH DUPATTA",
+        title: "GEORGETTE SEQUENCE EMBROIDERY WORK GOWN PANT WITH DUPATTA --- (SOLD OUT)",
         detail: ["Designer georgette sequence embroidery work gown pant with dupatta",
             "GOWN FABRIC :- FAUX GEORGETTE",
             "WORK :- SEQUENCE 5MM MULTI NEEDLE WITH EMBROIDERY WORK (FULL SLEEVE)",
@@ -24,7 +24,7 @@ const item = {
         colors: "Yellow",
         size: "Medium",
         code: "71236",
-        price: "$80.00"
+        price: "(SOLD OUT)"
     }
 
 }
