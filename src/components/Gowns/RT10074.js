@@ -16,7 +16,9 @@ const item = {
         colors: "As shown in Picture",
         size: "Multiple Sizes Available. Call for Details !!!!!",
         code: "RT10074",
-        price: "$150.00"
+        price: "$150.00",
+        // ADD THE VIDEO URL HERE:
+        videoUrl: '/Images/RoyalTextile/RT10074/RT10074.mp4'
     }
 
 }

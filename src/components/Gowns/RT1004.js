@@ -14,7 +14,9 @@ const item = {
         colors: "Blue, Pink, Purple, Lavender",
         size: "XS,S,M,L,XXL",
         code: "RT1004",
-        price: "$110.00"
+        price: "$110.00",
+        // ADD THE VIDEO URL HERE:
+        videoUrl: '/Images/RoyalTextile/RT1004/RT1004.mp4'
     }
 
 }
