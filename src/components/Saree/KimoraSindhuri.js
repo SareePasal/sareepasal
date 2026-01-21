@@ -23,7 +23,9 @@ const item = {
         colors: "As shown in Picture",
         size: "Call for Sizes",
         code: "KimoraSindhuri",
-        price: "$150.00"
+        price: "$150.00",
+        // ADD THE VIDEO URL HERE:
+        videoUrl: '/Images/RoyalTextile/KimoraSindhuri/KimoraSindhuri.mp4'
     }
 
 }
