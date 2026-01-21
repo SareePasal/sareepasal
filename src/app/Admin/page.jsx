@@ -34,22 +34,22 @@ export default function AdminDashboard() {
 
     useEffect(() => { if (user && isAdmin(user)) fetchData(); }, [user]);
 
-    // --- MAGIC BUTTON: GRABS ALL IMAGES FROM CODE ---
+    // --- STEP 1: UPDATED SYNC BUTTON (Grabs video links from your .js files) ---
     const handleForceImageSync = async () => {
-        if (!confirm("This will find all missing images in your code and add them to the cloud. Prices will NOT be changed. Continue?")) return;
+        if (!confirm("This will find all missing images AND VIDEOS in your code and add them to the cloud. Prices will NOT be changed. Continue?")) return;
         setIsSyncing(true);
         try {
             for (const key of Object.keys(productRegistry)) {
                 const data = productRegistry[key];
                 const productID = data.description.code || key;
                 
-                // We use merge: true so we don't overwrite your manual price edits!
                 await setDoc(doc(db, "products", productID), {
-                    allImages: data.images.map(img => img.src), // Grabs the whole list
-                    image: data.images[0].src, // Main thumbnail
+                    allImages: data.images.map(img => img.src),
+                    image: data.images[0].src,
+                    videoUrl: data.description.videoUrl || "", // Grabs the video link from Suman01.js etc.
                 }, { merge: true });
             }
-            alert("Success! All product galleries are now updated in the Cloud! 🌸");
+            alert("Success! All product galleries and videos are now updated in the Cloud! 🌸");
             fetchData();
         } catch (e) { alert(e.message); }
         finally { setIsSyncing(false); }
@@ -69,7 +69,7 @@ export default function AdminDashboard() {
 
                     <div className="flex gap-3">
                         <button onClick={handleForceImageSync} disabled={isSyncing} className="bg-gray-900 text-white px-8 py-4 rounded-2xl font-bold flex items-center gap-2 shadow-xl hover:bg-black transition-all">
-                            {isSyncing ? <Loader2 className="animate-spin" size={18}/> : <Images size={18}/>} SYNC ALL IMAGES
+                            {isSyncing ? <Loader2 className="animate-spin" size={18}/> : <Images size={18}/>} SYNC ALL CONTENT
                         </button>
                         <button onClick={() => setShowAddModal(true)} className="bg-pink-600 text-white px-8 py-4 rounded-2xl font-bold flex items-center gap-2 shadow-xl hover:bg-pink-700 transition-all"><Plus size={18}/> ADD NEW</button>
                     </div>
@@ -81,7 +81,7 @@ export default function AdminDashboard() {
                             <thead className="bg-gray-900 text-white text-[10px] uppercase tracking-widest">
                                 <tr>
                                     <th className="p-8">Product</th>
-                                    <th className="p-8">Price</th>
+                                    <th className="p-8">Details / Video</th>
                                     <th className="p-8 text-center">Images</th>
                                     <th className="p-8 text-right">Action</th>
                                 </tr>
@@ -94,18 +94,21 @@ export default function AdminDashboard() {
                         </table>
                     </div>
                 ) : (
-                    /* Orders list - abbreviated here for space, keep your existing Order code */
-                    <div className="p-20 text-center text-gray-400 italic">Switch to inventory to edit products.</div>
+                    <div className="p-20 text-center text-gray-400 italic">Switch to inventory to edit products or check order history.</div>
                 )}
             </div>
+            
+            {showAddModal && <AddProductModal onClose={() => setShowAddModal(false)} onSave={fetchData} />}
             <Footer />
         </main>
     );
 }
 
+// --- STEP 2: UPDATED PRODUCT ROW (Allows editing Price and Video Link) ---
 function ProductRow({ item, onUpdate, onDelete }) {
     const [isEditing, setIsEditing] = useState(false);
     const [price, setPrice] = useState(item.price);
+    const [videoUrl, setVideoUrl] = useState(item.videoUrl || "");
     const galleryCount = item.allImages?.length || 1;
 
     return (
@@ -118,7 +121,17 @@ function ProductRow({ item, onUpdate, onDelete }) {
                 </div>
             </td>
             <td className="p-8">
-                {isEditing ? <input className="w-24 p-2 border rounded font-bold text-pink-700" value={price} onChange={e => setPrice(e.target.value)} /> : <span className="font-bold text-gray-800">{item.price}</span>}
+                {isEditing ? (
+                    <div className="flex flex-col gap-2">
+                        <input className="p-2 border rounded font-bold text-pink-700 text-sm" value={price} onChange={e => setPrice(e.target.value)} placeholder="Price ($50.00)" />
+                        <input className="p-2 border rounded text-[10px] w-full" value={videoUrl} onChange={e => setVideoUrl(e.target.value)} placeholder="Video Path (/Images/...)" />
+                    </div>
+                ) : (
+                    <div className="space-y-1">
+                        <p className="font-bold text-gray-800">{item.price}</p>
+                        {item.videoUrl && <p className="text-[9px] text-green-600 font-bold">🎥 VIDEO LINKED</p>}
+                    </div>
+                )}
             </td>
             <td className="p-8 text-center">
                 <span className="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-[10px] font-black uppercase">
@@ -127,7 +140,7 @@ function ProductRow({ item, onUpdate, onDelete }) {
             </td>
             <td className="p-8 text-right space-x-3">
                 {isEditing ? (
-                    <button onClick={() => { onUpdate(item.id, { price }); setIsEditing(false); }} className="text-green-600 font-bold underline">SAVE</button>
+                    <button onClick={() => { onUpdate(item.id, { price, videoUrl }); setIsEditing(false); }} className="text-green-600 font-bold underline">SAVE</button>
                 ) : (
                     <>
                         <button onClick={() => setIsEditing(true)} className="text-gray-300 hover:text-pink-600"><Edit3 size={18}/></button>
@@ -139,27 +152,39 @@ function ProductRow({ item, onUpdate, onDelete }) {
     );
 }
 
-// Keep your existing AddProductModal code below...
+// --- STEP 3: UPDATED ADD PRODUCT MODAL (Includes Video URL field) ---
 function AddProductModal({ onClose, onSave }) {
-    const [newP, setNewP] = useState({ title: "", price: "", code: "", image: "", type: "Saree", details: "" });
+    const [newP, setNewP] = useState({ title: "", price: "", code: "", image: "", type: "Saree", details: "", videoUrl: "" });
+    
     const handleAdd = async (e) => {
         e.preventDefault();
-        await setDoc(doc(db, "products", newP.code || Date.now().toString()), { ...newP, quantity: 10, allImages: [newP.image], isOnSale: false, showInBanner: false });
+        await setDoc(doc(db, "products", newP.code || Date.now().toString()), { 
+            ...newP, 
+            quantity: 10, 
+            allImages: [newP.image], 
+            isOnSale: false, 
+            showInBanner: false 
+        });
         alert("Added!"); onSave(); onClose();
     };
+
     return (
         <div className="fixed inset-0 z-[300] bg-black/60 flex items-center justify-center p-4">
             <form onSubmit={handleAdd} className="bg-white p-10 rounded-[3rem] w-full max-w-lg space-y-4 shadow-2xl">
                 <h2 className="text-2xl font-serif font-bold text-pink-900 mb-4 tracking-tighter">Add New Arrival</h2>
-                <input required placeholder="Title" className="w-full p-4 bg-gray-50 rounded-2xl" onChange={e => setNewP({...newP, title: e.target.value})} />
+                <input required placeholder="Title (e.g. Suman Purple Saree)" className="w-full p-4 bg-gray-50 rounded-2xl" onChange={e => setNewP({...newP, title: e.target.value})} />
                 <div className="flex gap-4">
-                    <input required placeholder="Price" className="w-1/2 p-4 bg-gray-50 rounded-2xl" onChange={e => setNewP({...newP, price: e.target.value})} />
+                    <input required placeholder="Price ($50.00)" className="w-1/2 p-4 bg-gray-50 rounded-2xl" onChange={e => setNewP({...newP, price: e.target.value})} />
                     <select className="w-1/2 p-4 bg-gray-50 rounded-2xl font-bold uppercase text-xs" onChange={e => setNewP({...newP, type: e.target.value})}>
                         <option value="Saree">Saree</option><option value="Gown">Gown</option><option value="Lehenga">Lehenga</option><option value="Suit">Suit</option><option value="Men">Men</option>
                     </select>
                 </div>
-                <input required placeholder="Code" className="w-full p-4 bg-gray-50 rounded-2xl" onChange={e => setNewP({...newP, code: e.target.value})} />
-                <input required placeholder="Main Image URL" className="w-full p-4 bg-gray-50 rounded-2xl" onChange={e => setNewP({...newP, image: e.target.value})} />
+                <input required placeholder="Product Code (Suman01)" className="w-full p-4 bg-gray-50 rounded-2xl" onChange={e => setNewP({...newP, code: e.target.value})} />
+                <input required placeholder="Main Image Path (/Images/...)" className="w-full p-4 bg-gray-50 rounded-2xl" onChange={e => setNewP({...newP, image: e.target.value})} />
+                
+                {/* NEW VIDEO FIELD */}
+                <input placeholder="Video Path (/Images/.../Suman01.mp4)" className="w-full p-4 bg-gray-50 rounded-2xl" onChange={e => setNewP({...newP, videoUrl: e.target.value})} />
+                
                 <button className="w-full bg-pink-900 text-white py-4 rounded-2xl font-bold shadow-xl">SAVE PRODUCT</button>
                 <button type="button" onClick={onClose} className="w-full text-gray-400 font-bold text-xs uppercase mt-2">Nevermind</button>
             </form>

@@ -7,7 +7,7 @@ import Recommendations from "../../../components/Landing/Recommendations";
 import { auth, db, isAdmin } from '../../../lib/firebase';
 import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { ShoppingCart, Heart, Edit3, Save, X, Trash2, Plus, AlertTriangle, CheckCircle2, Loader2, Info, Maximize2 } from 'lucide-react';
+import { ShoppingCart, Heart, Edit3, Save, X, Trash2, Plus, AlertTriangle, CheckCircle2, Loader2, Info, Maximize2, Play } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useCart } from '../../../lib/useCart';
 
@@ -81,6 +81,7 @@ export default function ProductDetail({ params }) {
     return (
         <main className="min-h-screen bg-white">
             <Header />
+            
             <div className="max-w-7xl mx-auto px-4 py-8 lg:py-16">
                 
                 {/* ADMIN BAR */}
@@ -93,6 +94,7 @@ export default function ProductDetail({ params }) {
                     </div>
                 )}
 
+                {/* MAIN PRODUCT AREA (TOP PART) */}
                 <div className="flex flex-col lg:flex-row gap-16">
                     {/* LEFT: IMAGE SLIDER */}
                     <div className="w-full lg:w-1/2 space-y-6">
@@ -147,6 +149,10 @@ export default function ProductDetail({ params }) {
                                     <div className="w-1/2"><label className="text-gray-400 uppercase ml-2">Sale Price</label><input className="w-full p-4 rounded-2xl ring-1 ring-gray-200 font-bold bg-white text-pink-700" value={productData.price} onChange={e => setProductData({...productData, price: e.target.value})} /></div>
                                     <div className="w-1/2"><label className="text-gray-400 uppercase ml-2">Was Price</label><input className="w-full p-4 rounded-2xl ring-1 ring-gray-200 bg-white line-through text-gray-400" value={productData.oldPrice} onChange={e => setProductData({...productData, oldPrice: e.target.value})} /></div>
                                 </div>
+                                <div>
+                                    <label className="text-gray-400 uppercase ml-2">Video MP4 Path</label>
+                                    <input className="w-full p-4 rounded-2xl ring-1 ring-gray-200 bg-white" placeholder="/Images/..." value={productData.videoUrl || ""} onChange={e => setProductData({...productData, videoUrl: e.target.value})} />
+                                </div>
                                 <button onClick={handleSaveLive} className="w-full bg-pink-900 text-white py-5 rounded-2xl font-bold shadow-xl shadow-pink-200 uppercase">Save Live Changes</button>
                             </div>
                         ) : (
@@ -188,21 +194,6 @@ export default function ProductDetail({ params }) {
                                             </div>
                                         </div>
                                     )}
-                                    {/* STOCK ALERT */}
-                                    {activeVariant && (
-                                        <div className="animate-in zoom-in-95">
-                                            {activeVariant.qty > 0 ? (
-                                                <div className="bg-green-50 text-green-700 px-6 py-4 rounded-2xl inline-flex items-center gap-3 font-bold border border-green-100 italic shadow-sm">
-                                                    <CheckCircle2 size={20}/> 🌸 Only {activeVariant.qty} items left!
-                                                </div>
-                                            ) : (
-                                                <div className="bg-red-50 text-red-600 p-8 rounded-[2.5rem] flex items-center justify-center gap-4 border-4 border-red-100 animate-bounce shadow-2xl">
-                                                    <AlertTriangle size={32} />
-                                                    <span className="text-4xl font-serif font-black uppercase tracking-widest italic text-center">SOLD OUT IN THIS SIZE</span>
-                                                </div>
-                                            )}
-                                        </div>
-                                    )}
                                 </div>
 
                                 <div className="flex gap-4">
@@ -227,7 +218,60 @@ export default function ProductDetail({ params }) {
                         )}
                     </div>
                 </div>
+
+                {/* --- VIDEO SECTION: MOVED OUTSIDE FOR BIGGER LAPTOP VIEW --- */}
+                {productData.videoUrl && (
+                    <motion.section 
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="mt-24 pt-20 border-t border-gray-100"
+                    >
+                        <div className="flex flex-col lg:flex-row items-center gap-12 bg-gray-50 rounded-[4rem] p-10 md:p-20 shadow-inner">
+                            {/* Text Side */}
+                            <div className="w-full lg:w-1/3 text-center lg:text-left space-y-4">
+                                <div className="flex items-center justify-center lg:justify-start gap-2 text-pink-600">
+                                    <Play size={16} fill="currentColor" />
+                                    <span className="font-black text-[10px] tracking-[0.4em] uppercase">Cinematic Clip</span>
+                                </div>
+                                <h2 className="text-4xl md:text-5xl font-serif font-bold text-pink-900 italic">See it in Motion</h2>
+                                <p className="text-gray-500 text-lg italic leading-relaxed pt-4">
+                                    Experience the graceful flow of the georgette and the shimmering detail of every sequence as it moves.
+                                </p>
+                            </div>
+
+                            {/* Large Video Side */}
+                            <div className="w-full lg:w-2/3">
+                                <div className="relative aspect-[9/16] md:aspect-[4/5] lg:aspect-[16/10] max-w-3xl mx-auto rounded-[3.5rem] overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)] bg-black border-8 border-white">
+                                    <video 
+                                        src={productData.videoUrl} 
+                                        controls
+                                        className="w-full h-full object-contain"
+                                        poster={productData.image}
+                                        loop
+                                        muted
+                                        playsInline
+                                    />
+                                    <div className="absolute top-8 left-8 z-10 pointer-events-none">
+                                        <div className="bg-black/20 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full flex items-center gap-2">
+                                            <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
+                                            <span className="text-white text-[10px] font-bold uppercase tracking-widest">Saree Pasal Studio</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </motion.section>
+                )}
+
             </div>
+
+            {/* RELATED PRODUCTS */}
+            <section className="bg-pink-50/30 py-20 mt-20">
+                <div className="max-w-7xl mx-auto px-4">
+                    <Recommendations />
+                </div>
+            </section>
 
             {/* FULL SCREEN LIGHTBOX */}
             <AnimatePresence>
