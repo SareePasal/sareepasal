@@ -16,7 +16,9 @@ const item = {
         colors: "As shown in Picture",
         size: "Call for Sizes",
         code: "Glint",
-        price: "$65.00"
+        price: "$65.00",
+        // ADD THE VIDEO URL HERE:
+        videoUrl: '/Images/RoyalTextile/Glint/Glint.mp4' 
     }
 
 }
