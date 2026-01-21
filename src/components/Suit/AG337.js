@@ -30,7 +30,9 @@ const item = {
         colors: "Pink",
         size: "Medium, Large",
         code: "AG337",
-        price: "$60.00"
+        price: "$60.00",
+        // ADD THE VIDEO URL HERE:
+        videoUrl: '/Images/Suits/Appereal Garment/AG337-2/AG337.mp4'
     }
 
 }
