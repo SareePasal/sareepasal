@@ -19,7 +19,9 @@ const item = {
         colors: "Brown Yellow",
         size: "M,L,XL,XXL",
         code: "RT1003Eba",
-        price: "$95.00"
+        price: "$95.00",
+        // ADD THE VIDEO URL HERE:
+        videoUrl: '/Images/RoyalTextile/RT1003Eba/RT1003Eba.mp4'
     }
 
 }
