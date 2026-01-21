@@ -21,7 +21,9 @@ const item = {
         colors: "As shown in Picture",
         size: "Call for Sizes",
         code: "KimoraSindhuriAnokhi",
-        price: "$120.00"
+        price: "$120.00",
+        // ADD THE VIDEO URL HERE:
+        videoUrl: '/Images/Saree/KimoraSindhuriAnokhi/KimoraSindhuriAnokhi.mp4'
     }
 
 }
