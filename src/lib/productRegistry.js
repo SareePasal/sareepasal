@@ -9,10 +9,11 @@ import Karigari from "../components/Saree/Karigari";
 import Glint from "../components/Saree/Glint";
 import DS610 from "../components/Saree/DS610";
 import Suman01 from "../components/Saree/Suman01";
-import FBL228 from "../components/Saree/FBL228";
 import NA4001 from "../components/Saree/NA4001";
 import DB4090 from "../components/Saree/DB4090";
 import VC4052 from "../components/Saree/VC4052";
+import Bt3118 from "../components/Saree/Bt3118";
+import FBL228 from "../components/Saree/FBL228";
 
 /*... Gowns ...*/
 import RT10074 from '../components/Gowns/RT10074';
@@ -77,6 +78,7 @@ export const productRegistry = {
     "rt1001": RT1001,
     "eba-suit": RT1003Eba,
     "akshita": Akshita765,
+    "bt3118": Bt3118,
 
     // ... Gowns ...
     "rt10074": RT10074,
