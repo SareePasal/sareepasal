@@ -4,7 +4,8 @@
 /*Sarees*/
 import KimoraSindhuri from '../components/Saree/KimoraSindhuri';
 import Akshita765 from '../components/Saree/Akshita765'; // Fixed: added components/
-import KimoraSindhuriAnokhi from "../components/Saree/KimoraSindhuriAnokhi";
+import KimoraSindhuriAnokhiPurple from "../components/Saree/KimoraSindhuriAnokhiPurple";
+import KimoraSindhuriAnokhiWine from "../components/Saree/KimoraSindhuriAnokhiWine";
 import Karigari from "../components/Saree/Karigari";
 import Glint from "../components/Saree/Glint";
 import DS610 from "../components/Saree/DS610";
@@ -65,7 +66,8 @@ export const productRegistry = {
 
     // ... Sarees ...
     "kimora": KimoraSindhuri,
-    "KimoraSindhuriAnokhi": KimoraSindhuriAnokhi,
+    "KimoraSindhuriAnokhiPurple": KimoraSindhuriAnokhiPurple,
+    "KimoraSindhuriAnokhiWine": KimoraSindhuriAnokhiWine,
     "karigari": Karigari,
     "glint": Glint,
     "akshita765": Akshita765,
