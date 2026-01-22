@@ -35,7 +35,6 @@ export default function AdminDashboard() {
             const prodSnap = await getDocs(collection(db, "products"));
             let list = prodSnap.docs.map(d => ({ id: d.id, ...d.data() }));
             
-            // Sort logic: Group by Category then Title
             list.sort((a, b) => {
                 const catA = (a.type || "Z").toLowerCase();
                 const catB = (b.type || "Z").toLowerCase();
@@ -56,24 +55,31 @@ export default function AdminDashboard() {
 
     useEffect(() => { if (user && isAdmin(user)) fetchData(); }, [user]);
 
-    // --- 1. CREATE BACKUP (RESTORED) ---
-    const handleCreateBackup = async (label = "Manual Admin Backup") => {
+    // --- 1. CREATE BACKUP WITH CUSTOM LABEL ---
+    const handleCreateBackup = async () => {
+        // Ask the admin for a label
+        const userLabel = prompt("Enter a label for this backup (e.g., 'Before Sale' or 'Stable Version'):", "Manual Backup");
+        
+        // If user clicks cancel, don't do anything
+        if (userLabel === null) return;
+
         setIsProcessing(true);
         try {
+            const finalLabel = userLabel.trim() || "Manual Backup";
             const backupData = { 
-                label, 
+                label: finalLabel, 
                 createdAt: serverTimestamp(), 
                 productCount: products.length, 
                 data: products 
             };
             await addDoc(collection(db, "backups"), backupData);
-            if (!label.includes("AUTO")) alert(`Backup "${label}" saved successfully! 💾`);
+            alert(`Backup "${finalLabel}" saved! 💾`);
             fetchData();
         } catch (e) { alert("Backup failed: " + e.message); }
         finally { setIsProcessing(false); }
     };
 
-    // --- 2. SMART SYNC (PREVENTS DUPLICATES & PROTECTS PRICES) ---
+    // --- 2. SMART SYNC (PREVENTS DUPLICATES) ---
     const handleSyncContent = async () => {
         if (!confirm("SYNC: This adds products by Code. Existing prices/categories are 100% SAFE. Continue?")) return;
         setIsProcessing(true);
@@ -81,27 +87,24 @@ export default function AdminDashboard() {
             const keys = Object.keys(productRegistry);
             for (const key of keys) {
                 const data = productRegistry[key];
-                // Use Product Code as ID to prevent duplicates
                 const productCode = (data.description.code || key).replace(/\s+/g, '').toUpperCase();
                 const docRef = doc(db, "products", productCode);
                 const docSnap = await getDoc(docRef);
 
                 if (docSnap.exists()) {
-                    // Update only missing content
                     const cloud = docSnap.data();
                     const updates = {};
                     if (!cloud.videoUrl && data.description.videoUrl) updates.videoUrl = data.description.videoUrl;
                     if (!cloud.allImages || cloud.allImages.length === 0) updates.allImages = data.images.map(i => i.src);
                     if (Object.keys(updates).length > 0) await updateDoc(docRef, updates);
                 } else {
-                    // Create New
                     let type = "Saree";
                     const lowerKey = key.toLowerCase();
                     if (lowerKey.includes('gown')) type = "Gown";
                     else if (lowerKey.includes('lehenga')) type = "Lehenga";
                     else if (lowerKey.includes('suit')) type = "Suit";
                     else if (lowerKey.includes('pet')) type = "Petticoat";
-                    else if (lowerKey.startsWith('ab') || lowerKey.startsWith('an') || lowerKey.startsWith('ad')) type = "Accessories";
+                    else if (lowerKey.startsWith('ab') || lowerKey.startsWith('an')) type = "Accessories";
 
                     await setDoc(docRef, {
                         title: data.description.title, price: data.description.price, code: productCode,
@@ -111,19 +114,20 @@ export default function AdminDashboard() {
                     });
                 }
             }
-            alert("Smart Sync Complete! 🌸");
+            alert("Sync Complete! 🌸");
             fetchData();
-        } catch (e) { alert("Sync Error: " + e.message); }
+        } catch (e) { alert(e.message); }
         finally { setIsProcessing(false); }
     };
 
-    // --- 3. DANGER WIPE ---
     const handleWipeAndRestore = async () => {
-        const secret = prompt("DANGER: This wipes the cloud. Manual changes will be LOST. Type 'WIPE' to confirm:");
+        const secret = prompt("DANGER: Wipes cloud and reloads. Manual changes will be LOST. Type 'WIPE' to confirm:");
         if (secret !== "WIPE") return;
         setIsProcessing(true);
         try {
-            await handleCreateBackup("AUTO_PRE_WIPE"); 
+            // Auto-backup before wipe
+            await addDoc(collection(db, "backups"), { label: "AUTO_PRE_WIPE", createdAt: serverTimestamp(), productCount: products.length, data: products });
+            
             const batch = writeBatch(db);
             products.forEach((p) => batch.delete(doc(db, "products", p.id)));
             await batch.commit();
@@ -161,8 +165,8 @@ export default function AdminDashboard() {
                 
                 {activeTab === "inventory" && (
                     <div className="bg-red-50 p-4 rounded-3xl border border-red-100 flex justify-between items-center mb-8">
-                        <p className="text-red-700 text-[10px] font-black uppercase tracking-widest ml-4 italic underline underline-offset-4">Danger Zone: Refresh Database from Code Files</p>
-                        <button onClick={handleWipeAndRestore} className="bg-red-600 text-white px-6 py-3 rounded-xl font-bold text-xs flex items-center gap-2 hover:bg-red-800 transition-all shadow-lg"><Bomb size={16}/> WIPE & FORCE RESTORE</button>
+                        <p className="text-red-700 text-[10px] font-black uppercase tracking-widest ml-4 italic underline underline-offset-4">Danger Zone: Refresh Database</p>
+                        <button onClick={handleWipeAndRestore} className="bg-red-600 text-white px-6 py-3 rounded-xl font-bold text-xs flex items-center gap-2 hover:bg-red-800 shadow-lg transition-all"><Bomb size={16}/> WIPE & FORCE RESTORE</button>
                     </div>
                 )}
 
@@ -175,7 +179,7 @@ export default function AdminDashboard() {
                         </div>
                         
                         <div className="flex flex-wrap gap-3">
-                            <button onClick={() => handleCreateBackup()} className="bg-blue-600 text-white px-6 py-4 rounded-2xl font-bold flex items-center gap-2 shadow-lg hover:bg-blue-700 transition-all uppercase text-[10px] tracking-widest"><ShieldCheck size={18}/> Create Backup</button>
+                            <button onClick={handleCreateBackup} className="bg-blue-600 text-white px-6 py-4 rounded-2xl font-bold flex items-center gap-2 shadow-lg hover:bg-blue-700 transition-all uppercase text-[10px] tracking-widest"><ShieldCheck size={18}/> Create Backup</button>
                             <button onClick={handleSyncContent} className="bg-gray-900 text-white px-6 py-4 rounded-2xl font-bold flex items-center gap-2 shadow-lg hover:bg-black transition-all uppercase text-[10px] tracking-widest"><RefreshCw size={18}/> Sync Content</button>
                             <button onClick={() => setShowAddModal(true)} className="bg-pink-600 text-white px-6 py-4 rounded-2xl font-bold flex items-center gap-2 shadow-lg hover:bg-pink-700 transition-all uppercase text-[10px] tracking-widest"><Plus size={18}/> Add New</button>
                         </div>
@@ -197,15 +201,9 @@ export default function AdminDashboard() {
                                 </select>
                             </div>
                         </div>
-
                         <table className="w-full text-left border-collapse">
                             <thead className="bg-gray-50 text-[10px] font-black uppercase tracking-widest text-gray-400 border-b">
-                                <tr>
-                                    <th className="p-8">Garment</th>
-                                    <th className="p-8 text-center">Category</th>
-                                    <th className="p-8 text-center">Price</th>
-                                    <th className="p-8 text-right">Action</th>
-                                </tr>
+                                <tr><th className="p-8">Garment</th><th className="p-8 text-center">Category</th><th className="p-8 text-center">Price</th><th className="p-8 text-right">Action</th></tr>
                             </thead>
                             <tbody className="divide-y divide-gray-50">
                                 {displayItems.map((item) => (
@@ -221,9 +219,9 @@ export default function AdminDashboard() {
                             <div key={b.id} className="bg-white p-6 rounded-[2rem] shadow-sm border border-pink-100 flex justify-between items-center transition-all hover:border-pink-300">
                                 <div className="flex items-center gap-4">
                                     <div className="w-12 h-12 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center"><FileJson size={20}/></div>
-                                    <div><p className="font-bold text-gray-800">{b.label}</p><p className="text-xs text-gray-400 font-medium">{b.createdAt?.toDate().toLocaleString()} • {b.productCount} Items</p></div>
+                                    <div><p className="font-bold text-gray-800 text-lg uppercase tracking-tight">{b.label}</p><p className="text-xs text-gray-400 font-medium">{b.createdAt?.toDate().toLocaleString()} • {b.productCount} Items</p></div>
                                 </div>
-                                <button onClick={() => handleRestoreFromHistory(b)} className="text-blue-600 font-black text-[10px] uppercase flex items-center gap-1 bg-blue-50 px-6 py-2 rounded-full hover:bg-blue-600 hover:text-white transition-all">Restore</button>
+                                <button onClick={() => handleRestoreFromHistory(b)} className="text-blue-600 font-black text-[10px] uppercase flex items-center gap-1 bg-blue-50 px-6 py-2 rounded-full hover:bg-blue-600 hover:text-white transition-all shadow-sm">Restore This Version</button>
                             </div>
                         ))}
                     </div>
@@ -231,7 +229,7 @@ export default function AdminDashboard() {
                     <div className="space-y-6">
                         <div className="flex justify-between items-center mb-4 px-4">
                             <h2 className="text-3xl font-serif font-bold text-pink-900 flex items-center gap-2"><ShoppingBag /> Recent Sales</h2>
-                            <button onClick={() => {}} className="bg-green-600 text-white px-6 py-2 rounded-xl font-bold text-[10px] uppercase shadow-lg flex items-center gap-2 transition-all hover:bg-green-700 uppercase tracking-widest"><Download size={14}/> Export CSV</button>
+                            <button onClick={() => {}} className="bg-green-600 text-white px-6 py-2 rounded-xl font-bold text-[10px] uppercase shadow-lg flex items-center gap-2 transition-all hover:bg-green-700 tracking-widest"><Download size={14}/> Export CSV</button>
                         </div>
                         {orders.map((order) => (
                             <div key={order.id} className="bg-white p-10 rounded-[3rem] shadow-sm border border-gray-100">
@@ -262,20 +260,15 @@ function ProductRow({ item, onUpdate, onDelete }) {
     return (
         <tr className="hover:bg-pink-50/10 transition-all group font-medium border-l-4 border-transparent hover:border-pink-500">
             <td className="p-8 flex items-center gap-6">
-                <img src={item.image} className="w-14 h-20 object-cover rounded-xl shadow-md border border-pink-50" alt="" />
-                <div className="max-w-xs">
-                    <p className="font-bold text-gray-900 leading-tight text-lg">{item.title}</p>
-                    <p className="text-[9px] text-pink-600 font-black uppercase mt-1 tracking-widest">{item.code}</p>
-                </div>
+                <img src={item.image} className="w-16 h-24 object-cover rounded-xl shadow-md border border-pink-50" alt="" />
+                <div className="max-w-xs"><p className="font-bold text-gray-900 leading-tight text-lg">{item.title}</p><p className="text-[9px] text-pink-600 font-black uppercase mt-1">{item.code}</p></div>
             </td>
             <td className="p-8 text-center">
                 {isEditing ? (
                     <select className="p-2 border rounded-lg font-bold text-xs uppercase bg-white border-pink-200" value={type} onChange={e => setType(e.target.value)}>
                         <option value="Saree">Saree</option><option value="Gown">Gown</option><option value="Lehenga">Lehenga</option><option value="Suit">Suit</option><option value="Men">Men</option><option value="Petticoat">Petticoat</option><option value="Accessories">Accessories</option>
                     </select>
-                ) : (
-                    <span className="bg-pink-50 text-pink-700 px-4 py-1 rounded-full text-[9px] font-black uppercase tracking-widest">{item.type || "Saree"}</span>
-                )}
+                ) : <span className="bg-pink-50 text-pink-700 px-4 py-1 rounded-full text-[9px] font-black uppercase tracking-widest">{item.type || "Saree"}</span>}
             </td>
             <td className="p-8 text-center">
                 {isEditing ? <input className="w-24 p-2 border rounded-lg font-black text-pink-700 text-xs text-center border-pink-200" value={price} onChange={e => setPrice(e.target.value)} /> : <span className="font-black text-gray-800 text-lg">{item.price}</span>}
