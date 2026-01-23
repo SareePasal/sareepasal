@@ -1,17 +1,18 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation'; 
 import Link from 'next/link';
 import Header from "../../../components/Header/Header";
 import Footer from "../../../components/Footer/Footer";
 import Recommendations from "../../../components/Landing/Recommendations";
-import { auth, db, isAdmin } from '../../../lib/firebase';
+import { auth, db, storage, isAdmin } from '../../../lib/firebase';
 import { doc, getDoc, updateDoc, setDoc } from 'firebase/firestore';
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { 
     ShoppingCart, Heart, Edit3, Save, X, Trash2, 
     Plus, AlertTriangle, CheckCircle2, Loader2, 
-    Info, Maximize2, Copy, Play, Image as ImageIcon 
+    Info, Maximize2, Copy, Play, Image as ImageIcon, Settings2, UploadCloud
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useCart } from '../../../lib/useCart';
@@ -34,14 +35,16 @@ export default function ProductDetail({ params }) {
     const [productData, setProductData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [isEditing, setIsEditing] = useState(false);
+    const [isUploading, setIsUploading] = useState(false);
     
-    // UI States
+    // UI Refs
+    const fileInputRef = useRef(null);
+    const videoInputRef = useRef(null);
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     const [showFullScreen, setShowFullScreen] = useState(false);
     const [zoomIndex, setZoomIndex] = useState(0);
-    const [newImageUrl, setNewImageUrl] = useState("");
 
-    // Selection States
+    // Customer Selection
     const [selectedColor, setSelectedColor] = useState("");
     const [selectedSize, setSelectedSize] = useState("");
     const addToCart = useCart((state) => state.addToCart);
@@ -63,23 +66,55 @@ export default function ProductDetail({ params }) {
         window.scrollTo(0, 0);
     }, [id]);
 
-    // --- ADMIN: DUPLICATE PRODUCT ---
+    // --- ADMIN: DUPLICATE LOGIC ---
     const handleDuplicate = async () => {
-        const newCode = prompt("Enter a UNIQUE Product Code for the copy (e.g., " + productData.code + "-COPY):");
+        const newCode = prompt("Enter NEW Product Code for the copy:", productData.code + "-COPY");
         if (!newCode) return;
         const newId = newCode.replace(/\s+/g, '-').toLowerCase();
         try {
-            setIsEditing(false);
-            setLoading(true);
-            await setDoc(doc(db, "products", newId), {
-                ...productData,
-                code: newCode,
-                title: productData.title + " (Copy)"
+            setIsEditing(false); setLoading(true);
+            await setDoc(doc(db, "products", newId), { 
+                ...productData, 
+                code: newCode, 
+                title: productData.title + " (Copy)" 
             });
             alert("Product Copied! Redirecting...");
             router.push(`/product/${newId}`);
-        } catch (err) { alert("Duplicate failed: " + err.message); }
+        } catch (err) { alert(err.message); }
         finally { setLoading(false); }
+    };
+
+    // --- ADMIN: MEDIA UPLOADS ---
+    const handleFileUpload = async (e, type = "image") => {
+        const file = e.target.files[0];
+        if (!file) return;
+        setIsUploading(true);
+        try {
+            const storageRef = ref(storage, `products/${id}/${Date.now()}_${file.name}`);
+            await uploadBytes(storageRef, file);
+            const url = await getDownloadURL(storageRef);
+            if (type === "image") {
+                const updated = [...(productData.allImages || []), url];
+                setProductData({ ...productData, allImages: updated, image: updated[0] });
+            } else {
+                setProductData({ ...productData, videoUrl: url });
+            }
+            alert("Upload Success! Remember to click SAVE.");
+        } catch (err) { alert(err.message); }
+        finally { setIsUploading(false); }
+    };
+
+    // --- ADMIN: VARIANT TABLE HELPERS ---
+    const addRow = () => {
+        setProductData({ ...productData, variants: [...productData.variants, { color: "", size: "", qty: 1 }] });
+    };
+    const updateRow = (index, field, value) => {
+        const updated = [...productData.variants];
+        updated[index][field] = value;
+        setProductData({ ...productData, variants: updated });
+    };
+    const removeRow = (index) => {
+        setProductData({ ...productData, variants: productData.variants.filter((_, i) => i !== index) });
     };
 
     const handleSaveLive = async () => {
@@ -87,46 +122,17 @@ export default function ProductDetail({ params }) {
             await updateDoc(doc(db, "products", id), productData);
             setIsEditing(false);
             alert("All changes saved! ✨");
-        } catch (err) { alert("Save failed: " + err.message); }
-    };
-
-    // --- ADMIN: GALLERY HELPERS ---
-    const addImageToGallery = () => {
-        if (!newImageUrl) return;
-        const updated = [...(productData.allImages || []), newImageUrl];
-        setProductData({ ...productData, allImages: updated, image: updated[0] });
-        setNewImageUrl("");
-    };
-
-    const removeImageFromGallery = (index) => {
-        const updated = productData.allImages.filter((_, i) => i !== index);
-        setProductData({ ...productData, allImages: updated, image: updated[0] || "" });
-    };
-
-    // --- ADMIN: VARIANT ROW HELPERS ---
-    const addVariantRow = () => {
-        const updatedVariants = [...(productData.variants || []), { color: "", size: "", qty: 1 }];
-        setProductData({ ...productData, variants: updatedVariants });
-    };
-
-    const updateVariantRow = (index, field, value) => {
-        const updated = [...productData.variants];
-        updated[index][field] = value;
-        setProductData({ ...productData, variants: updated });
+        } catch (err) { alert(err.message); }
     };
 
     if (loading) return <div className="min-h-screen flex items-center justify-center text-pink-900 font-serif animate-pulse text-xl">Opening Collection...</div>;
-    if (!productData) return <div className="p-20 text-center font-serif">Garment not found.</div>;
+    if (!productData) return <div className="p-20 text-center font-serif text-pink-900">Garment not found.</div>;
 
-    // --- LOGIC: FIXING THE "NOT DEFINED" ERROR ---
+    // --- LOGIC: CUSTOMER VIEW ---
     const allImages = productData.allImages || [productData.image];
-    // 1. Get unique colors from the variant table
     const uniqueColors = [...new Set(productData.variants?.map(v => v.color))].filter(c => c !== "");
-    // 2. Filter variants to show only sizes for the selected color
     const filteredVariants = productData.variants?.filter(v => v.color === selectedColor) || [];
-    // 3. Find the specific row for the selected color + size to check Qty
     const activeVariant = filteredVariants.find(v => v.size === selectedSize);
-    
     const isOnSale = productData.oldPrice && productData.oldPrice !== productData.price;
 
     return (
@@ -134,18 +140,16 @@ export default function ProductDetail({ params }) {
             <Header />
             <div className="max-w-7xl mx-auto px-4 py-8 lg:py-16">
                 
-                {/* ADMIN TOOLBAR */}
+                {/* ADMIN TOOLBAR (RESTORED DUPLICATE BUTTON) */}
                 {isAdmin(user) && (
-                    <div className="mb-10 p-6 bg-pink-900 rounded-3xl flex flex-wrap justify-between items-center shadow-xl gap-4 border-4 border-pink-100">
-                        <div className="text-white">
-                            <h2 className="text-xl font-serif font-bold italic">Store Manager Active</h2>
-                        </div>
+                    <div className="mb-10 p-6 bg-pink-900 rounded-3xl flex flex-wrap justify-between items-center shadow-xl border-4 border-pink-100">
+                        <div className="text-white flex items-center gap-2 font-serif font-bold italic"><Settings2 /> Store Manager Active</div>
                         <div className="flex gap-3">
-                            <button onClick={handleDuplicate} className="bg-white/10 text-white border border-white/20 px-6 py-3 rounded-2xl font-bold flex items-center gap-2 hover:bg-white/20 transition-all text-xs uppercase tracking-widest">
-                                <Copy size={16}/> Duplicate Item
+                            <button onClick={handleDuplicate} className="bg-white/10 text-white border border-white/20 px-6 py-2 rounded-xl font-bold flex items-center gap-2 hover:bg-white/20 text-xs">
+                                <Copy size={16}/> DUPLICATE ITEM
                             </button>
-                            <button onClick={() => setIsEditing(!isEditing)} className="bg-white text-pink-900 px-6 py-3 rounded-2xl font-bold shadow-lg flex items-center gap-2 text-xs uppercase tracking-widest">
-                                {isEditing ? <><X size={16}/> Close Editor</> : <><Edit3 size={16}/> Edit Product</>}
+                            <button onClick={() => setIsEditing(!isEditing)} className="bg-white text-pink-900 px-6 py-2 rounded-xl font-bold shadow-lg flex items-center gap-2 text-xs">
+                                {isEditing ? <><X size={16}/> CLOSE EDITOR</> : <><Edit3 size={16}/> EDIT PRODUCT</>}
                             </button>
                         </div>
                     </div>
@@ -181,86 +185,100 @@ export default function ProductDetail({ params }) {
                     {/* RIGHT: CONTENT / EDITOR */}
                     <div className="w-full lg:w-1/2 space-y-8">
                         {isEditing ? (
-                            /* --- ADMIN ADVANCED EDITOR --- */
+                            /* --- ADMIN MASTER EDITOR --- */
                             <div className="space-y-8 p-8 bg-gray-50 rounded-[3rem] border-2 border-pink-200 border-dashed">
+                                {isUploading && <div className="fixed inset-0 bg-white/80 z-[400] flex items-center justify-center font-bold text-pink-900"><Loader2 className="animate-spin mr-2"/> Processing Upload...</div>}
+                                
                                 <div className="space-y-4">
-                                    <label className="text-[10px] font-black text-pink-600 uppercase tracking-widest">1. Name & Pricing</label>
+                                    <label className="text-[10px] font-black text-pink-600 uppercase">1. Product Name & Pricing</label>
                                     <input className="w-full p-4 rounded-2xl ring-1 ring-gray-200 font-bold bg-white" value={productData.title} onChange={e => setProductData({...productData, title: e.target.value})} />
                                     <div className="flex gap-4">
-                                        <div className="w-1/2"><label className="text-[9px] text-gray-400 ml-2 uppercase">Now Price</label><input className="w-full p-4 rounded-2xl ring-1 ring-gray-200 text-pink-700 font-bold bg-white" value={productData.price} onChange={e => setProductData({...productData, price: e.target.value})} /></div>
-                                        <div className="w-1/2"><label className="text-[9px] text-gray-400 ml-2 uppercase">Was Price</label><input className="w-full p-4 rounded-2xl ring-1 ring-gray-200 text-gray-400 line-through bg-white" value={productData.oldPrice} onChange={e => setProductData({...productData, oldPrice: e.target.value})} /></div>
+                                        <div className="w-1/2"><label className="text-[9px] text-gray-400 ml-2 uppercase tracking-widest font-bold">Now Price</label><input className="w-full p-4 rounded-2xl ring-1 ring-gray-200 font-bold bg-white text-pink-700" value={productData.price} onChange={e => setProductData({...productData, price: e.target.value})} /></div>
+                                        <div className="w-1/2"><label className="text-[9px] text-gray-400 ml-2 uppercase tracking-widest font-bold">Was Price</label><input className="w-full p-4 rounded-2xl ring-1 ring-gray-200 bg-white line-through text-gray-400" value={productData.oldPrice || ""} onChange={e => setProductData({...productData, oldPrice: e.target.value})} /></div>
+                                    </div>
+                                    <div className="w-1/2"><label className="text-[9px] text-gray-400 ml-2 uppercase tracking-widest font-bold">Category</label>
+                                        <select className="w-full p-4 rounded-2xl ring-1 ring-gray-200 font-bold bg-white" value={productData.type} onChange={e => setProductData({...productData, type: e.target.value})}>
+                                            <option value="Saree">Saree</option><option value="Gown">Gown</option><option value="Lehenga">Lehenga</option><option value="Suit">Suit</option><option value="Men">Men</option>
+                                        </select>
                                     </div>
                                 </div>
 
                                 <div className="space-y-4">
-                                    <label className="text-[10px] font-black text-pink-600 uppercase tracking-widest">2. Gallery Manager</label>
+                                    <label className="text-[10px] font-black text-pink-600 uppercase">2. Product Description (Details)</label>
+                                    <textarea rows="6" className="w-full p-4 rounded-2xl ring-1 ring-gray-200 bg-white text-sm" value={productData.details || ""} onChange={e => setProductData({...productData, details: e.target.value})} />
+                                </div>
+
+                                <div className="space-y-4">
+                                    <label className="text-[10px] font-black text-pink-600 uppercase">3. Gallery Manager</label>
                                     <div className="grid grid-cols-4 gap-3 mb-4">
                                         {allImages.map((img, i) => (
-                                            <div key={i} className="relative aspect-[3/4] rounded-xl overflow-hidden border bg-white">
+                                            <div key={i} className="relative aspect-[3/4] rounded-xl overflow-hidden border bg-white shadow-sm">
                                                 <img src={img} className="w-full h-full object-cover" />
-                                                <button onClick={() => removeImageFromGallery(i)} className="absolute top-1 right-1 bg-red-500 text-white p-1 rounded-full shadow-lg"><X size={12}/></button>
+                                                <button onClick={() => removeImage(i)} className="absolute top-1 right-1 bg-red-500 text-white p-1 rounded-full shadow-lg"><X size={12}/></button>
                                             </div>
                                         ))}
+                                        <button type="button" onClick={() => fileInputRef.current.click()} className="aspect-[3/4] rounded-xl border-2 border-dashed border-pink-300 flex items-center justify-center text-pink-400 bg-white hover:bg-pink-50"><Plus size={32} /></button>
+                                        <input type="file" ref={fileInputRef} className="hidden" accept="image/*" onChange={(e) => handleFileUpload(e, "image")} />
                                     </div>
+                                </div>
+
+                                <div className="space-y-4">
+                                    <label className="text-[10px] font-black text-pink-600 uppercase">4. Video Path / URL</label>
                                     <div className="flex gap-2">
-                                        <input className="flex-1 p-4 rounded-2xl border text-xs bg-white" placeholder="Paste Image Path (e.g. /Images/Saree/1.jpg)" value={newImageUrl} onChange={e => setNewImageUrl(e.target.value)} />
-                                        <button onClick={addImageToGallery} className="bg-gray-900 text-white px-6 rounded-2xl font-bold"><Plus size={20}/></button>
+                                        <input className="flex-1 p-4 rounded-2xl ring-1 ring-gray-200 bg-white text-xs font-mono" placeholder="Paste link or upload..." value={productData.videoUrl || ""} onChange={e => setProductData({...productData, videoUrl: e.target.value})} />
+                                        <button type="button" onClick={() => videoInputRef.current.click()} className="bg-gray-900 text-white px-5 rounded-2xl font-bold flex items-center gap-2 text-xs"><UploadCloud size={16}/> UPLOAD</button>
+                                        <input type="file" ref={videoInputRef} className="hidden" accept="video/*" onChange={(e) => handleFileUpload(e, "video")} />
                                     </div>
                                 </div>
 
                                 <div className="space-y-4">
-                                    <label className="text-[10px] font-black text-pink-600 uppercase tracking-widest">3. Video Link</label>
-                                    <input className="w-full p-4 rounded-2xl ring-1 ring-gray-200 bg-white text-xs" placeholder="YouTube or Video Path..." value={productData.videoUrl || ""} onChange={e => setProductData({...productData, videoUrl: e.target.value})} />
-                                </div>
-
-                                <div className="space-y-4">
-                                    <label className="text-[10px] font-black text-pink-600 uppercase tracking-widest font-mono">4. Inventory Table (Color | Size | Qty)</label>
+                                    <label className="text-[10px] font-black text-pink-600 uppercase font-mono">5. Inventory Table (Color | Size | Qty)</label>
                                     {productData.variants?.map((v, i) => (
-                                        <div key={i} className="flex gap-2 animate-in slide-in-from-left-2">
-                                            <input placeholder="Color" className="w-1/3 p-3 rounded-xl border bg-white font-bold" value={v.color} onChange={e => updateVariantRow(i, 'color', e.target.value)} />
-                                            <input placeholder="Size" className="w-1/4 p-3 rounded-xl border bg-white font-bold text-center" value={v.size} onChange={e => updateVariantRow(i, 'size', e.target.value)} />
-                                            <input type="number" placeholder="Qty" className="w-1/4 p-3 rounded-xl border bg-white font-bold text-center" value={v.qty} onChange={e => updateVariantRow(i, 'qty', Number(e.target.value))} />
-                                            <button onClick={() => setProductData({...productData, variants: productData.variants.filter((_, idx) => idx !== i)})} className="p-2 text-red-300 hover:text-red-600"><Trash2 size={20}/></button>
+                                        <div key={i} className="flex gap-2 animate-in slide-in-from-left-1">
+                                            <input placeholder="Color" className="w-1/3 p-3 rounded-xl border bg-white font-bold" value={v.color} onChange={e => updateRow(i, 'color', e.target.value)} />
+                                            <input placeholder="Size" className="w-1/4 p-3 rounded-xl border bg-white font-bold text-center" value={v.size} onChange={e => updateRow(i, 'size', e.target.value)} />
+                                            <input type="number" placeholder="Qty" className="w-1/4 p-3 rounded-xl border bg-white font-bold text-center" value={v.qty} onChange={e => updateRow(i, 'qty', Number(e.target.value))} />
+                                            <button onClick={() => removeRow(i)} className="p-2 text-red-300 hover:text-red-600 transition-colors"><Trash2 size={20}/></button>
                                         </div>
                                     ))}
-                                    <button onClick={addVariantRow} className="w-full py-3 border-2 border-dashed border-gray-300 rounded-2xl text-[10px] font-black uppercase text-gray-400 hover:border-pink-300 hover:text-pink-600 transition-all">+ Add Variant Row</button>
+                                    <button onClick={addRow} className="w-full py-3 border-2 border-dashed border-gray-300 rounded-2xl text-[10px] font-black uppercase text-gray-400 hover:border-pink-300">+ Add Row</button>
                                 </div>
 
-                                <button onClick={handleSaveLive} className="w-full bg-pink-900 text-white py-6 rounded-[2.5rem] font-bold text-xl shadow-2xl hover:bg-black transition-all">
-                                    <Save className="inline mr-2"/> SAVE EVERYTHING
+                                <button onClick={handleSaveLive} className="w-full bg-pink-900 text-white py-6 rounded-[2.5rem] font-black text-xl shadow-xl hover:bg-black transition-all">
+                                    <Save className="inline mr-2"/> SAVE TO STOREFRONT
                                 </button>
                             </div>
                         ) : (
                             /* --- CUSTOMER VIEW --- */
                             <>
-                                <div>
+                                <div className="space-y-4">
                                     <span className="text-pink-600 font-black text-[10px] tracking-widest uppercase bg-pink-50 px-4 py-1 rounded-full border border-pink-100">Code: {productData.code}</span>
                                     <h1 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 mt-4 leading-tight">{productData.title}</h1>
-                                    <div className="mt-8 flex flex-wrap items-center gap-6">
+                                    <div className="flex flex-wrap items-center gap-6">
                                         {isOnSale && <span className="text-2xl text-red-500 line-through font-bold opacity-60">Was {productData.oldPrice}</span>}
                                         <div className={`px-10 py-5 rounded-[2rem] shadow-2xl border-4 ${isOnSale ? 'bg-gray-900 border-green-500 text-green-400 animate-pulse' : 'bg-white border-pink-100 text-pink-700'}`}>
-                                            <span className="text-3xl font-black italic">💰 {isOnSale ? `Now ${productData.price}` : productData.price}</span>
+                                            <span className="text-3xl font-black italic uppercase">💰 {isOnSale ? `Now ${productData.price}` : productData.price}</span>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div className="space-y-12 py-12 border-y border-gray-100">
-                                    {/* 1. COLOR */}
+                                    {/* COLOR SELECTION */}
                                     <div>
-                                        <h3 className="text-[10px] font-black uppercase text-gray-400 mb-6 tracking-[0.3em] flex items-center gap-2 italic"> <ImageIcon size={14}/> Step 1: Select Color</h3>
+                                        <h3 className="text-[10px] font-black uppercase text-gray-400 mb-6 tracking-[0.3em] flex items-center gap-2 italic"><ImageIcon size={14}/> Step 1: Select Color</h3>
                                         <div className="flex flex-wrap gap-4">
-                                            {uniqueColors.map(c => (
-                                                <button key={c} onClick={() => { setSelectedColor(c); setSelectedSize(""); }} className={`px-10 py-4 rounded-2xl border-2 font-black transition-all ${selectedColor === c ? 'border-pink-900 bg-pink-900 text-white shadow-xl scale-105' : 'border-gray-100 hover:border-pink-200 bg-white'}`}>{c}</button>
-                                            ))}
+                                            {uniqueColors.length > 0 ? uniqueColors.map(c => (
+                                                <button key={c} onClick={() => { setSelectedColor(c); setSelectedSize(""); }} className={`px-10 py-4 rounded-2xl border-2 font-black transition-all ${selectedColor === c ? 'border-pink-900 bg-pink-900 text-white shadow-xl scale-105' : 'border-gray-100 bg-white hover:border-pink-200'}`}>{c}</button>
+                                            )) : <p className="text-xs text-gray-400 italic">One size fits all.</p>}
                                         </div>
                                     </div>
 
-                                    {/* 2. SIZE (Using the fixed filteredVariants) */}
+                                    {/* SIZE SELECTION */}
                                     {selectedColor && (
                                         <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-                                            <h3 className="text-[10px] font-black uppercase text-gray-400 mb-6 tracking-[0.3em] flex items-center gap-2 italic"> <Maximize2 size={14}/> Step 2: Available Sizes</h3>
+                                            <h3 className="text-[10px] font-black uppercase text-gray-400 mb-6 tracking-[0.3em] flex items-center gap-2 italic"><Maximize2 size={14}/> Step 2: Available Sizes</h3>
                                             <div className="flex flex-wrap gap-4">
-                                                {filteredVariants.map((v, i) => (
+                                                {productData.variants.filter(v => v.color === selectedColor).map((v, i) => (
                                                     <button key={i} disabled={v.qty <= 0} onClick={() => setSelectedSize(v.size)} 
                                                         className={`relative w-20 h-20 rounded-full border-2 flex items-center justify-center font-black text-xl transition-all ${selectedSize === v.size ? 'border-pink-900 bg-pink-50 text-pink-900 shadow-lg scale-110' : 'border-gray-100 bg-white'} ${v.qty <= 0 ? 'opacity-20 cursor-not-allowed grayscale' : 'hover:bg-gray-50'}`}
                                                     >
@@ -272,15 +290,15 @@ export default function ProductDetail({ params }) {
                                         </div>
                                     )}
 
-                                    {/* 3. STOCK ALERT */}
+                                    {/* STOCK STATUS */}
                                     {activeVariant && (
                                         <div className="animate-in zoom-in-95 duration-300">
                                             {activeVariant.qty > 0 ? (
                                                 <div className="bg-green-50 text-green-700 px-6 py-4 rounded-2xl inline-flex items-center gap-3 font-black text-sm border border-green-100 shadow-sm italic">
-                                                    <CheckCircle2 size={20}/> HURRY! Only {activeVariant.qty} left in stock!
+                                                    <CheckCircle2 size={20}/> 🌸 HURRY! Only {activeVariant.qty} left in stock!
                                                 </div>
                                             ) : (
-                                                <div className="bg-red-50 text-red-600 p-10 rounded-[3rem] flex items-center justify-center gap-6 border-4 border-red-100 animate-bounce shadow-2xl">
+                                                <div className="bg-red-50 text-red-600 p-10 rounded-[3rem] flex flex-col items-center justify-center gap-4 border-4 border-red-100 animate-bounce shadow-2xl">
                                                     <AlertTriangle size={40} />
                                                     <span className="text-4xl font-serif font-black uppercase tracking-widest italic">SOLD OUT</span>
                                                 </div>
@@ -291,7 +309,7 @@ export default function ProductDetail({ params }) {
 
                                 <div className="flex gap-4">
                                     <button 
-                                        disabled={!activeVariant || activeVariant.qty <= 0}
+                                        disabled={(uniqueColors.length > 0 && !activeVariant) || (activeVariant && activeVariant.qty <= 0)}
                                         onClick={() => {
                                             addToCart({...productData, selectedColor, selectedSize, img: productData.image, uniqueKey: `${id}-${selectedColor}-${selectedSize}`});
                                             alert("🌸 Added to your Saree Pasal bag!");
@@ -303,14 +321,17 @@ export default function ProductDetail({ params }) {
                                     <button className="flex-1 p-5 border border-gray-200 rounded-[2.5rem] flex items-center justify-center text-pink-600 hover:bg-pink-50 transition-all shadow-sm"><Heart /></button>
                                 </div>
 
+                                {/* RESTORED DESCRIPTION & VIDEO VIEW */}
                                 <div className="pt-12 border-t border-gray-100">
                                     <h3 className="text-2xl font-serif font-bold text-pink-900 mb-6 flex items-center gap-3 italic"><Info size={24} /> Product Details</h3>
-                                    <div className="text-gray-600 leading-relaxed whitespace-pre-wrap text-lg font-medium italic bg-pink-50/20 p-8 rounded-[3rem] border border-pink-100 shadow-inner">
-                                        {productData.details || "Hand-selected ethnic wear from the Saree Pasal collection."}
+                                    <div className="text-gray-600 leading-relaxed whitespace-pre-wrap text-lg font-medium italic bg-pink-50/20 p-10 rounded-[3rem] border border-pink-100 shadow-inner">
+                                        {productData.details || "Luxury ethnic selection from Saree Pasal."}
                                     </div>
+                                    
                                     {productData.videoUrl && (
-                                        <div className="mt-8 rounded-3xl overflow-hidden shadow-lg border">
-                                             <video src={productData.videoUrl} controls className="w-full h-auto" />
+                                        <div className="mt-12 rounded-[4rem] overflow-hidden shadow-2xl border-8 border-white bg-black aspect-video relative group">
+                                             <video src={productData.videoUrl} controls className="w-full h-full object-contain" />
+                                             <div className="absolute top-6 left-6 bg-pink-600 text-white px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest flex items-center gap-2"> <Play size={12}/> Product Video</div>
                                         </div>
                                     )}
                                 </div>
@@ -320,17 +341,14 @@ export default function ProductDetail({ params }) {
                 </div>
             </div>
 
-            {/* FULL SCREEN LIGHTBOX */}
             <AnimatePresence>
                 {showFullScreen && (
                     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-[500] bg-black flex items-center justify-center p-4">
-                        <button onClick={() => setShowFullScreen(false)} className="absolute top-10 right-10 text-white hover:text-pink-500 z-[510]"><X size={60}/></button>
+                        <button onClick={() => setShowFullScreen(false)} className="absolute top-10 right-10 text-white hover:text-pink-500 z-[510] transition-colors"><X size={60}/></button>
                         <div className="w-full h-full max-w-6xl">
                             <Swiper loop={true} initialSlide={zoomIndex} navigation={true} pagination={{ clickable: true }} modules={[Navigation, Pagination]} className="h-full w-full">
                                 {allImages.map((img, i) => (
-                                    <SwiperSlide key={i} className="flex items-center justify-center">
-                                        <img src={img} className="max-h-full max-w-full object-contain mx-auto shadow-2xl" alt="zoom view" />
-                                    </SwiperSlide>
+                                    <SwiperSlide key={i} className="flex items-center justify-center"><img src={img} className="max-h-full max-w-full object-contain mx-auto shadow-2xl" alt="zoom view" /></SwiperSlide>
                                 ))}
                             </Swiper>
                         </div>
