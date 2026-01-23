@@ -98,6 +98,12 @@ export default function CategoryView({ type, title, subtitle }) {
                     </div>
                 )}
             </div>
+             <section className="bg-gray-50 py-24 border-t border-gray-100 shadow-inner overflow-hidden">
+                <div className="max-w-7xl mx-auto px-4">
+                    <Recommendations />
+                </div>
+            </section>
+
             <Footer />
         </main>
     );

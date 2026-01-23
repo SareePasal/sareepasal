@@ -9,6 +9,7 @@ import LoginModal from '../../components/Auth/LoginModal';
 import { Trash2, ShoppingBag, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image'; // <--- 1. Import the Optimizer
+import Recommendations from "../../components/Landing/Recommendations";
 
 export default function CartPage() {
     const { cart, removeFromCart } = useCart();
@@ -109,6 +110,10 @@ export default function CartPage() {
             </div>
 
             <LoginModal isOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)} />
+             <div className="max-w-7xl mx-auto px-4 py-20">
+                <Recommendations />
+            </div>
+
             <Footer />
         </main>
     );
