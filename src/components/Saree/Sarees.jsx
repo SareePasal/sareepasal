@@ -14,10 +14,10 @@ import FBL228 from "./FBL228"
 import NA4001 from "./NA4001"
 import DB4090 from "./DB4090"
 import VC4052 from "./VC4052"
-
+import Ronisha from "./Ronisha";
 
 //Add Items Here
-const itemCode = [Bt3118,KimoraSindhuri,KimoraSindhuriAnokhiPurple,KimoraSindhuriAnokhiWine,Karigari,Glint,Akshita765,DS610,Suman01,FBL228,NA4001,DB4090,VC4052]
+const itemCode = [Ronisha,Bt3118,KimoraSindhuri,KimoraSindhuriAnokhiPurple,KimoraSindhuriAnokhiWine,Karigari,Glint,Akshita765,DS610,Suman01,FBL228,NA4001,DB4090,VC4052]
 
 //Do Not Touch the code below
 const Sarees = () => {
