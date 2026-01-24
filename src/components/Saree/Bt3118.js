@@ -16,7 +16,9 @@ const item = {
         colors: "As shown in Picture",
         size: "Call for Sizes",
         code: "Bt3118",
-        price: "$55.00"
+        price: "$55.00",
+        // ADD THE VIDEO URL HERE:
+        videoUrl: '/Images/RoyalTextile/Bt3118/Bt3118.mp4'
     }
 
 }

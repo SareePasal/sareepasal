@@ -15,6 +15,7 @@ import DB4090 from "../components/Saree/DB4090";
 import VC4052 from "../components/Saree/VC4052";
 import Bt3118 from "../components/Saree/Bt3118";
 import FBL228 from "../components/Saree/FBL228";
+import Ronisha from "../components/Saree/Ronisha";
 
 /*... Gowns ...*/
 import RT10074 from '../components/Gowns/RT10074';
@@ -81,6 +82,7 @@ export const productRegistry = {
     "eba-suit": RT1003Eba,
     "akshita": Akshita765,
     "bt3118": Bt3118,
+    "ronisha": Ronisha,
 
     // ... Gowns ...
     "rt10074": RT10074,

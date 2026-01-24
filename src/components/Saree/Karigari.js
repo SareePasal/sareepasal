@@ -16,7 +16,9 @@ const item = {
         colors: "As shown in Picture",
         size: "Call for Sizes",
         code: "Karigari",
-        price: "$80.00"
+        price: "$80.00",
+        // ADD THE VIDEO URL HERE:
+        videoUrl: '/Images/RoyalTextile/Karigari/karigari.mp4'
     }
 
 }
