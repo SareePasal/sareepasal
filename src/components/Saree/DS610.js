@@ -6,6 +6,14 @@ const item = {
         { src: '/Images/RoyalTextile/DS610/1 (3).jpeg', alt: '3', width: 430, height: 430 },
         { src: '/Images/RoyalTextile/DS610/1 (4).jpeg', alt: '4', width: 430, height: 430 },
         { src: '/Images/RoyalTextile/DS610/1 (6).jpeg', alt: '3', width: 430, height: 430 },
+        { src: '/Images/RoyalTextile/DS610/DS610 - Light Green.jpeg', alt: '4', width: 430, height: 430 },
+        { src: '/Images/RoyalTextile/DS610/DS610 - Light Green2.jpeg', alt: '4', width: 430, height: 430 },
+        { src: '/Images/RoyalTextile/DS610/DS610 - Light Green3.jpeg', alt: '4', width: 430, height: 430 },
+        { src: '/Images/RoyalTextile/DS610/DS610 - Light Green4.jpeg', alt: '4', width: 430, height: 430 },
+        { src: '/Images/RoyalTextile/DS610/DS610 - Light Green5.jpeg', alt: '4', width: 430, height: 430 },
+        { src: '/Images/RoyalTextile/DS610/DS610 - Light Green6.jpeg', alt: '4', width: 430, height: 430 },
+        { src: '/Images/RoyalTextile/DS610/DS610 - Purple.jpeg', alt: '4', width: 430, height: 430 },
+        { src: '/Images/RoyalTextile/DS610/DS610 - Purple1.jpeg', alt: '4', width: 430, height: 430 },
 
     ],
     description: {
