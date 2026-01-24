@@ -26,7 +26,9 @@ const item = {
         colors: "As shown in Picture",
         size: "Call for Sizes",
         code: "DS610",
-        price: "$70.00"
+        price: "$70.00",
+        // ADD THE VIDEO URL HERE:
+        videoUrl: '/Images/RoyalTextile/DS610/DS610.mp4'
     }
 
 }
