@@ -83,6 +83,7 @@ export const productRegistry = {
     "akshita": Akshita765,
     "bt3118": Bt3118,
     "ronisha": Ronisha,
+    
 
     // ... Gowns ...
     "rt10074": RT10074,
