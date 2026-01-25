@@ -8,6 +8,7 @@ import AG67333 from "./AG67333";
 import AG68734 from "./AG68734";
 import AG64101 from "./AG64101";
 import AG72579 from "./AG72579";
+import PurpleMen from "./PurpleMen";
 
 const MensWears = ({ products = [IC2411, AG71422, AG69762, AG67333, AG68734, AG64101, AG72579] }) => {
     return (
