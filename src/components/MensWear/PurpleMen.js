@@ -11,7 +11,9 @@ const item = {
         colors: "Purple",
         size: " Medium",
         code: " PurpleMen",
-        price: "$55.00"
+        price: "$55.00",
+        // ADD THE VIDEO URL HERE:
+        videoUrl: '/Images/Suits/Appereal Garment/MenPurple/PurpleMen.mp4',
     }
 
 }
