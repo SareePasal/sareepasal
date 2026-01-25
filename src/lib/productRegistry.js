@@ -62,6 +62,24 @@ import AG73369 from "../components/Suit/AG73369"
 import AG356 from "../components/Suit/AG356"
 import AG68776 from "../components/Suit/AG68776"
 
+/*... Men's Wear ...*/
+import IC2411 from "../components/MensWear/IC2411";
+import AG71422 from "../components/MensWear/AG71422";
+import AG69762 from "../components/MensWear/AG69762";
+import AG67333 from "../components/MensWear/AG67333";
+import AG68734 from "../components/MensWear/AG68734";
+import AG64101 from "../components/MensWear/AG64101";
+import AG72579 from "../components/MensWear/AG72579";
+
+
+/*... Accessories ...*/
+import AntiqueEarringsCollection2 from "../components/Accessories/AntiqueEarringsCollection2"
+import AB94 from "../components/Accessories/AB94"
+import AB222 from "../components/Accessories/AB222"
+import AD0199 from "../components/Accessories/AD0199"
+import AN146 from "../components/Accessories/AN146"
+
+
 
 export const productRegistry = {
 
@@ -130,7 +148,22 @@ export const productRegistry = {
     "ag356": AG356,
     "ag68776": AG68776,
 
+    /*... Men's Wear ...*/
+    "ic2411": IC2411,
+    "ag71422": AG71422,
+    "ag69762": AG69762,
+    "ag67333": AG67333,
+    "ag68734": AG68734,
+    "ag64101": AG64101,
+    "ag72579": AG72579,
 
+
+    /*... Accessories ...*/
+    "antiqueearringscollection2": AntiqueEarringsCollection2,
+    "ab94": AB94,
+    "ab222": AB222,
+    "ad0199": AD0199,
+    "an146": AN146,
 
 
 };

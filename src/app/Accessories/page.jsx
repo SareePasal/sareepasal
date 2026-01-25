@@ -1,13 +1,11 @@
-import Header from "../../components/Header/Header";
-import Accessories from "../../components/Accessories/Accessories"
-import Footer from "../../components/Footer/Footer"
+import CategoryView from "../../components/Category/CategoryView";
 
-export default function Ab() {
-  return (
-    <main class="flex flex-col h-dvh ">
-      <Header/>
-      <Accessories/>
-      <Footer/>
-    </main>
-  );
+export default function AccessoriesPage() {
+    return (
+        <CategoryView 
+            type="Accessories" 
+            title="Jewelry & Accessories" 
+            subtitle="The Perfect Finish to Your Ethnic Look" 
+        />
+    );
 }

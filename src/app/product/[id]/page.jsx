@@ -12,7 +12,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { 
     ShoppingCart, Heart, Edit3, Save, X, Trash2, 
     Plus, AlertTriangle, CheckCircle2, Loader2, 
-    Info, Maximize2, Copy, Play, Image as ImageIcon, Settings2, UploadCloud
+    Info, Maximize2, Copy, Play, Image as ImageIcon, Settings2, UploadCloud, PackageX
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useCart } from '../../../lib/useCart';
@@ -63,13 +63,12 @@ export default function ProductDetail({ params }) {
         window.scrollTo(0, 0);
     }, [id]);
 
-    // --- 1. ADMIN: REMOVE IMAGE LOGIC (FIXED) ---
+    // --- 1. ADMIN: REMOVE IMAGE LOGIC ---
     const removeImage = (index) => {
         const updatedImages = productData.allImages.filter((_, i) => i !== index);
         setProductData({ 
             ...productData, 
             allImages: updatedImages,
-            // If we deleted the main thumbnail, update it to the next available image
             image: updatedImages.length > 0 ? updatedImages[0] : "" 
         });
     };
@@ -128,11 +127,17 @@ export default function ProductDetail({ params }) {
     if (loading) return <div className="min-h-screen flex items-center justify-center text-pink-900 font-serif animate-pulse text-xl">Loading Saree Pasal...</div>;
     if (!productData) return <div className="p-20 text-center">Product not found.</div>;
 
+    // Logic for Customer View
     const allImages = productData.allImages || [productData.image];
     const uniqueColors = [...new Set(productData.variants?.map(v => v.color))].filter(c => c !== "");
     const filteredVariants = productData.variants?.filter(v => v.color === selectedColor) || [];
     const activeVariant = filteredVariants.find(v => v.size === selectedSize);
     const isOnSale = productData.oldPrice && productData.oldPrice !== productData.price;
+
+    // --- GLOBAL SOLD OUT LOGIC ---
+    const isTotallySoldOut = !productData.variants || 
+                             productData.variants.length === 0 || 
+                             productData.variants.every(v => Number(v.qty) <= 0);
 
     return (
         <main className="min-h-screen bg-white text-gray-900">
@@ -152,7 +157,7 @@ export default function ProductDetail({ params }) {
                 <div className="flex flex-col lg:flex-row gap-16">
                     {/* LEFT: IMAGE SLIDER */}
                     <div className="w-full lg:w-1/2 space-y-6">
-                        <div className="relative rounded-[3rem] overflow-hidden aspect-[3/4] shadow-2xl bg-gray-100 group">
+                        <div className={`relative rounded-[3rem] overflow-hidden aspect-[3/4] shadow-2xl bg-gray-100 group ${isTotallySoldOut ? 'grayscale-[0.5]' : ''}`}>
                             <Swiper navigation={true} thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }} modules={[FreeMode, Navigation, Thumbs]} className="h-full w-full">
                                 {allImages.map((img, i) => (
                                     <SwiperSlide key={i}>
@@ -160,6 +165,14 @@ export default function ProductDetail({ params }) {
                                     </SwiperSlide>
                                 ))}
                             </Swiper>
+                            
+                            {/* OVERLAY IF SOLD OUT */}
+                            {isTotallySoldOut && !isEditing && (
+                                <div className="absolute inset-0 z-20 bg-black/10 backdrop-blur-[2px] flex items-center justify-center pointer-events-none">
+                                    <div className="bg-white/90 px-8 py-4 rounded-full shadow-2xl border-4 border-red-50 text-red-600 font-serif font-black text-3xl uppercase tracking-tighter italic">Sold Out</div>
+                                </div>
+                            )}
+
                             <button onClick={() => setShowFullScreen(true)} className="absolute bottom-8 right-8 bg-white/90 p-4 rounded-full shadow-2xl opacity-0 group-hover:opacity-100 transition-all text-pink-900 z-10"><Maximize2 size={24} /></button>
                         </div>
                         {allImages.length > 1 && (
@@ -176,7 +189,7 @@ export default function ProductDetail({ params }) {
                     {/* RIGHT: CONTENT / EDITOR */}
                     <div className="w-full lg:w-1/2 space-y-8">
                         {isEditing ? (
-                            /* --- ADMIN EDITOR VIEW --- */
+                            /* --- ADMIN EDITOR VIEW (PRESERVED) --- */
                             <div className="space-y-8 p-8 bg-gray-50 rounded-[3rem] border-2 border-pink-200 border-dashed">
                                 {isUploading && <div className="fixed inset-0 bg-white/80 z-[400] flex items-center justify-center font-bold text-pink-900"><Loader2 className="animate-spin mr-2"/> Uploading...</div>}
                                 
@@ -237,7 +250,7 @@ export default function ProductDetail({ params }) {
                                 </button>
                             </div>
                         ) : (
-                            /* --- CUSTOMER VIEW --- */
+                            /* --- CUSTOMER VIEW (UPDATED COLORS & SOLD OUT) --- */
                             <>
                                 <div className="space-y-4">
                                     <span className="text-pink-600 font-black text-[10px] tracking-widest uppercase bg-pink-50 px-4 py-1 rounded-full border border-pink-100">Code: {productData.code}</span>
@@ -245,63 +258,82 @@ export default function ProductDetail({ params }) {
                                     <div className="flex flex-wrap items-center gap-6 mt-4">
                                         {isOnSale && <span className="text-2xl text-red-500 line-through font-bold opacity-60">Was {productData.oldPrice}</span>}
                                         <div className={`px-10 py-5 rounded-[2rem] shadow-2xl border-4 ${isOnSale ? 'bg-gray-900 border-green-500 text-green-400 animate-pulse' : 'bg-white border-pink-100 text-pink-700'}`}>
-                                            <span className="text-3xl font-black italic uppercase italic tracking-tighter">💰 {isOnSale ? `Now ${productData.price}` : productData.price}</span>
+                                            <span className="text-3xl font-black italic tracking-tighter">💰 {isOnSale ? `Now ${productData.price}` : productData.price}</span>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div className="space-y-12 py-12 border-y border-gray-100">
-                                    <div>
-                                        <h3 className="text-[10px] font-black uppercase text-gray-400 mb-6 tracking-[0.3em] flex items-center gap-2 italic"><ImageIcon size={14}/> Step 1: Select Color</h3>
-                                        <div className="flex flex-wrap gap-4">
-                                            {uniqueColors.length > 0 ? uniqueColors.map(c => (
-                                                <button key={c} onClick={() => { setSelectedColor(c); setSelectedSize(""); }} className={`px-10 py-4 rounded-2xl border-2 font-black transition-all ${selectedColor === c ? 'border-pink-900 bg-pink-900 text-white shadow-xl scale-105' : 'border-gray-100 bg-white hover:border-pink-200'}`}>{c}</button>
-                                            )) : <p className="text-xs text-gray-400 italic">One size collection.</p>}
-                                        </div>
-                                    </div>
-
-                                    {selectedColor && (
-                                        <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-                                            <h3 className="text-[10px] font-black uppercase text-gray-400 mb-6 tracking-[0.3em] flex items-center gap-2 italic"><Maximize2 size={14}/> Step 2: Available Sizes</h3>
-                                            <div className="flex flex-wrap gap-4">
-                                                {filteredVariants.map((v, i) => (
-                                                    <button key={i} disabled={v.qty <= 0} onClick={() => setSelectedSize(v.size)} 
-                                                        className={`relative w-20 h-20 rounded-full border-2 flex items-center justify-center font-black text-xl transition-all ${selectedSize === v.size ? 'border-pink-900 bg-pink-50 text-pink-900 shadow-lg scale-110' : 'border-gray-100 bg-white'} ${v.qty <= 0 ? 'opacity-20 cursor-not-allowed grayscale bg-gray-100' : 'hover:bg-gray-50'}`}
-                                                    >
-                                                        {v.size}
-                                                        {v.qty <= 0 && <div className="absolute inset-0 flex items-center justify-center"><div className="w-full h-[2px] bg-red-500 -rotate-45" /></div>}
-                                                    </button>
-                                                ))}
+                                    {isTotallySoldOut ? (
+                                        /* --- BIG GLOBAL SOLD OUT MESSAGE --- */
+                                        <div className="bg-red-50 p-10 rounded-[3rem] border-4 border-red-100 flex flex-col items-center gap-4 text-center animate-in zoom-in-95">
+                                            <PackageX size={48} className="text-red-600" />
+                                            <div>
+                                                <h3 className="text-2xl font-serif font-black text-red-600 uppercase tracking-tighter italic">Currently Out of Stock</h3>
+                                                <p className="text-red-400 text-sm italic font-medium">We're working on a restock. Check back soon!</p>
                                             </div>
                                         </div>
-                                    )}
-
-                                    {activeVariant && (
-                                        <div className="animate-in zoom-in-95 duration-300">
-                                            {activeVariant.qty > 0 ? (
-                                                <div className="bg-green-50 text-green-700 px-6 py-4 rounded-2xl inline-flex items-center gap-3 font-black text-sm border border-green-100 italic shadow-sm">
-                                                    <CheckCircle2 size={20}/> 🌸 Only {activeVariant.qty} left! Order soon.
+                                    ) : (
+                                        <>
+                                            <div>
+                                                <h3 className="text-[10px] font-black uppercase text-gray-400 mb-6 tracking-[0.3em] flex items-center gap-2 italic"><ImageIcon size={14}/> Step 1: Select Color</h3>
+                                                <div className="flex flex-wrap gap-4">
+                                                    {uniqueColors.map(c => (
+                                                        <button key={c} onClick={() => { setSelectedColor(c); setSelectedSize(""); }} 
+                                                            className={`flex items-center gap-3 px-6 py-4 rounded-full border-2 transition-all duration-300 shadow-sm ${selectedColor === c ? 'border-pink-900 bg-pink-50 scale-105 shadow-pink-100 shadow-lg' : 'border-gray-100 bg-white hover:border-pink-200'}`}
+                                                        >
+                                                            {/* Little Color Circle */}
+                                                            <div className="w-5 h-5 rounded-full border border-gray-200 shadow-inner" style={{ backgroundColor: c.toLowerCase().replace(" ", "") }} />
+                                                            <span className="font-bold text-sm text-gray-800 uppercase tracking-tight">{c}</span>
+                                                        </button>
+                                                    ))}
                                                 </div>
-                                            ) : (
-                                                <div className="bg-red-50 text-red-600 p-10 rounded-[3rem] flex flex-col items-center justify-center gap-4 border-4 border-red-100 animate-bounce shadow-2xl">
-                                                    <AlertTriangle size={40} />
-                                                    <span className="text-4xl font-serif font-black uppercase tracking-widest italic text-center">SOLD OUT IN THIS SIZE</span>
+                                            </div>
+
+                                            {selectedColor && (
+                                                <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+                                                    <h3 className="text-[10px] font-black uppercase text-gray-400 mb-6 tracking-[0.3em] flex items-center gap-2 italic"><Maximize2 size={14}/> Step 2: Available Sizes</h3>
+                                                    <div className="flex flex-wrap gap-4">
+                                                        {filteredVariants.map((v, i) => (
+                                                            <button key={i} disabled={v.qty <= 0} onClick={() => setSelectedSize(v.size)} 
+                                                                className={`relative w-20 h-20 rounded-full border-2 flex items-center justify-center font-black text-xl transition-all ${selectedSize === v.size ? 'border-pink-900 bg-pink-50 text-pink-900 shadow-lg scale-110' : 'border-gray-100 bg-white'} ${v.qty <= 0 ? 'opacity-20 cursor-not-allowed grayscale bg-gray-100' : 'hover:bg-gray-50'}`}
+                                                            >
+                                                                {v.size}
+                                                                {v.qty <= 0 && <div className="absolute inset-0 flex items-center justify-center"><div className="w-full h-[2px] bg-red-500 -rotate-45" /></div>}
+                                                            </button>
+                                                        ))}
+                                                    </div>
                                                 </div>
                                             )}
-                                        </div>
+
+                                            {activeVariant && (
+                                                <div className="animate-in zoom-in-95 duration-300">
+                                                    {activeVariant.qty > 0 ? (
+                                                        <div className="bg-green-50 text-green-700 px-6 py-4 rounded-2xl inline-flex items-center gap-3 font-black text-sm border border-green-100 italic shadow-sm">
+                                                            <CheckCircle2 size={20}/> 🌸 Only {activeVariant.qty} left! Order soon.
+                                                        </div>
+                                                    ) : (
+                                                        <div className="bg-red-50 text-red-600 p-10 rounded-[3rem] flex flex-col items-center justify-center gap-4 border-4 border-red-100 animate-bounce shadow-2xl">
+                                                            <AlertTriangle size={40} />
+                                                            <span className="text-4xl font-serif font-black uppercase tracking-widest italic text-center">SOLD OUT</span>
+                                                        </div>
+                                                    )}
+                                                </div>
+                                            )}
+                                        </>
                                     )}
                                 </div>
 
                                 <div className="flex gap-4">
                                     <button 
-                                        disabled={(uniqueColors.length > 0 && !activeVariant) || (activeVariant && activeVariant.qty <= 0)}
+                                        disabled={isTotallySoldOut || (uniqueColors.length > 0 && !activeVariant) || (activeVariant && activeVariant.qty <= 0)}
                                         onClick={() => {
                                             addToCart({...productData, selectedColor, selectedSize, img: productData.image, uniqueKey: `${id}-${selectedColor}-${selectedSize}`});
                                             alert("🌸 Added to your Saree Pasal bag!");
                                         }}
                                         className="flex-[3] bg-pink-900 text-white py-6 rounded-[2.5rem] font-black text-2xl shadow-xl shadow-pink-900/20 disabled:bg-gray-200 transition-all active:scale-95"
                                     >
-                                        <ShoppingCart className="inline mr-2" /> ADD TO BAG
+                                        <ShoppingCart className="inline mr-2" /> {isTotallySoldOut ? "OUT OF STOCK" : "ADD TO BAG"}
                                     </button>
                                     <button className="flex-1 p-5 border border-gray-200 rounded-[2.5rem] flex items-center justify-center text-pink-600 hover:bg-pink-50 transition-all shadow-sm"><Heart /></button>
                                 </div>
