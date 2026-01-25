@@ -13,7 +13,7 @@ const item = {
         { src: '/Images/RoyalTextile/DS610/DS610-Light Green5.jpeg', alt: '11', width: 430, height: 430 },
         { src: '/Images/RoyalTextile/DS610/DS610-Light Green6.jpeg', alt: '12', width: 430, height: 430 },
         { src: '/Images/RoyalTextile/DS610/DS610-Purple.jpeg', alt: '13', width: 430, height: 430 },
-        { src: '/Images/RoyalTextile/DS610/DS610-Purple1.jpeg', alt: '4', width: 430, height: 430 },
+        { src: '/Images/RoyalTextile/DS610/DS610-Purple1.jpeg', alt: '14', width: 430, height: 430 },
 
     ],
     description: {
