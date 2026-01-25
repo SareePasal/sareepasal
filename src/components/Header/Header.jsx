@@ -31,7 +31,6 @@ const Header = () => {
                     transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
                     className="whitespace-nowrap flex gap-10 text-[10px] md:text-sm font-bold uppercase tracking-widest"
                 >
-                     <span>🔥 NEW Customer 5% Discount at checkout!!! 🔥</span>
                         <span>✨ FREE SHIPPING ON ALL ORDERS ✨</span>
                         <span>🔥 FESTIVE COLLECTION On SALE 🔥</span>
                         {/* We repeat the text here to make the loop seamless */}

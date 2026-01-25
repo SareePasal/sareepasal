@@ -16,8 +16,8 @@ export default function CheckoutPage() {
     });
 
     const [promoInput, setPromoInput] = useState("");
-    const [discountPercent, setDiscountPercent] = useState(5); 
-    const [appliedMessage, setAppliedMessage] = useState("New Customer 5% Discount Applied");
+    const [discountPercent, setDiscountPercent] = useState(0); 
+   const [appliedMessage, setAppliedMessage] = useState("");
 
     const subtotal = cart.reduce((acc, item) => {
         const priceNum = parseFloat(item.price.toString().replace('$', ''));
@@ -34,10 +34,7 @@ export default function CheckoutPage() {
 
     const applyPromo = () => {
         const code = promoInput.toUpperCase().trim();
-        if (code === "WELCOME10") {
-            setDiscountPercent(10);
-            setAppliedMessage("Success: 10% OFF Applied! 🎉");
-        } else if (code === "WELCOME5") {
+        if (code === "WELCOME5") {
             setDiscountPercent(5);
             setAppliedMessage("Success: 5% OFF Applied!");
         } else {
