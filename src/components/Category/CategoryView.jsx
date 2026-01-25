@@ -11,7 +11,7 @@ import { ChevronUp, Loader2, ArrowUpDown } from 'lucide-react';
 export default function CategoryView({ type, title, subtitle }) {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [sortOrder, setSortOrder] = useState("high");
+    const [sortOrder, setSortOrder] = useState("newest");
 
     // Logic to check if an item is sold out (Aggressive check)
     const isActuallySoldOut = (item) => {
