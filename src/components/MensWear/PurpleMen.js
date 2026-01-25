@@ -1,6 +1,6 @@
 const item = {
     images: [
-        { src: '/Images/Suits/Appereal Garment/MenPurple/PurpleMen.jpg', alt: '2', width: 300, height: 300 },
+        { src: '/Images/Suits/Appereal Garment/MenPurple/PurpleMen.jpeg', alt: '2', width: 300, height: 300 },
 
     ],
     description: {

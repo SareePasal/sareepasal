@@ -10,7 +10,7 @@ import AG64101 from "./AG64101";
 import AG72579 from "./AG72579";
 import PurpleMen from "./PurpleMen";
 
-const MensWears = ({ products = [IC2411, AG71422, AG69762, AG67333, AG68734, AG64101, AG72579] }) => {
+const MensWears = ({ products = [PurpleMen,IC2411, AG71422, AG69762, AG67333, AG68734, AG64101, AG72579] }) => {
     return (
         <div className="mx-10">
             {products.map((object, i) => {

@@ -70,7 +70,7 @@ import AG67333 from "../components/MensWear/AG67333";
 import AG68734 from "../components/MensWear/AG68734";
 import AG64101 from "../components/MensWear/AG64101";
 import AG72579 from "../components/MensWear/AG72579";
-import PurpleMen from "../components/MensWear/PurpleMen";
+import PurpleMen from "../components/MensWear/PurpleMen.js";
 
 
 /*... Accessories ...*/
